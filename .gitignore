@@ -1,8 +1,11 @@
+# my files
+mov_proj/*
+
 # Compiled Object files
 *.slo
 *.lo
 *.o
-*.obj
+#*.obj
 
 # Precompiled Headers
 *.gch

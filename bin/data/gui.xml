@@ -1,0 +1,55 @@
+<Widget>
+    <Kind>22</Kind>
+    <Name>SYPHON LIST</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>show wireframe</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>make window on top</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>8</Kind>
+    <Name>CAMERA X</Name>
+    <Value>-345.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>8</Kind>
+    <Name>CAMERA Y</Name>
+    <Value>194.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>8</Kind>
+    <Name>CAMERA Z</Name>
+    <Value>-51.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>CAMERA H</Name>
+    <Value>-21.000001907</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>CAMERA P</Name>
+    <Value>-93.999992371</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>CAMERA B</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>CAMERA FOV</Name>
+    <Value>45.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>17</Kind>
+    <Name>Adobe After Effects </Name>
+    <Value>1</Value>
+</Widget>
