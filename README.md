@@ -27,7 +27,7 @@ For Example:
 * After Effects: using [AESyphon plugin](http://tobiasebsen.dk/experiments/aesyphon/).
 * VDMX: refer to this page [Syphon Output - VDMX](http://vdmx.vidvox.net/tutorials/syphon-output)
 
-You have to keep this application while using VirtualMapper.
+You have to keep this application opened while using VirtualMapper.
 
 ### Open VirtualMapper
 
