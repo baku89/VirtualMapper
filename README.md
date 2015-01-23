@@ -2,6 +2,8 @@
 
 <img src="https://raw.github.com/baku89/VirtualMapper/master/thumbnail.png" />
 
+[Download (v0.8)](https://github.com/baku89/VirtualMapper/releases/download/v0.8/VirtualMapper.v0.8.zip)
+
 ## About
 
 Utility tool for making projection mapping. You can preview 3d projected image in realtime from a software supports [Syphon](http://syphon.v002.info/)(ex. After Effects, Max 6, VDMX, Resolume, Module8). This app made with [openFrameworks](http://openframeworks.cc/).

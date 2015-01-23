@@ -6,6 +6,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
+	ofSetDataPathRoot("../Resources/data/");
+	
 	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
 	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
 	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
