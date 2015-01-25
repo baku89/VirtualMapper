@@ -13,6 +13,7 @@ Utility tool for making projection mapping. You can preview 3d projected image i
 ## Instructions
 
 You have to prepare a 3D screen model and a net image of screen.
+I uploaded [tutorial](https://vimeo.com/117640423) on my vimeo.
 
 To use:
 
@@ -37,10 +38,6 @@ You have to keep this application opened while using VirtualMapper.
 * Click [select 3d file..] and select 3d model on file dialogue.
 
 Notes: if it do not work properly, try restarting the application.
-
-### Additional Usage
-
-I am going to publish tutorial on [my vimeo](http://vimeo.com/baku89) in a few days.
 
 ## Licensing
 
