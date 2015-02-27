@@ -4,13 +4,22 @@
 
 // addons
 #include "ofxAssimpModelLoader.h"
-#include "ofxSyphon.h"
 #include "ofxUI.h"
 #include "ofxXmlSettings.h"
 #include "ofxGrabCam.h"
 
 // my class
 #include "Camera.h"
+
+
+#ifdef TARGET_OSX
+    #include "OSXReceiver.h"
+    #include "OSXWindow.h"
+#elif defined TARGET_WIN32
+    #include "Win32Receiver.h"
+    #include "Win32Window.h"
+#endif
+
 
 #ifdef TARGET_OSX
     #include "OSXWindow.h"
@@ -40,6 +49,10 @@ public:
 	
 	void syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg);
 	void syphonRetired(ofxSyphonServerDirectoryEventArgs &arg);
+    
+    // src
+    void sourceAnnouced();
+    void sourceRetired();
 	
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -75,6 +88,8 @@ public:
 
 	char camKeys[CAM_KEYS_SIZE];
 	
+    // source
+    Receiver receiver;
 	
 	// scene
 	ofxGrabCam grabCam;
@@ -97,10 +112,7 @@ public:
     int texHeight;
 	
 	// syphon
-	ofxSyphonClient syphonClient;
-	ofxSyphonServerDirectory syphonDir;
-	bool isSyphonChanged;
-	int syphonIndex;
+	//int syphonIndex;
 	
 	// display
 	bool isShowWireframe;
@@ -108,7 +120,7 @@ public:
 	
 	// ui
 	ofxUICanvas *gui;
-	ofxUIDropDownList *ddlSyphon;//, *ddlCamList;
+	ofxUIDropDownList *ddlInput;//, *ddlCamList;
 	ofxUILabel *lblScreenName;
 	ofxUINumberDialer *ndCamX, *ndCamY, *ndCamZ;
 	ofxUIMinimalSlider *msCamFov, *msCamH, *msCamP, *msCamB;
@@ -116,8 +128,6 @@ public:
     
     
     // platform
-#ifdef TARGET_OSX
-    OSXWindow platformWindow;
-#endif
+    Window window;
 	
 };

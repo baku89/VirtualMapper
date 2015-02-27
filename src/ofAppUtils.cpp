@@ -31,11 +31,11 @@ void ofApp::setGUI() {
 	gui->addSpacer();
 	
 	gui->addLabel("Source");
-	ddlSyphon = gui->addDropDownList("SYPHON LIST", emptyList);
-	ddlSyphon->setAllowMultiple(false);
-	ddlSyphon->setAutoClose(true);
-	ddlSyphon->setShowCurrentSelected(true);
-	ddlSyphon->setLabelText("");
+	ddlInput = gui->addDropDownList("INPUT LIST", emptyList);
+	ddlInput->setAllowMultiple(false);
+	ddlInput->setAutoClose(true);
+	ddlInput->setShowCurrentSelected(true);
+	ddlInput->setLabelText("");
 	gui->addSpacer();
 	
 	gui->addLabel("Display");

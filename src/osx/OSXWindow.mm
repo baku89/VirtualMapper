@@ -11,11 +11,7 @@
 #import <Cocoa/Cocoa.h>
 
 //--------------------------------------------------------------
-OSXWindow::OSXWindow() {
-}
-
-//--------------------------------------------------------------
-void OSXWindow::setWindowOnTop(bool flag) {
+void Window::setWindowOnTop(bool flag) {
     
     NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
     
