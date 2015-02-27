@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "ofApp::loadScreen(string path, string name)"
+            landmarkName = "ofApp::setGUI()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "324"
             endingLineNumber = "324"
-            landmarkName = "ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &amp;arg)"
+            landmarkName = "ofApp::keyReleased(int key)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

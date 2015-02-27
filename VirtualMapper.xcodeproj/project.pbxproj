@@ -245,6 +245,7 @@
 		922DB59A1A9FE98D004D4A2D /* ofxUIWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUIWrapper.h; sourceTree = "<group>"; };
 		922DB5C91A9FF0AA004D4A2D /* OSXWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSXWindow.h; path = osx/OSXWindow.h; sourceTree = "<group>"; };
 		922DB5CB1A9FF0C3004D4A2D /* OSXWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OSXWindow.mm; path = osx/OSXWindow.mm; sourceTree = "<group>"; };
+		9246C7AA1AA1377000F15D26 /* OSXReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSXReceiver.h; path = osx/OSXReceiver.h; sourceTree = "<group>"; };
 		9299B7411A71C52100F43260 /* ofxGrabCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGrabCam.cpp; sourceTree = "<group>"; };
 		9299B7421A71C52100F43260 /* ofxGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrabCam.h; sourceTree = "<group>"; };
 		9299B7451A71ECA500F43260 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -491,17 +492,11 @@
 		922DB5CA1A9FF0B1004D4A2D /* osx */ = {
 			isa = PBXGroup;
 			children = (
+				9246C7AA1AA1377000F15D26 /* OSXReceiver.h */,
 				922DB5CB1A9FF0C3004D4A2D /* OSXWindow.mm */,
 				922DB5C91A9FF0AA004D4A2D /* OSXWindow.h */,
 			);
 			name = osx;
-			sourceTree = "<group>";
-		};
-		922DB5CD1AA012AC004D4A2D /* win32 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = win32;
 			sourceTree = "<group>";
 		};
 		923674C21A71C1C10046F93D /* ofxGrabCam */ = {
@@ -697,7 +692,6 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				922DB5CD1AA012AC004D4A2D /* win32 */,
 				922DB5CA1A9FF0B1004D4A2D /* osx */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,

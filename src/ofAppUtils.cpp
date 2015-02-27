@@ -135,6 +135,8 @@ bool ofApp::loadScreen(string path, string name) {
 	lblScreenName->setLabel("file: " + name);
 	settings.setValue("settings:screenPath", path);
 	settings.setValue("settings:screenName", name);
+    
+    scaleScreenUV();
 	
 	return assimp.getMeshCount() == 0;
 }

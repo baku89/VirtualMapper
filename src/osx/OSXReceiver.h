@@ -79,6 +79,10 @@ public:
         bChanged = false;
     }
     
+    void exit() {
+        
+    }
+    
     bool isChanged() {
         return bChanged;
     }
