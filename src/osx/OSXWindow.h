@@ -9,18 +9,11 @@
 #ifndef VirtualMapper_OSXWindow_h
 #define VirtualMapper_OSXWindow_h
 
-#include <stdio.h>
-#include <iostream>
-#include <string>
-
 #include "ofMain.h"
 
-using namespace std;
-
-class OSXWindow {
+class Window {
     
 public:
-    OSXWindow();
     void setWindowOnTop(bool flag);
 
 private:

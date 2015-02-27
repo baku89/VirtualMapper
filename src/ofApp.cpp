@@ -4,9 +4,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	
+
+#ifdef TARGET_OSX
 	ofSetDataPathRoot("../Resources/data/");
-	
+#endif	
+
 	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
 	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
 	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
@@ -24,13 +26,8 @@ void ofApp::setup(){
 	
 	// ui
 	setGUI();
-    
-    // osx
-#ifdef TARGET_OSX
-#endif
-    
     // view
-   platformWindow.setWindowOnTop(isWindowOnTop);
+    platformWindow.setWindowOnTop(isWindowOnTop);
     resetCam();
 	
 	// load model
@@ -43,32 +40,28 @@ void ofApp::setup(){
 	camIndex = CAM_INDEX_DEFAULT;
 	//updateCamList();
 	
-	// syphon setup
-	syphonClient.setup();
-	isSyphonChanged = true;
-	syphonIndex = -1;
+    // source
 	texWidth = 0;
 	texHeight = 0;
-	
-	syphonDir.setup();
-	
-	ofAddListener(syphonDir.events.serverAnnounced, this, &ofApp::syphonAnnounced);
-	ofAddListener(syphonDir.events.serverRetired, this, &ofApp::syphonRetired);
+    receiver.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	
 	isModalOpened = false;
+    
+    // update input
+    receiver.update();
 	
     int w, h;
     
-    if (syphonIndex == -1) {
+    if ( receiver.isEnabled() ) {
+        w = receiver.getWidth();
+        h = receiver.getHeight();
+    } else {
         w = defaultTex.width;
         h = defaultTex.height;
-    } else {
-        w = syphonClient.getWidth();
-        h = syphonClient.getHeight();
     }
 	
 	if (texWidth != w || texHeight != h) {
@@ -79,15 +72,19 @@ void ofApp::update(){
 		texHeight = h;
 	}
 	
-	if ( isSyphonChanged ) {
-		
-		if ( syphonIndex >= 0 ) {
-			syphonClient.set(syphonDir.getDescription(syphonIndex));
-			isSyphonChanged = false;
-		}
+	if ( receiver.isChanged() ) {
+        
+        // update input list
+        vector<string> inputs = receiver.getInputs();
+        
+        ddlInput->clearToggles();
+        for (string i : inputs) {
+            ddlInput->addToggle( i );
+        }
+
+        ddlInput->addToggles( receiver.getInputs() );
+        ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
 	}
-    
-    cout << syphonIndex << " - - - " << texWidth << "*" << texHeight << endl;
 	
 	// gui update
 	camPos = grabCam.getPosition();
@@ -110,6 +107,8 @@ void ofApp::update(){
 			camIndex = CAM_INDEX_DEFAULT;
 		}
 	}
+    
+    receiver.next();
 }
 
 //--------------------------------------------------------------
@@ -122,18 +121,17 @@ void ofApp::draw(){
 	ofEnableDepthTest();
 	
     // draw screen mesh
-    if ( syphonIndex == -1 ) {
-        defaultTex.bind();
+    if ( receiver.isEnabled() ) {
+        receiver.bind();
     } else {
-        syphonClient.bind();
+        defaultTex.bind();
     }
 	screen.draw();
-    if ( syphonIndex == -1 ) {
-        defaultTex.unbind();
+    if ( receiver.isEnabled() ) {
+        receiver.unbind();
     } else {
-        syphonClient.unbind();
+        defaultTex.unbind();
     }
-	
     
     // draw stage mesh
     ofSetColor(16);
@@ -232,14 +230,13 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             alert("This file type is not supported.");
         }
 		
-	} else if (name == "SYPHON LIST") {
+	} else if (name == "INPUT LIST") {
 		
-		vector<int> indices = ddlSyphon->getSelectedIndeces();
+		vector<int> indices = ddlInput->getSelectedIndeces();
 		
 		if (indices.size() > 0) {
-
-			syphonIndex = indices[0];
-			isSyphonChanged = true;
+            
+            receiver.setInput( indices[0] );
 		}
 		
 	} else if ( name == "make window on top") {
@@ -291,6 +288,8 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
 }
 
 //--------------------------------------------------------------
+
+/*
 void ofApp::syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg) {
 	
 	for (auto& dir: arg.servers) {
@@ -344,6 +343,7 @@ void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
     
     isSyphonChanged = true;
 }
+ */
 
 
 //--------------------------------------------------------------
