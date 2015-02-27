@@ -19,6 +19,13 @@ void ofApp::setGUI() {
     // default
     isShowGrid = true;
     isShowWireframe = true;
+	isWindowOnTop = true;
+	isFlipH = false;
+#ifdef TARGET_OSX
+	isFlipV = false;
+#elif defined TARGET_WIN32
+	isFlipV = true;
+#endif
 	
 	//gui->setPadding(3);
 	gui->setColorBack(ofxUIColor(80, 80, 80, 200));
@@ -46,6 +53,8 @@ void ofApp::setGUI() {
 #ifdef TARGET_OSX
 	gui->addToggle("make window on top",&isWindowOnTop);
 #endif
+	gui->addWidgetDown(new ofxUIToggle("flip H", &isFlipH, 18, 18));
+	gui->addWidgetRight(new ofxUIToggle("flip V", &isFlipV, 18, 18));
 	gui->addSpacer();
 
 	
@@ -131,15 +140,23 @@ bool ofApp::loadScreen(string path, string name) {
 }
 
 //--------------------------------------------------------------
-void ofApp::scaleScreenUV(int width, int height) {
+void ofApp::scaleScreenUV() {
+
+	cout << "chane UV scale: " << texWidth << " * " << texHeight << " flip h=" << isFlipH << " v=" << isFlipV << endl;
 	
 	vector< ofVec2f >& coords = screen.getTexCoords();
 	
 	for ( int i = 0; i < coords.size(); i++ ) {
 		
-		coords[i].x = texCoordsOrigin[i].x * width;
-		coords[i].y = (1.0f - texCoordsOrigin[i].y) * height;
-		
+		if (isFlipH)
+			coords[i].x = (1.0f - texCoordsOrigin[i].x) * texWidth;
+		else
+			coords[i].x = texCoordsOrigin[i].x * texWidth;
+
+		if (isFlipV)
+			coords[i].y = texCoordsOrigin[i].y * texHeight;
+		else
+			coords[i].y = (1.0f - texCoordsOrigin[i].y) * texHeight;
 	}
 }
 
@@ -239,20 +256,3 @@ void ofApp::alert(string message) {
     ofSystemAlertDialog(message);
     platformWindow.setWindowOnTop(isWindowOnTop);
 }
-
-/*
-//--------------------------------------------------------------
-void ofApp::setWindowOnTop(bool flag) {
-	
-	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
-	
-	if ( flag ) {
-		
-		[window setLevel:CGShieldingWindowLevel()];
-		
-	} else {
-		
-		[window setLevel:NSNormalWindowLevel];
-		
-	}
-}*/

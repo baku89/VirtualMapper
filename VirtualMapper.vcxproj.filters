@@ -61,6 +61,9 @@
     <ClCompile Include="..\..\..\addons\ofxSpout\src\SpoutSharedMemory.cpp">
       <Filter>addons\ofxSpout\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofAppUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUI2DGraph.cpp">
       <Filter>addons\ofxUI\src</Filter>
     </ClCompile>
@@ -192,9 +195,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.cpp">
       <Filter>addons\ofxUI\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofAppUtils.cpp">
-      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -407,6 +407,15 @@
     <ClInclude Include="..\..\..\addons\ofxSpout\src\SpoutSharedMemory.h">
       <Filter>addons\ofxSpout\src</Filter>
     </ClInclude>
+    <ClInclude Include="src\win32\Win32Receiver.h">
+      <Filter>src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\Win32Window.h">
+      <Filter>src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI.h">
       <Filter>addons\ofxUI\src</Filter>
     </ClInclude>
@@ -556,15 +565,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWrapper.h">
       <Filter>addons\ofxUI\src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\win32\Win32Receiver.h">
-      <Filter>src\win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\win32\Win32Window.h">
-      <Filter>src\win32</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Camera.h">
-      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -65,11 +65,9 @@ void ofApp::update(){
     }
 	
 	if (texWidth != w || texHeight != h) {
-		
-		scaleScreenUV(w, h);
-		
 		texWidth = w;
 		texHeight = h;
+		scaleScreenUV();
 	}
 	
 #ifdef TARGET_OSX
@@ -244,10 +242,14 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             
             receiver.setInput( indices[0] );
 		}
-		
 	}
 #endif
-	else if ( name == "make window on top") {
+	else if ( name == "flip H" || name == "flip V" ) {
+		
+		cout << "change uv flip settings" << endl;
+		scaleScreenUV();
+
+	} else if ( name == "make window on top") {
 		
 		ofxUIToggle *t = (ofxUIToggle*) e.widget;
 		platformWindow.setWindowOnTop(t->getValue());
@@ -294,65 +296,6 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
 		grabCam.setOrientation( euler );
 	}
 }
-
-//--------------------------------------------------------------
-
-/*
-void ofApp::syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg) {
-	
-	for (auto& dir: arg.servers) {
-		
-		ddlSyphon->addToggle(dir.appName.substr(0, DDL_MAX_LENGTH));
-	}
-	
-	vector<ofxUILabelToggle*> toggles = ddlSyphon->getToggles();
-	if ( toggles.size() > 0 ) {
-		string firstToggleName = toggles[0]->getName().substr(0, DDL_MAX_LENGTH);
-		ddlSyphon->activateToggle(firstToggleName);
-		ddlSyphon->setLabelText(firstToggleName);
-		syphonIndex = 0;
-		isSyphonChanged = true;
-	}
-}
-
-void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
-{
-    cout << "SyphonRetired" << endl;
-    
-	vector<ofxUILabelToggle*> toggles = ddlSyphon->getToggles();
-	string name;
-	
-	for (auto& dir : arg.servers ) {
-		
-		name = dir.appName.substr(0, DDL_MAX_LENGTH);
-		
-		for (auto* t : toggles) {
-			if ( name == t->getName() ) {
-				ddlSyphon->removeToggle(name);
-			}
-		}
-	}
-	
-	// if other sources exists, activate index 0
-    // otherwise, set -1 (show default texture)
-    cout << syphonDir.size() << endl;
-    
-	if ( syphonDir.size() > 0 ) {
-        toggles = ddlSyphon->getToggles();
-		string firstToggleName = toggles[0]->getName().substr(0, DDL_MAX_LENGTH);
-		ddlSyphon->activateToggle(firstToggleName);
-		ddlSyphon->setLabelText(firstToggleName);
-		syphonIndex = 0;
-    } else {
-        ddlSyphon->clearToggles();
-        ddlSyphon->setLabelText("");
-        syphonIndex = -1;
-    }
-    
-    isSyphonChanged = true;
-}
- */
-
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
