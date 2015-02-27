@@ -29,7 +29,8 @@ void ofApp::setGUI() {
 	lblScreenName = gui->addLabel("file:", OFX_UI_FONT_SMALL);
 	gui->addLabelButton("3D LOAD", false)->setLabelText("select 3d file..");
 	gui->addSpacer();
-	
+
+#ifdef TARGET_OSX
 	gui->addLabel("Source");
 	ddlInput = gui->addDropDownList("INPUT LIST", emptyList);
 	ddlInput->setAllowMultiple(false);
@@ -37,11 +38,14 @@ void ofApp::setGUI() {
 	ddlInput->setShowCurrentSelected(true);
 	ddlInput->setLabelText("");
 	gui->addSpacer();
+#endif
 	
 	gui->addLabel("Display");
     gui->addToggle("show wireframe", &isShowWireframe);
     gui->addToggle("show gird", &isShowGrid);
+#ifdef TARGET_OSX
 	gui->addToggle("make window on top",&isWindowOnTop);
+#endif
 	gui->addSpacer();
 
 	

@@ -117,13 +117,15 @@ public:
 	
 	// ui
 	ofxUICanvas *gui;
+#ifdef TARGET_OSX
 	ofxUIDropDownList *ddlInput;//, *ddlCamList;
+#endif
 	ofxUILabel *lblScreenName;
 	ofxUINumberDialer *ndCamX, *ndCamY, *ndCamZ;
 	ofxUIMinimalSlider *msCamFov, *msCamH, *msCamP, *msCamB;
 	bool isGuiPressed;
     
-    
+  
     // platform
     Window platformWindow;
 	

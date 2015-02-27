@@ -11,6 +11,7 @@ private:
 	bool			bInit;
 	bool			bEnabled;
 	bool			bMemShare;
+	bool			bChanged;
 	ofTexture		tex;
 	unsigned int	width, height;
 	char			senderName[256];
@@ -40,7 +41,9 @@ public:
 		bEnabled = false;
 
 		if (!bInit) {
+			// specify true to attempt to connect to active sender
 			if (spoutReceiver->CreateReceiver(senderName, w, h, true)) {
+				// is the size of the detected sender defferent?
 				if (w != width || h != height) {
 					// fit size of texture
 					width = w;
@@ -52,6 +55,7 @@ public:
 			return;
 		}
 
+		// the receiver has initialized so OK to draw
 		if (bInit) {
 			w = width;
 			h = height;
@@ -59,20 +63,21 @@ public:
 			if ( spoutReceiver->ReceiveTexture(senderName,w, h, tex.getTextureData().textureID, tex.getTextureData().textureTarget) ) {
 			
 				// width and height are changed. the local tex the has to be resized
-				width = w;
-				height = h;
-				tex.allocate(width, height, GL_RGBA);
+				if (w != width || h != height) {
+					width = w;
+					height = h;
+					tex.allocate(width, height, GL_RGBA);
+					return;
+				}
+
+				// OK
+			} else {
+				// a tex read failure might happen if the sender is closed.
+				// release the receiver and start again.
+				spoutReceiver->ReleaseReceiver();
+				bInit = false;
 				return;
 			}
-
-			// OK -> draw
-
-		} else {
-			// a tex read failure might happen if the sender is closed.
-			// release the receiver and start again.
-			spoutReceiver->ReleaseReceiver();
-			bInit = false;
-			return;
 		}
 
 		bEnabled = true;
@@ -85,10 +90,7 @@ public:
 	}
 
 	void next() {
-	}
-
-	bool isChanged() {
-		return false;
+		bChanged = false;
 	}
 
 	void bind() {

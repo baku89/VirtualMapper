@@ -4,7 +4,6 @@ class Window {
 
 public:
 	void setWindowOnTop(bool flag) {
-		// TODO:
-		return;
+		//ofSetWindowAlwaysOnTop(flag);
 	}
 };

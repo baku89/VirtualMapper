@@ -72,6 +72,7 @@ void ofApp::update(){
 		texHeight = h;
 	}
 	
+#ifdef TARGET_OSX
 	if ( receiver.isChanged() ) {
         
         // update input list
@@ -85,6 +86,7 @@ void ofApp::update(){
         ddlInput->addToggles( receiver.getInputs() );
         ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
 	}
+#endif
 	
 	// gui update
 	camPos = grabCam.getPosition();
@@ -232,7 +234,9 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             alert("This file type is not supported.");
         }
 		
-	} else if (name == "INPUT LIST") {
+	}
+#ifdef TARGET_OSX
+	else if (name == "INPUT LIST") {
 		
 		vector<int> indices = ddlInput->getSelectedIndeces();
 		
@@ -241,7 +245,9 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             receiver.setInput( indices[0] );
 		}
 		
-	} else if ( name == "make window on top") {
+	}
+#endif
+	else if ( name == "make window on top") {
 		
 		ofxUIToggle *t = (ofxUIToggle*) e.widget;
 		platformWindow.setWindowOnTop(t->getValue());
