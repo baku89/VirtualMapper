@@ -2,4 +2,15 @@
     <screenPath></screenPath>
     <screenName>unloaded</screenName>
 </settings>
-<cameras></cameras>
+<cameras>
+    <camera>
+        <name>ssss</name>
+        <x>500.000000000</x>
+        <y>500.000000000</y>
+        <z>-500.000000000</z>
+        <h>-22.499998093</h>
+        <p>135.000015259</p>
+        <b>0.000000000</b>
+        <fov>55.000000000</fov>
+    </camera>
+</cameras>

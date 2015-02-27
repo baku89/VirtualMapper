@@ -21,27 +21,27 @@
 <Widget>
     <Kind>8</Kind>
     <Name>CAMERA X</Name>
-    <Value>713.403320313</Value>
+    <Value>500.000000000</Value>
 </Widget>
 <Widget>
     <Kind>8</Kind>
     <Name>CAMERA Y</Name>
-    <Value>-699.562011719</Value>
+    <Value>500.000000000</Value>
 </Widget>
 <Widget>
     <Kind>8</Kind>
     <Name>CAMERA Z</Name>
-    <Value>-348.722412109</Value>
+    <Value>-500.000000000</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>CAMERA H</Name>
-    <Value>-6.094804764</Value>
+    <Value>-22.500000000</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>CAMERA P</Name>
-    <Value>1.#INF00000</Value>
+    <Value>135.000015259</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
@@ -51,5 +51,5 @@
 <Widget>
     <Kind>25</Kind>
     <Name>CAMERA FOV</Name>
-    <Value>0.000000000</Value>
+    <Value>45.000000000</Value>
 </Widget>

@@ -198,6 +198,8 @@ void ofApp::exit() {
 	saveCams();
 	
 	settings.save("settings.xml");
+
+	receiver.exit();
 }
 
 //--------------------------------------------------------------
