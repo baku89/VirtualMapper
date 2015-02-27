@@ -46,9 +46,6 @@ public:
 
 	// event
 	void guiEvent(ofxUIEventArgs &e);
-	
-	void syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg);
-	void syphonRetired(ofxSyphonServerDirectoryEventArgs &arg);
     
     // src
     void sourceAnnouced();
