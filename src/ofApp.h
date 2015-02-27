@@ -128,6 +128,6 @@ public:
     
     
     // platform
-    Window window;
+    Window platformWindow;
 	
 };
