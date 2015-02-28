@@ -25,7 +25,7 @@ So you have to add your project some ajustments showing below.
 * Check if the model has UV coords.
 * Export as a file being supported by [Assimp](https://github.com/assimp/assimp). (I recommend .obj)
 
-!()[https://raw.github.com/baku89/VirtualMapper/master/doc/object_tree.png]
+![](https://raw.github.com/baku89/VirtualMapper/master/doc/object_tree.png)
 
 ### 2.Setup an sender application
 
