@@ -1,4 +1,4 @@
-# VirtualMapper v0.8
+# VirtualMapper v0.9
 
 ![](https://raw.github.com/baku89/VirtualMapper/master/doc/thumbnail.png)
 
