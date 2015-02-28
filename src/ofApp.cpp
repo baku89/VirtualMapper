@@ -4,9 +4,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	
+
+#ifdef TARGET_OSX
 	ofSetDataPathRoot("../Resources/data/");
-	
+#endif	
+
 	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
 	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
 	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
@@ -63,13 +65,15 @@ void ofApp::update(){
     }
 	
 	if (texWidth != w || texHeight != h) {
-		
-		scaleScreenUV(w, h);
-		
 		texWidth = w;
 		texHeight = h;
+		scaleScreenUV();
 	}
 	
+<<<<<<< HEAD
+=======
+#ifdef TARGET_OSX
+>>>>>>> win32
 	if ( receiver.isChanged() ) {
         
         // update input list
@@ -77,12 +81,20 @@ void ofApp::update(){
         
         ddlInput->clearToggles();
         for (string i : inputs) {
+<<<<<<< HEAD
             ddlInput->addToggle( i );
         }
 
         ddlInput->addToggles( receiver.getInputs() );
         ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
 	}
+=======
+            ddlInput->addToggle( i.substr(0, DDL_MAX_LENGTH) );
+        }
+        ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
+	}
+#endif
+>>>>>>> win32
 	
 	// gui update
 	camPos = grabCam.getPosition();
@@ -196,6 +208,8 @@ void ofApp::exit() {
 	saveCams();
 	
 	settings.save("settings.xml");
+
+	receiver.exit();
 }
 
 //--------------------------------------------------------------
@@ -228,7 +242,13 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             alert("This file type is not supported.");
         }
 		
+<<<<<<< HEAD
 	} else if (name == "INPUT LIST") {
+=======
+	}
+#ifdef TARGET_OSX
+	else if (name == "INPUT LIST") {
+>>>>>>> win32
 		
 		vector<int> indices = ddlInput->getSelectedIndeces();
 		
@@ -236,7 +256,13 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             
             receiver.setInput( indices[0] );
 		}
+	}
+#endif
+	else if ( name == "flip H" || name == "flip V" ) {
 		
+		cout << "change uv flip settings" << endl;
+		scaleScreenUV();
+
 	} else if ( name == "make window on top") {
 		
 		ofxUIToggle *t = (ofxUIToggle*) e.widget;
@@ -286,6 +312,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
 }
 
 //--------------------------------------------------------------
+<<<<<<< HEAD
 
 /*
 void ofApp::syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg) {
@@ -345,6 +372,8 @@ void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
 
 
 //--------------------------------------------------------------
+=======
+>>>>>>> win32
 void ofApp::keyPressed(int key){
 	
 }

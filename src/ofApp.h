@@ -65,7 +65,7 @@ public:
 	// utils
 	void setGUI();
 	bool loadScreen(string file, string name);
-	void scaleScreenUV(int width, int height);
+	void scaleScreenUV();
     
     void alert(string message);
 	
@@ -114,16 +114,23 @@ public:
 	// display
 	bool isShowWireframe;
     bool isShowGrid;
+	bool isFlipH, isFlipV;
 	
 	// ui
 	ofxUICanvas *gui;
+<<<<<<< HEAD
 	ofxUIDropDownList *ddlInput;//, *ddlCamList;
+=======
+#ifdef TARGET_OSX
+	ofxUIDropDownList *ddlInput;
+#endif
+>>>>>>> win32
 	ofxUILabel *lblScreenName;
 	ofxUINumberDialer *ndCamX, *ndCamY, *ndCamZ;
 	ofxUIMinimalSlider *msCamFov, *msCamH, *msCamP, *msCamB;
 	bool isGuiPressed;
     
-    
+  
     // platform
     Window platformWindow;
 	

@@ -5,7 +5,8 @@ mov_proj/*
 *.slo
 *.lo
 *.o
-#*.obj
+obj/Release/*
+obj/*
 
 # Precompiled Headers
 *.gch
