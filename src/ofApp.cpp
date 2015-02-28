@@ -78,10 +78,8 @@ void ofApp::update(){
         
         ddlInput->clearToggles();
         for (string i : inputs) {
-            ddlInput->addToggle( i );
+            ddlInput->addToggle( i.substr(0, DDL_MAX_LENGTH) );
         }
-
-        ddlInput->addToggles( receiver.getInputs() );
         ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
 	}
 #endif
