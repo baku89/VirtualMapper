@@ -31,12 +31,12 @@ So you have to add your project some ajustments showing below.
 
 #### Mac (via Syphon)
 
-Plugins for some other applicaitons are available on [Syphon official site](http://syphon.v002.info/).
-
 Setup Example:
 
 * After Effects: [AESyphon plugin](http://tobiasebsen.dk/experiments/aesyphon/)
 * VDMX: [Syphon Output - VDMX](http://vdmx.vidvox.net/tutorials/syphon-output)
+
+Plugins for some other applicaitons are available on [Syphon official site](http://syphon.v002.info/).
 
 #### Windows (via Spout)
 
