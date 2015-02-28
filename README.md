@@ -2,7 +2,7 @@
 
 ![](https://raw.github.com/baku89/VirtualMapper/master/doc/thumbnail.png)
 
-[Download (v0.8)](https://github.com/baku89/VirtualMapper/releases/download/v0.8/VirtualMapper.v0.8.zip)
+[Download](https://github.com/baku89/VirtualMapper/releases)
 
 * [02/28/15] Now supports Windows 8.1! You can download it from [here](https://github.com/baku89/VirtualMapper/releases).
 
