@@ -66,6 +66,6 @@ VirtualMapper is published under a MIT License. See the included LISENCE file.
 
 ## TODO
 
-* support image and movie
-* support retina display
-* add rendering option (lighting, projector's intensity)
+* supports image and movie as source
+* supports retina display
+* adds rendering options (lighting, projector's intensity)
