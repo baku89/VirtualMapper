@@ -10,7 +10,7 @@
 
 Utility tool for making projection mapping. You can preview 3d projected image in realtime while editing net of screen. This app can receive image from applications supports [Syphon](http://syphon.v002.info/) or [Spout](http://spout.zeal.co/) (ex: After Effects, VDMX, Arena). It made with [openFrameworks](http://openframeworks.cc/).
 
-Develped by 麦(Baku) [site](http://baku89.com)
+Develped by [麦(Baku)](http://baku89.com)
 
 ## Instructions
 
