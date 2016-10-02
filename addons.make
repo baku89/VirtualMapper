@@ -1,5 +1,5 @@
 ofxAssimpModelLoader
-ofxUI
-ofxXmlSettings
-ofxSyphon
 ofxGrabCam
+ofxImGui
+ofxSyphon
+ofxXmlSettings
