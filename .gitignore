@@ -1,32 +1,130 @@
-# my files
-mov_proj/*
+#########################
+# openFrameworks patterns
+#########################
 
-# Compiled Object files
-*.slo
-*.lo
+# build files
+openFrameworks.a
+openFrameworksDebug.a
+openFrameworksUniversal.a
+libs/openFrameworksCompiled/lib/*/*
+!libs/openFrameworksCompiled/lib/*/.gitkeep
+
+# apothecary
+scripts/apothecary
+
+# rule to avoid non-official addons going into git
+# see addons/.gitignore
+addons/*
+
+# rule to avoid non-official apps going into git
+# see apps/.gitignore
+apps/*
+
+# also, see examples/.gitignore
+
+#########################
+# general
+#########################
+
+[Bb]uild/
+[Oo]bj/
 *.o
-obj/Release/*
-obj/*
+examples/**/[Dd]ebug*/
+examples/**/[Rr]elease*/
+examples/**/gcc-debug/
+examples/**/gcc-release/
+tests/**/[Dd]ebug*/
+tests/**/[Rr]elease*/
+tests/**/gcc-debug/
+tests/**/gcc-release/
+*.mode*
+*.app/
+*.pyc
+.svn/
+*.log
+*.cpp.eep
+*.cpp.elf
+*.cpp.hex
 
-# Precompiled Headers
-*.gch
-*.pch
+#########################
+# IDE
+#########################
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# XCode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+# XCode 4
+xcuserdata
+*.xcworkspace
 
-# Fortran module files
-*.mod
+# Code::Blocks
+*.depend
+*.layout
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+# Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.aps
+ipch/
 
-# Executables
-*.exe
-*.out
-*.app
+# Eclipse
+.metadata
+local.properties
+.externalToolBuilders
+
+# Android Studio
+.idea
+.gradle
+gradle
+gradlew
+gradlew.bat
+
+# QtCreator
+*.qbs.user
+*.pro.user
+*.pri
+
+
+#########################
+# operating system
+#########################
+
+# Linux
+*~
+# KDE
+.directory
+.AppleDouble
+
+# OSX
+.DS_Store
+*.swp
+*~.nib
+# Thumbnails
+._*
+examples/ios/**/mediaAssets
+
+# Windows
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
+
+# Android
+.csettings
+/libs/openFrameworksCompiled/project/android/paths.make
+
+# Android Studio
+*.iml
+
+#########################
+# miscellaneous
+#########################
+
+.mailmap
+/apps*/
