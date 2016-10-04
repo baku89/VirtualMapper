@@ -6,17 +6,9 @@
 //
 //
 
-#ifndef __videoMappingPreview__Camera__
-#define __videoMappingPreview__Camera__
-
-#include <stdio.h>
-#include <iostream>
-#include <string>
+#pragma once
 
 #include "ofMain.h"
-
-
-using namespace std;
 
 class Camera {
 	
@@ -26,5 +18,3 @@ public:
 	ofVec3f euler;
 	float fov;
 };
-
-#endif

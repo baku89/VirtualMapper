@@ -1,4 +1,4 @@
-ofxAssimpModelLoader
+ofxAlembic
 ofxGrabCam
 ofxImGui
 ofxSyphon

@@ -9,82 +9,78 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setGUI() {
-	
-	vector<string> emptyList;
-	
+//void ofApp::setGUI() {
+
+//	vector<string> emptyList;
+
 	// setup widget
-	gui = new ofxUICanvas(0, 0, 200, 600);
-    
+	
+//	gui = new ofxUICanvas(0, 0, 200, 600);
+	
     // default
-    isShowGrid = true;
-    isShowWireframe = true;
-	isWindowOnTop = true;
-	isFlipH = false;
-#ifdef TARGET_OSX
-	isFlipV = false;
-#elif defined TARGET_WIN32
-	isFlipV = true;
-#endif
-	
+//    isShowGrid = true;
+//    isShowWireframe = true;
+//	isWindowOnTop = true;
+//	isFlipH = false;
+//	isFlipV = false;
+
 	//gui->setPadding(3);
-	gui->setColorBack(ofxUIColor(80, 80, 80, 200));
-	gui->setColorFillHighlight(ofxUIColor(5, 140, 190, 255));
-	gui->setFont(FONT_NAME);
+//	gui->setColorBack(ofxUIColor(80, 80, 80, 200));
+//	gui->setColorFillHighlight(ofxUIColor(5, 140, 190, 255));
+//	gui->setFont(FONT_NAME);
 	
-	gui->addLabel("Screen");
-	lblScreenName = gui->addLabel("file:", OFX_UI_FONT_SMALL);
-	gui->addLabelButton("3D LOAD", false)->setLabelText("select 3d file..");
-	gui->addSpacer();
+//	gui->addLabel("Screen");
+//	lblScreenName = gui->addLabel("file:", OFX_UI_FONT_SMALL);
+//	gui->addLabelButton("3D LOAD", false)->setLabelText("select 3d file..");
+//	gui->addSpacer();
 
-#ifdef TARGET_OSX
-	gui->addLabel("Source");
-	ddlInput = gui->addDropDownList("INPUT LIST", emptyList);
-	ddlInput->setAllowMultiple(false);
-	ddlInput->setAutoClose(true);
-	ddlInput->setShowCurrentSelected(true);
-	ddlInput->setLabelText("");
-	gui->addSpacer();
-#endif
+
+//	gui->addLabel("Source");
+//	ddlInput = gui->addDropDownList("INPUT LIST", emptyList);
+//	ddlInput->setAllowMultiple(false);
+//	ddlInput->setAutoClose(true);
+//	ddlInput->setShowCurrentSelected(true);
+//	ddlInput->setLabelText("");
+//	gui->addSpacer();
 	
-	gui->addLabel("Display");
-    gui->addToggle("show wireframe", &isShowWireframe);
-    gui->addToggle("show gird", &isShowGrid);
-#ifdef TARGET_OSX
-	gui->addToggle("make window on top",&isWindowOnTop);
-#endif
-	gui->addWidgetDown(new ofxUIToggle("flip H", &isFlipH, 18, 18));
-	gui->addWidgetRight(new ofxUIToggle("flip V", &isFlipV, 18, 18));
-	gui->addSpacer();
+//	gui->addLabel("Display");
+//    gui->addToggle("show wireframe", &isShowWireframe);
+//    gui->addToggle("show gird", &isShowGrid);
+//#ifdef TARGET_OSX
+//	gui->addToggle("make window on top",&isWindowOnTop);
+//#endif
+//	gui->addWidgetDown(new ofxUIToggle("flip H", &isFlipH, 18, 18));
+//	gui->addWidgetRight(new ofxUIToggle("flip V", &isFlipV, 18, 18));
+//	gui->addSpacer();
 
 	
-	gui->addLabel("Camera");
+//	gui->addLabel("Camera");
 	
-	//gui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-	gui->addWidgetDown(new ofxUILabelButton("add cam", false));
-	gui->addWidgetRight((new ofxUILabelButton("remove cam", false)));
+//	gui->addWidgetDown(new ofxUILabelButton("add cam", false));
+//	gui->addWidgetRight((new ofxUILabelButton("remove cam", false)));
 	
-	ndCamX = gui->addNumberDialer("x", -10000.0f, 10000.0f, 0.0f, 2);
-	ndCamX->setName("CAMERA X");
-	ndCamY = gui->addNumberDialer("y", -10000.0f, 10000.0f, 0.0f, 2);
-	ndCamY->setName("CAMERA Y");
-	ndCamZ = gui->addNumberDialer("z", -10000.0f, 10000.0f, 0.0f, 2);
-	ndCamZ->setName("CAMERA Z");
+//	ndCamX = gui->addNumberDialer("x", -10000.0f, 10000.0f, 0.0f, 2);
+//	ndCamX->setName("CAMERA X");
+//	ndCamY = gui->addNumberDialer("y", -10000.0f, 10000.0f, 0.0f, 2);
+//	ndCamY->setName("CAMERA Y");
+//	ndCamZ = gui->addNumberDialer("z", -10000.0f, 10000.0f, 0.0f, 2);
+//	ndCamZ->setName("CAMERA Z");
 	
-	msCamH = gui->addMinimalSlider("h", -180.0f, 180.0f, 0.0f);
-	msCamH->setName("CAMERA H");
-	msCamP = gui->addMinimalSlider("p", -180.0f, 180.0f, 0.0f);
-	msCamP->setName("CAMERA P");
-	msCamB = gui->addMinimalSlider("b", -180.0f, 180.0f, 0.0f);
-	msCamB->setName("CAMERA B");
+//	msCamH = gui->addMinimalSlider("h", -180.0f, 180.0f, 0.0f);
+//	msCamH->setName("CAMERA H");
+//	msCamP = gui->addMinimalSlider("p", -180.0f, 180.0f, 0.0f);
+//	msCamP->setName("CAMERA P");
+//	msCamB = gui->addMinimalSlider("b", -180.0f, 180.0f, 0.0f);
+//	msCamB->setName("CAMERA B");
 	
-	msCamFov = gui->addMinimalSlider("fov", 10.0f, 170.0f, 45.0f);
-	msCamFov->setName("CAMERA FOV");
+//	msCamFov = gui->addMinimalSlider("fov", 10.0f, 170.0f, 45.0f);
+//	msCamFov->setName("CAMERA FOV");
 	
-	gui->autoSizeToFitWidgets();
-	gui->loadSettings("gui.xml");
+//	gui->autoSizeToFitWidgets();
+//	gui->loadSettings("gui.xml");
 	
 	// set cam values
+	/*
 	camPos = grabCam.getPosition();
 	ndCamX->setValue(camPos.x);
 	ndCamY->setValue(camPos.y);
@@ -94,11 +90,13 @@ void ofApp::setGUI() {
 	msCamH->setValue(camEuler.x);
 	msCamP->setValue(camEuler.y);
 	msCamB->setValue(camEuler.z);
+	 */
 	
-	ofAddListener(gui->newGUIEvent, this, &ofApp::guiEvent);
-}
+//	ofAddListener(gui->newGUIEvent, this, &ofApp::guiEvent);
+//}
 
 //--------------------------------------------------------------
+/*
 bool ofApp::loadScreen(string path, string name) {
 
 	// screen loader
@@ -132,19 +130,19 @@ bool ofApp::loadScreen(string path, string name) {
 	texCoordsOrigin = coords;
 	
 	// save settings
-	lblScreenName->setLabel("file: " + name);
-	settings.setValue("settings:screenPath", path);
-	settings.setValue("settings:screenName", name);
-    
+//	lblScreenName->setLabel("file: " + name);
+//	settings.setValue("settings:screenPath", path);
+//	settings.setValue("settings:screenName", name);
+	
     scaleScreenUV();
 	
 	return assimp.getMeshCount() == 0;
 }
+ */
 
 //--------------------------------------------------------------
+/*
 void ofApp::scaleScreenUV() {
-
-	cout << "chane UV scale: " << texWidth << " * " << texHeight << " flip h=" << isFlipH << " v=" << isFlipV << endl;
 	
 	vector< ofVec2f >& coords = screen.getTexCoords();
 	
@@ -161,8 +159,10 @@ void ofApp::scaleScreenUV() {
 			coords[i].y = (1.0f - texCoordsOrigin[i].y) * texHeight;
 	}
 }
+*/
 
 //--------------------------------------------------------------
+/*
 void ofApp::loadCams() {
 	
     if (!settings.tagExists("cameras")) {
@@ -197,8 +197,12 @@ void ofApp::loadCams() {
 		}
 	}
 	settings.popTag();
+
 }
 
+*/
+
+/*
 void ofApp::saveCams() {
 	
 	if ( !settings.tagExists("cameras") ) {
@@ -226,9 +230,12 @@ void ofApp::saveCams() {
 	
 	settings.popTag();
 }
+ */
 
+/*
 void ofApp::changeCam(int index) {
 	
+	/*
 	if (index < 0 || cams.size() <= index)
 		return;
 	
@@ -239,9 +246,11 @@ void ofApp::changeCam(int index) {
 	grabCam.setFov(c.fov);
 	
 	camIndex = index;
-}
-
+ 
+}*/
+/*
 void ofApp::resetCam() {
+	
 	
 	grabCam.reset();
 	grabCam.setFov(55);
@@ -249,12 +258,15 @@ void ofApp::resetCam() {
 	grabCam.setPosition(500, 500, -500);
 	
 	camIndex = CAM_INDEX_DEFAULT;
-}
+ 
+}*/
 
 //--------------------------------------------------------------
+/*
 void ofApp::alert(string message) {
     
     platformWindow.setWindowOnTop(false);
     ofSystemAlertDialog(message);
     platformWindow.setWindowOnTop(isWindowOnTop);
 }
+*/

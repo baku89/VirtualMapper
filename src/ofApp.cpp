@@ -1,102 +1,115 @@
 #include "ofApp.h"
 
-#include <sstream>
+
+#define IM_ARRAYSIZE(_ARR)  ((int)(sizeof(_ARR)/sizeof(*_ARR)))
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-#ifdef TARGET_OSX
-	ofSetDataPathRoot("../Resources/data/");
-#endif	
-
-	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
-	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
-	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
 	
+//#ifdef TARGET_OSX
+//	ofSetDataPathRoot("../Resources/data/");
+//#endif
+
+//	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
+//	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
+//	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
+
 	// setup window attributes
+	ofEnableNormalizedTexCoords();
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofSetWindowTitle("Virtual Mapper");
 	ofEnableSmoothing();
+
+	
+	ofLoadImage(screenTex, "default_screen.jpg");
+	
+	gui.setup();
+	ImGui::GetIO().MouseDrawCursor = false;
+	
+	sharedInput.setup();
+	
+	ofxXmlSettings settings;
+	
+	settings.load("settings.xml");
+	
+	scene.open(settings.getValue("scene:path", "default_scene.abc"));
+	
+	
+	
 	
 	// load
-	settings.load("settings.xml");
-	font.loadFont(FONT_NAME, 10);
-    defaultTex.loadImage("default_texture.png");
+//	settings.load("settings.xml");
+//    defaultTex.load("default_texture.jpg");
 	
 	// ui
-	setGUI();
+//	setGUI();
     // view
-    platformWindow.setWindowOnTop(isWindowOnTop);
-    resetCam();
+//    platformWindow.setWindowOnTop(isWindowOnTop);
+//    resetCam();
 	
 	// load model
-	string path = settings.getValue("settings:screenPath", "");
-	string name = settings.getValue("settings:screenName", "null");
-	loadScreen(path, name);
+//	string path = settings.getValue("settings:screenPath", "");
+//	string name = settings.getValue("settings:screenName", "null");
+//	loadScreen(path, name);
 	
 	// load camera settings
-	loadCams();
-	camIndex = CAM_INDEX_DEFAULT;
+//	loadCams();
+//	camIndex = CAM_INDEX_DEFAULT;
 	//updateCamList();
 	
     // source
-	texWidth = 0;
-	texHeight = 0;
-    receiver.setup();
+//	texWidth = 0;
+//	texHeight = 0;
+//    receiver.setup();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+//	
+//	isModalOpened = false;
 	
-	isModalOpened = false;
-    
     // update input
-    receiver.update();
+//    receiver.update();
 	
-    int w, h;
-    
-    if ( receiver.isEnabled() ) {
-        w = receiver.getWidth();
-        h = receiver.getHeight();
-    } else {
-        w = defaultTex.width;
-        h = defaultTex.height;
-    }
+//    int w, h;
+//	
+//	w = defaultTex.getWidth();
+//	h = defaultTex.getHeight();
+//	
+//	if (texWidth != w || texHeight != h) {
+//		texWidth = w;
+//		texHeight = h;
+//		scaleScreenUV();
+//	}
 	
-	if (texWidth != w || texHeight != h) {
-		texWidth = w;
-		texHeight = h;
-		scaleScreenUV();
-	}
+
+//	if ( receiver.isChanged() ) {
 	
-<<<<<<< HEAD
-=======
-#ifdef TARGET_OSX
->>>>>>> win32
-	if ( receiver.isChanged() ) {
-        
         // update input list
-        vector<string> inputs = receiver.getInputs();
-        
+//        vector<string> inputs = receiver.getInputs();
+	
+		/*
         ddlInput->clearToggles();
         for (string i : inputs) {
-<<<<<<< HEAD
             ddlInput->addToggle( i );
         }
-
+		*/
+		
+		/*
         ddlInput->addToggles( receiver.getInputs() );
         ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
 	}
-=======
             ddlInput->addToggle( i.substr(0, DDL_MAX_LENGTH) );
         }
         ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
-	}
-#endif
->>>>>>> win32
+		*/
+//	}
 	
 	// gui update
+	/*
 	camPos = grabCam.getPosition();
 	ndCamX->setValue( camPos.x );
 	ndCamY->setValue( camPos.y );
@@ -119,50 +132,52 @@ void ofApp::update(){
 	}
     
     receiver.next();
+	 */
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	
+	
+	ofBackground(0);
+	
 	grabCam.begin();
-
-	ofBackground(0, 0, 0, 0);
-
-	ofEnableDepthTest();
-	
-    // draw screen mesh
-    if ( receiver.isEnabled() ) {
-        receiver.bind();
-    } else {
-        defaultTex.bind();
-    }
-	screen.draw();
-    if ( receiver.isEnabled() ) {
-        receiver.unbind();
-    } else {
-        defaultTex.unbind();
-    }
-    
-    // draw stage mesh
-    ofSetColor(16);
-    stage.draw();
-    ofSetColor(128);
-    stage.drawWireframe();
-    
-    // optional wireframe
-	if ( isShowWireframe ) {
-		ofSetColor(255, 255, 255, 255);
-		screen.drawWireframe();
+	{
+		ofEnableDepthTest();
+		
+		screenTex.bind();
+		scene.draw();
+		screenTex.unbind();
+		
+		// draw screen mesh
+//		defaultTex.bind();
+//		screen.draw();
+//		defaultTex.unbind();
+		
+		// draw scene mesh
+		/*
+		ofSetColor(16);
+		scene.draw();
+		ofSetColor(128);
+		scene.drawWireframe();
+		*/
+		
+		/*
+		// optional wireframe
+		if ( isShowWireframe ) {
+			ofSetColor(255, 255, 255, 255);
+			screen.drawWireframe();
+		}
+		if ( isShowGrid ) {
+			ofDrawGrid(2000.0f, 8.0f, false, true, true, true);
+		}
+		 */
+		ofDisableDepthTest();
 	}
-    if ( isShowGrid ) {
-        ofDrawGrid(2000.0f, 8.0f, false, true, true, true);
-    }
-	
-	ofDisableDepthTest();
-	
 	grabCam.end();
 
 	// cam list
+	/*
 	string camName;
 	for (int i = CAM_INDEX_DEFAULT;i != cams.size(); i++) {
 		
@@ -182,8 +197,10 @@ void ofApp::draw(){
 		
 		font.drawString(camName, ofGetWidth() - 140, (i+2) * 20);
 	}
+	*/
 	
 	// instruction
+	/*
 	if (gui->isVisible()) {
 		int x = ofGetWidth() - 230;
 		int y = ofGetHeight() - 110;
@@ -196,23 +213,109 @@ void ofApp::draw(){
 		font.drawString("[1-9] or [up/down]: change camera", x, y + row++ * 15 );
 		font.drawString("[q]: on/off HUD", x, y + row++ * 15 );
 	}
+	*/
 	
-	ofSetColor(255, 255, 255);
+	
+	
+	gui.begin();
+	{
+		if (ImGui::Button("Open Scene")) {
+			scene.openWithDialog();
+		}
+		
+		
+		if (ImGui::CollapsingHeader("Camera", true)) {
+			
+			
+			
+			for (int i = 0; i < scene.getNumCameras(); i++) {
+				if (ImGui::RadioButton(scene.getCameraName(i).c_str(), &camIndex, i)) {
+					
+					ofCamera cam = scene.getCamera(camIndex);
+					
+					grabCam.setGlobalPosition(cam.getGlobalPosition());
+					grabCam.setOrientation(cam.getOrientationQuat());
+					grabCam.setFov(cam.getFov());
+				}
+			}
+			
+			// matrix
+			if (ImGui::TreeNode("Transform")) {
+				
+				
+				float *pos = grabCam.getGlobalPosition().getPtr();
+				ImGui::InputFloat3("Position", pos);
+				grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
+				
+				float *euler = grabCam.getOrientationEuler().getPtr();
+				ImGui::InputFloat3("Orientation", euler);
+				ofVec3f ne(euler[0], euler[1], euler[2]);
+				grabCam.setOrientation(ne);
+				
+				float fov = grabCam.getFov();
+				ImGui::SliderFloat("Fov", &fov, 0, 180);
+				grabCam.setFov(fov);
+				
+				ImGui::TreePop();
+			}
+		}
+		
+		if (ImGui::CollapsingHeader("Input Source", true)) {
+			
+			
+			ImGui::RadioButton("Image", &inputSource, INPUT_IMAGE);
+			ImGui::SameLine();
+			
+			ImGui::RadioButton("Syphon", &inputSource, INPUT_SYPHON);
+			
+			if (inputSource == INPUT_SYPHON) {
+				
+				const vector<string> names = sharedInput.getNames();
+				
+				string itemsStr = "";
+				
+				for (auto& n : names) {
+					itemsStr += n + "\0";
+				}
+			
+				const char* items = itemsStr.c_str();
+				static int index = -1;
+				
+				if (ImGui::Combo("Server", &index, items)) {
+					ofLogNotice() << index;
+					sharedInput.setIndex(index);
+//					screenTex = sharedInput.getTexture();
+				}
+			}
+			
+		}
+	}
+	gui.end();
 }
 
 //--------------------------------------------------------------
 void ofApp::exit() {
 	
-	gui->saveSettings("gui.xml");
+	scene.exit();
 	
-	saveCams();
 	
-	settings.save("settings.xml");
+	ofxXmlSettings settings;
+	
+	settings.setValue("scene:path", scene.getPath());
+	
+	settings.saveFile("settings.xml");
+	
+//	gui->saveSettings("gui.xml");
+	
+//	saveCams();
+	
+//	settings.save("settings.xml");
 
-	receiver.exit();
+//	receiver.exit();
 }
 
 //--------------------------------------------------------------
+/*
 void ofApp::guiEvent(ofxUIEventArgs &e) {
 	
 	if (this == NULL) {
@@ -241,14 +344,8 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
         } else {
             alert("This file type is not supported.");
         }
-		
-<<<<<<< HEAD
+ 
 	} else if (name == "INPUT LIST") {
-=======
-	}
-#ifdef TARGET_OSX
-	else if (name == "INPUT LIST") {
->>>>>>> win32
 		
 		vector<int> indices = ddlInput->getSelectedIndeces();
 		
@@ -256,9 +353,8 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
             
             receiver.setInput( indices[0] );
 		}
-	}
-#endif
-	else if ( name == "flip H" || name == "flip V" ) {
+ 
+	} else if ( name == "flip H" || name == "flip V" ) {
 		
 		cout << "change uv flip settings" << endl;
 		scaleScreenUV();
@@ -310,9 +406,10 @@ void ofApp::guiEvent(ofxUIEventArgs &e) {
 		grabCam.setOrientation( euler );
 	}
 }
+*/
 
 //--------------------------------------------------------------
-<<<<<<< HEAD
+
 
 /*
 void ofApp::syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg) {
@@ -370,17 +467,10 @@ void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
 }
  */
 
-
-//--------------------------------------------------------------
-=======
->>>>>>> win32
-void ofApp::keyPressed(int key){
-	
-}
-
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+	
+	/*
 	if (key == 'r') {
 		
 		resetCam();
@@ -411,46 +501,18 @@ void ofApp::keyReleased(int key){
 				changeCam(i);
 		 }
 	}
+	 */
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
+void ofApp::mousePressed(int x, int y, int button) {
 
+	bool guiCaptured = ImGui::GetIO().WantCaptureMouse;
+	grabCam.setMouseActionsEnabled(!guiCaptured);
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
+void ofApp::mouseReleased(int x, int y, int button) {
 
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-	ofxUIRectangle *rect = gui->getRect();
-	
-	if ( rect->inside(x, y) ) {
-		
-		grabCam.setMouseActions( false );
-	}
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-	grabCam.setMouseActions( true );
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
