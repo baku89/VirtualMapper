@@ -1,0 +1,1348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000315A9FA4E2F9A09533E05 /* EngineOpenGLES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3174462C64E918D8DA23041B /* EngineOpenGLES.cpp */; };
+		00413C35AAE31B483D7538AB /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E02D9F3A04B5573758EBCF8 /* imgui_draw.cpp */; };
+		11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */; };
+		17F86ECD30824BDEBC82D836 /* ofxAlembicType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 588FA58D63E226EB270AA690 /* ofxAlembicType.cpp */; };
+		1F558B76FB3412843DDAA031 /* ofxSyphonClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */; };
+		27CF6B6E279F8EE58C9D4B90 /* BaseTheme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E362ECECD928E7B3EBA5C53 /* BaseTheme.cpp */; };
+		40AD1C19B4636C07ADF68C6E /* ofxMakeTopMostWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86C632CE7213A964EE3A1FA7 /* ofxMakeTopMostWindow.mm */; };
+		462C212713EFFA5383B35DAB /* EngineGLFW.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C686ADB50E8F79292BA80 /* EngineGLFW.cpp */; };
+		4B84BE00D8222E1072317E49 /* ofxGrabCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 126D728B075C482C4C740428 /* ofxGrabCam.cpp */; };
+		4D508D34156E7076531D9084 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D58DCB2C0AEFDE6171E29540 /* Syphon.framework */; };
+		5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */; };
+		5C2607C471F8D48C0036C56E /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CF9B1FD213484DDDB7AE362 /* imgui.cpp */; };
+		63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */; };
+		6F7F2BBDC3266D263C42FB90 /* ofxAlembicUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE7D9F5B188B6FD8CBBA9B98 /* ofxAlembicUtil.cpp */; };
+		8CEED0871A520A02AC26B231 /* ofAppUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */; };
+		8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */; };
+		9270470F1DB30AF1001F4AE2 /* ofxTopWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9270470E1DB30AF1001F4AE2 /* ofxTopWindow.mm */; };
+		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
+		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
+		C9109422648B170B07A778CF /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */; };
+		D17988540C5C1823DDFD48B7 /* ofxAlembicReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D61C51025AA82EDA75E1D13 /* ofxAlembicReader.cpp */; };
+		DBBE189ECD171A97DCF46C6A /* BaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7C7BDAD29F580A47FF56B52 /* BaseEngine.cpp */; };
+		E1A3FD40C8BCD507345F1126 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58DCB2C0AEFDE6171E29540 /* Syphon.framework */; };
+		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
+		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		E5A8B10F278E540A1F9F39E6 /* ofxImGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB3FB0F9768F55BDC2492FEE /* ofxImGui.cpp */; };
+		E984796BE84AA4315636B6E7 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CC36552DD0A47E758D71FB5 /* imgui_demo.cpp */; };
+		F8958EEA9D38C800E68DA60E /* ofxAlembicWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE0FC94CFCDD45C89A97A3B /* ofxAlembicWriter.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D508D34156E7076531D9084 /* Syphon.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01B2F93328BA412A539B9D70 /* ImathHalfLimits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathHalfLimits.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathHalfLimits.h; sourceTree = SOURCE_ROOT; };
+		01B583BFB534C5A7A2068BFE /* TimeSampling.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TimeSampling.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/TimeSampling.h; sourceTree = SOURCE_ROOT; };
+		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
+		01FAC3552E00C3620035EA2F /* ofxSyphonClient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSyphonClient.h; path = ../../../addons/ofxSyphon/src/ofxSyphonClient.h; sourceTree = SOURCE_ROOT; };
+		0273F1062002666F73AECBAF /* OArrayProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OArrayProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OArrayProperty.h; sourceTree = SOURCE_ROOT; };
+		03BD0A876C221A7C5823A83F /* Base.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Base.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/Base.h; sourceTree = SOURCE_ROOT; };
+		03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxSyphonClient.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonClient.mm; sourceTree = SOURCE_ROOT; };
+		09B9E760DBBC145524471FA3 /* ICurves.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ICurves.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ICurves.h; sourceTree = SOURCE_ROOT; };
+		0BB9F7D314FADD51BAB96878 /* ThemeTest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ThemeTest.h; path = ../../../addons/ofxImGui/src/ThemeTest.h; sourceTree = SOURCE_ROOT; };
+		0DD459D8F73B1DCD9B0B3C8F /* IexErrnoExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexErrnoExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexErrnoExc.h; sourceTree = SOURCE_ROOT; };
+		0F99D91BAC240A07901D0E6A /* stb_rect_pack.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stb_rect_pack.h; path = ../../../addons/ofxImGui/libs/imgui/src/stb_rect_pack.h; sourceTree = SOURCE_ROOT; };
+		0FB83AC7747296DD35C1C295 /* ofxSyphon.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSyphon.h; path = ../../../addons/ofxSyphon/src/ofxSyphon.h; sourceTree = SOURCE_ROOT; };
+		101E761929E83468D16A2A18 /* IlmThreadNamespace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadNamespace.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadNamespace.h; sourceTree = SOURCE_ROOT; };
+		10E89DC3012CC27A7C17AD1A /* TokenMap.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TokenMap.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/TokenMap.h; sourceTree = SOURCE_ROOT; };
+		11633B36C5B76E48706284B8 /* ReadWrite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ReadWrite.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa/ReadWrite.h; sourceTree = SOURCE_ROOT; };
+		126D728B075C482C4C740428 /* ofxGrabCam.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGrabCam.cpp; path = ../../../addons/ofxGrabCam/src/ofxGrabCam.cpp; sourceTree = SOURCE_ROOT; };
+		12C290126503F54305375478 /* ObjectWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ObjectWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ObjectWriter.h; sourceTree = SOURCE_ROOT; };
+		12E34E7E93B2AA257DB12F90 /* Foundation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Foundation.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/Foundation.h; sourceTree = SOURCE_ROOT; };
+		12EBC5773B81D5E37E068E24 /* imgui_internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = imgui_internal.h; path = ../../../addons/ofxImGui/libs/imgui/src/imgui_internal.h; sourceTree = SOURCE_ROOT; };
+		158631E6903027C1CB6E984E /* OArchive.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OArchive.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OArchive.h; sourceTree = SOURCE_ROOT; };
+		15A77854394DC41D18D37C0D /* ImathBox.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathBox.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathBox.h; sourceTree = SOURCE_ROOT; };
+		162B7F615FE588D9EF5C5E6A /* ICamera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ICamera.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ICamera.h; sourceTree = SOURCE_ROOT; };
+		171DCDDD47B122C214C267C4 /* ImathMatrixAlgo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathMatrixAlgo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathMatrixAlgo.h; sourceTree = SOURCE_ROOT; };
+		18846481F44844AACFC18F24 /* PropertyHeader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PropertyHeader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/PropertyHeader.h; sourceTree = SOURCE_ROOT; };
+		195129592521AA26628BA6CE /* Scene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Scene.h; path = src/Scene.h; sourceTree = SOURCE_ROOT; };
+		198918A105DCDFD6C4D620E5 /* XformSample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = XformSample.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/XformSample.h; sourceTree = SOURCE_ROOT; };
+		1ABB536897316FE4B29C1B36 /* ImathForward.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathForward.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathForward.h; sourceTree = SOURCE_ROOT; };
+		1E4A016509A7FF070488EC55 /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/All.h; sourceTree = SOURCE_ROOT; };
+		2010A9A64249B5378BCFA262 /* IFaceSet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IFaceSet.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IFaceSet.h; sourceTree = SOURCE_ROOT; };
+		20697DC2697C847AD2B27D04 /* IlmThreadExport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadExport.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadExport.h; sourceTree = SOURCE_ROOT; };
+		20A676A1035426214BCE4FA6 /* OBaseProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OBaseProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OBaseProperty.h; sourceTree = SOURCE_ROOT; };
+		20DE1A52289C29C92EE40BDC /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection/All.h; sourceTree = SOURCE_ROOT; };
+		21CD45C305AF079F4130FCED /* SchemaInfoDeclarations.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SchemaInfoDeclarations.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection/SchemaInfoDeclarations.h; sourceTree = SOURCE_ROOT; };
+		22EBF2EAEA0E9ED192D4D9D8 /* BasePropertyReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BasePropertyReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/BasePropertyReader.h; sourceTree = SOURCE_ROOT; };
+		24B88980AE24A5DF45CA2606 /* IObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IObject.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/IObject.h; sourceTree = SOURCE_ROOT; };
+		25386A7CDFD9DB5B47F1FE85 /* ArraySample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArraySample.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArraySample.h; sourceTree = SOURCE_ROOT; };
+		255843B4CF0786C090DE345E /* ImathPlane.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathPlane.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathPlane.h; sourceTree = SOURCE_ROOT; };
+		28A0FC736B05D31032869338 /* ImathInt64.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathInt64.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathInt64.h; sourceTree = SOURCE_ROOT; };
+		2A49006B85A6F36FEEE8FEAD /* ImathVecAlgo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathVecAlgo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathVecAlgo.h; sourceTree = SOURCE_ROOT; };
+		2AA5218C8179465A94181B83 /* Camera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Camera.h; path = src/Camera.h; sourceTree = SOURCE_ROOT; };
+		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
+		2D44A6806BC6CD4FFD2FF583 /* IexBaseExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexBaseExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexBaseExc.h; sourceTree = SOURCE_ROOT; };
+		2DF2A7EEB15B92A5E338F003 /* TimeSamplingType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TimeSamplingType.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/TimeSamplingType.h; sourceTree = SOURCE_ROOT; };
+		2E1C5802AF1A0BCBD925A83C /* halfExport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = halfExport.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/halfExport.h; sourceTree = SOURCE_ROOT; };
+		2F1C686ADB50E8F79292BA80 /* EngineGLFW.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EngineGLFW.cpp; path = ../../../addons/ofxImGui/src/EngineGLFW.cpp; sourceTree = SOURCE_ROOT; };
+		2FA1EE557BF65E3644BF1EDB /* ImathLineAlgo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathLineAlgo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathLineAlgo.h; sourceTree = SOURCE_ROOT; };
+		2FAD8237BEE8E1F639484EAF /* IArchive.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IArchive.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/IArchive.h; sourceTree = SOURCE_ROOT; };
+		307FAF0B7F7A46006233A35E /* OMaterial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OMaterial.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/OMaterial.h; sourceTree = SOURCE_ROOT; };
+		3174462C64E918D8DA23041B /* EngineOpenGLES.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EngineOpenGLES.cpp; path = ../../../addons/ofxImGui/src/EngineOpenGLES.cpp; sourceTree = SOURCE_ROOT; };
+		324E5811575790AD1F5F3FCC /* ObjectReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ObjectReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ObjectReader.h; sourceTree = SOURCE_ROOT; };
+		32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxSyphonServer.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonServer.mm; sourceTree = SOURCE_ROOT; };
+		331854AB017BD641BC91921E /* ImathLine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathLine.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathLine.h; sourceTree = SOURCE_ROOT; };
+		333972711B5FDAEEDD8A9F5B /* ImathNamespace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathNamespace.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathNamespace.h; sourceTree = SOURCE_ROOT; };
+		337B812806A0E7D26A029E5A /* ofxSyphonServerDirectory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSyphonServerDirectory.h; path = ../../../addons/ofxSyphon/src/ofxSyphonServerDirectory.h; sourceTree = SOURCE_ROOT; };
+		33F6BDD0D691DFD2B73AB546 /* halfFunction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = halfFunction.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/halfFunction.h; sourceTree = SOURCE_ROOT; };
+		3A9013A02246381F14572188 /* EngineGLFW.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EngineGLFW.h; path = ../../../addons/ofxImGui/src/EngineGLFW.h; sourceTree = SOURCE_ROOT; };
+		3AB24D308736280A07568671 /* imconfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = imconfig.h; path = ../../../addons/ofxImGui/src/imconfig.h; sourceTree = SOURCE_ROOT; };
+		3B78A9E05B0868CD10902E76 /* OXform.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OXform.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OXform.h; sourceTree = SOURCE_ROOT; };
+		3EE891267C41ED7182747850 /* halfLimits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = halfLimits.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/halfLimits.h; sourceTree = SOURCE_ROOT; };
+		411825D206FEFBA451C69368 /* ofxGrabCam.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGrabCam.h; path = ../../../addons/ofxGrabCam/src/ofxGrabCam.h; sourceTree = SOURCE_ROOT; };
+		41B565A42C643056C246E781 /* ImathBoxAlgo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathBoxAlgo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathBoxAlgo.h; sourceTree = SOURCE_ROOT; };
+		428551F150A6DEFF71E02A23 /* ImathExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathExc.h; sourceTree = SOURCE_ROOT; };
+		4300465E4B5B65B2EE265C5C /* ImOf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImOf.h; path = src/ImOf.h; sourceTree = SOURCE_ROOT; };
+		430BDE8DDB6C9AFC150D3750 /* IlmThread.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThread.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThread.h; sourceTree = SOURCE_ROOT; };
+		440ED5E8FAE331E2C93D0160 /* ScalarSample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ScalarSample.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ScalarSample.h; sourceTree = SOURCE_ROOT; };
+		4428940387E71AB9B25A46EA /* OperatorBool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OperatorBool.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/OperatorBool.h; sourceTree = SOURCE_ROOT; };
+		452EB2338BFC60C65C00A316 /* INuPatch.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = INuPatch.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/INuPatch.h; sourceTree = SOURCE_ROOT; };
+		459A0BA3CCF5B63F5CFDF296 /* MaterialFlatten.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MaterialFlatten.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/MaterialFlatten.h; sourceTree = SOURCE_ROOT; };
+		46BBCC26D60B589958BF0D03 /* ofxSyphonServer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSyphonServer.h; path = ../../../addons/ofxSyphon/src/ofxSyphonServer.h; sourceTree = SOURCE_ROOT; };
+		46EC632D743DBAAC234A8E46 /* OCamera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OCamera.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OCamera.h; sourceTree = SOURCE_ROOT; };
+		473F9F2BC406AB49EC4DE7D4 /* Argument.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Argument.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/Argument.h; sourceTree = SOURCE_ROOT; };
+		48D94E3E5B28F26DD8B5BFA2 /* IlmThreadSemaphore.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadSemaphore.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadSemaphore.h; sourceTree = SOURCE_ROOT; };
+		4963E38B8AF4E75763348D90 /* SourceName.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceName.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/SourceName.h; sourceTree = SOURCE_ROOT; };
+		4C53BB241DF1AACF41FE9C39 /* OCurves.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OCurves.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OCurves.h; sourceTree = SOURCE_ROOT; };
+		4D61C51025AA82EDA75E1D13 /* ofxAlembicReader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAlembicReader.cpp; path = ../../../addons/ofxAlembic/src/ofxAlembicReader.cpp; sourceTree = SOURCE_ROOT; };
+		4F2D09AE2A24A443118F5A67 /* IScalarProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IScalarProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/IScalarProperty.h; sourceTree = SOURCE_ROOT; };
+		4FF35C1E21D41542495F3951 /* Foundation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Foundation.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/Foundation.h; sourceTree = SOURCE_ROOT; };
+		50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxXmlSettings.cpp; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.cpp; sourceTree = SOURCE_ROOT; };
+		513D56FF406D47EEA5535483 /* half.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = half.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/half.h; sourceTree = SOURCE_ROOT; };
+		5183C31CBA6E5C0F2D7B20D7 /* ImathLimits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathLimits.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathLimits.h; sourceTree = SOURCE_ROOT; };
+		525BBFE4F102B1370988A3CD /* IXform.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IXform.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IXform.h; sourceTree = SOURCE_ROOT; };
+		5312B6B757092C2BA908CE48 /* H5version.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = H5version.h; path = ../../../addons/ofxAlembic/libs/alembic/include/H5version.h; sourceTree = SOURCE_ROOT; };
+		562E398EF064FA96B5373F0B /* OLight.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OLight.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OLight.h; sourceTree = SOURCE_ROOT; };
+		5825A3B242BE6FBE5F19B9D5 /* ArchiveWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArchiveWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArchiveWriter.h; sourceTree = SOURCE_ROOT; };
+		5852A658C91E9B64B21ECF9B /* IexMathExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexMathExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexMathExc.h; sourceTree = SOURCE_ROOT; };
+		588FA58D63E226EB270AA690 /* ofxAlembicType.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAlembicType.cpp; path = ../../../addons/ofxAlembic/src/ofxAlembicType.cpp; sourceTree = SOURCE_ROOT; };
+		590B1E5C3E1D2FB6A3F1B73E /* PlainOldDataType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PlainOldDataType.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/PlainOldDataType.h; sourceTree = SOURCE_ROOT; };
+		594DFDAC2AEE5BA85E9C736E /* ScalarPropertyWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ScalarPropertyWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ScalarPropertyWriter.h; sourceTree = SOURCE_ROOT; };
+		5BF1FDC87FC6998C0C9A807D /* DataType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DataType.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/DataType.h; sourceTree = SOURCE_ROOT; };
+		5CCD1095105C0848E5A0E20A /* ErrorHandler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ErrorHandler.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ErrorHandler.h; sourceTree = SOURCE_ROOT; };
+		5E1ABC9FFBDAA4BBC1BE38E7 /* ReadArraySampleCache.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ReadArraySampleCache.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ReadArraySampleCache.h; sourceTree = SOURCE_ROOT; };
+		5F36A548F289ED63B0829720 /* IlmThreadForward.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadForward.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadForward.h; sourceTree = SOURCE_ROOT; };
+		61687CD837E8A703A2C3BA3F /* OPoints.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OPoints.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OPoints.h; sourceTree = SOURCE_ROOT; };
+		65716CE9D5CC66C6B339383E /* ONuPatch.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ONuPatch.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ONuPatch.h; sourceTree = SOURCE_ROOT; };
+		6795941B62F6FFC494625137 /* IPoints.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IPoints.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IPoints.h; sourceTree = SOURCE_ROOT; };
+		697744953DFB27A2976F57D6 /* ofxAlembicWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAlembicWriter.h; path = ../../../addons/ofxAlembic/src/ofxAlembicWriter.h; sourceTree = SOURCE_ROOT; };
+		69E6C376A393D0E113FF85A6 /* Murmur3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Murmur3.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Murmur3.h; sourceTree = SOURCE_ROOT; };
+		6A1B00F5A0789E1DD37CBC5A /* Digest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Digest.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Digest.h; sourceTree = SOURCE_ROOT; };
+		6CF9B1FD213484DDDB7AE362 /* imgui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = imgui.cpp; path = ../../../addons/ofxImGui/libs/imgui/src/imgui.cpp; sourceTree = SOURCE_ROOT; };
+		6DA766A720ED9E4569DAABDE /* ImathRandom.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathRandom.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathRandom.h; sourceTree = SOURCE_ROOT; };
+		71FFD50EA75BCC76F0C58D12 /* SyphonNameboundClient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SyphonNameboundClient.h; path = ../../../addons/ofxSyphon/libs/Syphon/src/SyphonNameboundClient.h; sourceTree = SOURCE_ROOT; };
+		74B4827ECCB54E7D42AEEBE1 /* OTypedArrayProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OTypedArrayProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OTypedArrayProperty.h; sourceTree = SOURCE_ROOT; };
+		7555BCD3B214E474E9AD2F69 /* IexForward.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexForward.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexForward.h; sourceTree = SOURCE_ROOT; };
+		75EDE0F944593EF8C610B0A1 /* stb_textedit.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stb_textedit.h; path = ../../../addons/ofxImGui/libs/imgui/src/stb_textedit.h; sourceTree = SOURCE_ROOT; };
+		77D4665423AD4BCF82ACE20E /* ImathMath.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathMath.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathMath.h; sourceTree = SOURCE_ROOT; };
+		77F34D515A6EFE32BDDAA77C /* Export.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Export.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Export.h; sourceTree = SOURCE_ROOT; };
+		79E742BD452310B9C2CF9DB7 /* IlmThreadMutex.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadMutex.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadMutex.h; sourceTree = SOURCE_ROOT; };
+		7A46D5FB121597D90DB15CAB /* OFaceSet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OFaceSet.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OFaceSet.h; sourceTree = SOURCE_ROOT; };
+		7B8D7C3EF7DCCC49D7873F74 /* Exception.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Exception.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Exception.h; sourceTree = SOURCE_ROOT; };
+		7B8DFF2DE221E55FDB10E9BA /* ArchiveBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArchiveBounds.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ArchiveBounds.h; sourceTree = SOURCE_ROOT; };
+		7BC6846FD0788ECDE70FAA8C /* ISchemaObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ISchemaObject.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ISchemaObject.h; sourceTree = SOURCE_ROOT; };
+		7F194478E266268E40876C0D /* CompoundPropertyWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CompoundPropertyWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/CompoundPropertyWriter.h; sourceTree = SOURCE_ROOT; };
+		7F6680A728AFA77AA2F46EDC /* TypedPropertyTraits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TypedPropertyTraits.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/TypedPropertyTraits.h; sourceTree = SOURCE_ROOT; };
+		80605FA88C79C8F47A083CE2 /* ArrayPropertyReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArrayPropertyReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArrayPropertyReader.h; sourceTree = SOURCE_ROOT; };
+		8087B4D4C8280EBCC9603C76 /* Config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Config.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Config.h; sourceTree = SOURCE_ROOT; };
+		80F80BA4DD89C624504E035E /* stb_truetype.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stb_truetype.h; path = ../../../addons/ofxImGui/libs/imgui/src/stb_truetype.h; sourceTree = SOURCE_ROOT; };
+		813339A635253A039C45EE0C /* Iex.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Iex.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/Iex.h; sourceTree = SOURCE_ROOT; };
+		82C615338C4F09C416A9A85A /* H5pubconf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = H5pubconf.h; path = ../../../addons/ofxAlembic/libs/alembic/include/H5pubconf.h; sourceTree = SOURCE_ROOT; };
+		832BDC407620CDBA568B713D /* tinyxmlerror.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlerror.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = SOURCE_ROOT; };
+		849E1DBCF520303F3C690EB7 /* IFactory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IFactory.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory/IFactory.h; sourceTree = SOURCE_ROOT; };
+		85888E905AF4A6FA79B9D071 /* IGeomBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IGeomBase.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IGeomBase.h; sourceTree = SOURCE_ROOT; };
+		86811417D8011A9AE868DEEE /* ISubD.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ISubD.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ISubD.h; sourceTree = SOURCE_ROOT; };
+		868A5140E67FF182F39474F0 /* BasePropertyWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BasePropertyWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/BasePropertyWriter.h; sourceTree = SOURCE_ROOT; };
+		86A94BC15C9696C9DDF93F5B /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa/All.h; sourceTree = SOURCE_ROOT; };
+		86C632CE7213A964EE3A1FA7 /* ofxMakeTopMostWindow.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxMakeTopMostWindow.mm; path = ../../../addons/ofxMakeTopMostWindow/src/ofxMakeTopMostWindow.mm; sourceTree = SOURCE_ROOT; };
+		88039D5988BD4E6D4797AB7E /* IlmBaseConfig.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmBaseConfig.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmBaseConfig.h; sourceTree = SOURCE_ROOT; };
+		88D20ACEB81FEEA99D8A2CA4 /* ICompoundProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ICompoundProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ICompoundProperty.h; sourceTree = SOURCE_ROOT; };
+		895B377199E7D63C6438BF69 /* ISampleSelector.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ISampleSelector.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ISampleSelector.h; sourceTree = SOURCE_ROOT; };
+		8E362ECECD928E7B3EBA5C53 /* BaseTheme.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BaseTheme.cpp; path = ../../../addons/ofxImGui/src/BaseTheme.cpp; sourceTree = SOURCE_ROOT; };
+		910106D7808297BEA49AB109 /* ITypedScalarProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ITypedScalarProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ITypedScalarProperty.h; sourceTree = SOURCE_ROOT; };
+		9270470D1DB30AF1001F4AE2 /* ofxTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTopWindow.h; sourceTree = "<group>"; };
+		9270470E1DB30AF1001F4AE2 /* ofxTopWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxTopWindow.mm; sourceTree = "<group>"; };
+		927047121DB56090001F4AE2 /* ImageInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageInput.h; sourceTree = "<group>"; };
+		92AF9D179A5C8DF95B867B46 /* ImathGL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathGL.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathGL.h; sourceTree = SOURCE_ROOT; };
+		9427BCBCEF448D2C75AC8F6F /* Reference.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Reference.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/Reference.h; sourceTree = SOURCE_ROOT; };
+		956B59664BF16405139529DA /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5/All.h; sourceTree = SOURCE_ROOT; };
+		95ABCF662BFF2AA92D851397 /* Basis.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Basis.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/Basis.h; sourceTree = SOURCE_ROOT; };
+		96290A46FDBD3ACAFFF8D2B8 /* ArchiveReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArchiveReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArchiveReader.h; sourceTree = SOURCE_ROOT; };
+		964C650431B20781ECCE4161 /* ArrayPropertyWriter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArrayPropertyWriter.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArrayPropertyWriter.h; sourceTree = SOURCE_ROOT; };
+		96BA0FEAA57F5344E25B239A /* Visibility.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Visibility.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/Visibility.h; sourceTree = SOURCE_ROOT; };
+		9847AD64E0A54B989F297C21 /* TypedArraySample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TypedArraySample.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/TypedArraySample.h; sourceTree = SOURCE_ROOT; };
+		9A54FB9E05FF7C8764E730D1 /* IexMathFpu.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexMathFpu.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexMathFpu.h; sourceTree = SOURCE_ROOT; };
+		9BAE4AD1CE98585DD0DC4B91 /* ArraySampleKey.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArraySampleKey.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ArraySampleKey.h; sourceTree = SOURCE_ROOT; };
+		9BCC6DDAABD371C4791A5FFC /* IexMathFloatExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexMathFloatExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexMathFloatExc.h; sourceTree = SOURCE_ROOT; };
+		9CC36552DD0A47E758D71FB5 /* imgui_demo.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = imgui_demo.cpp; path = ../../../addons/ofxImGui/libs/imgui/src/imgui_demo.cpp; sourceTree = SOURCE_ROOT; };
+		9D42274BD8A2B4295590BEE1 /* IGeomParam.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IGeomParam.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IGeomParam.h; sourceTree = SOURCE_ROOT; };
+		9E02D9F3A04B5573758EBCF8 /* imgui_draw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = imgui_draw.cpp; path = ../../../addons/ofxImGui/libs/imgui/src/imgui_draw.cpp; sourceTree = SOURCE_ROOT; };
+		9F96948C6BD5BE9D6AF81D2F /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/All.h; sourceTree = SOURCE_ROOT; };
+		A382513F15CB60C170CFCE8B /* ImathFrame.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathFrame.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathFrame.h; sourceTree = SOURCE_ROOT; };
+		A4118E6B8DDE7AF2045C2A10 /* ofxAlembicType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAlembicType.h; path = ../../../addons/ofxAlembic/src/ofxAlembicType.h; sourceTree = SOURCE_ROOT; };
+		A546FE19250B567954EFFDE0 /* XformOp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = XformOp.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/XformOp.h; sourceTree = SOURCE_ROOT; };
+		A57F19DB6C7CD9DF2175074C /* OSchemaObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OSchemaObject.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OSchemaObject.h; sourceTree = SOURCE_ROOT; };
+		A66E82A681BECB4D0DBB23BB /* ISchema.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ISchema.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ISchema.h; sourceTree = SOURCE_ROOT; };
+		AA8725E30D2563380DB2C800 /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/All.h; sourceTree = SOURCE_ROOT; };
+		AB542D509EAED59E752B31A2 /* ExternalInput.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ExternalInput.h; path = src/ExternalInput.h; sourceTree = SOURCE_ROOT; };
+		ABC27B1E47C5B2ECDEB8FA2F /* ImathRoots.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathRoots.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathRoots.h; sourceTree = SOURCE_ROOT; };
+		AD82981344EBE8F6FDBFCB60 /* ImathFun.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathFun.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathFun.h; sourceTree = SOURCE_ROOT; };
+		AFBCCDFADC95FD43411DB2EE /* OPolyMesh.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OPolyMesh.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OPolyMesh.h; sourceTree = SOURCE_ROOT; };
+		B12CCA25936622A17F9928AB /* Foundation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Foundation.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Foundation.h; sourceTree = SOURCE_ROOT; };
+		B1D22A486E3C33282B845685 /* OCollections.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OCollections.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection/OCollections.h; sourceTree = SOURCE_ROOT; };
+		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
+		B37B3E3B9D68364EE20EA824 /* GeometryScope.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GeometryScope.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/GeometryScope.h; sourceTree = SOURCE_ROOT; };
+		B462DABAC6A023A1D88702C7 /* BaseTheme.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BaseTheme.h; path = ../../../addons/ofxImGui/src/BaseTheme.h; sourceTree = SOURCE_ROOT; };
+		B56E12732448ACD396D26FC1 /* H5public.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = H5public.h; path = ../../../addons/ofxAlembic/libs/alembic/include/H5public.h; sourceTree = SOURCE_ROOT; };
+		B584ACE8FE66A97AB5D391D9 /* ArchiveInfo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ArchiveInfo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ArchiveInfo.h; sourceTree = SOURCE_ROOT; };
+		B5F64354365EA8DA9FAF3C35 /* ICollections.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ICollections.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection/ICollections.h; sourceTree = SOURCE_ROOT; };
+		B7C4333F713122E24EFCC036 /* ImathPlatform.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathPlatform.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathPlatform.h; sourceTree = SOURCE_ROOT; };
+		B8D435E3793F51B76FFEAC77 /* ImathQuat.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathQuat.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathQuat.h; sourceTree = SOURCE_ROOT; };
+		B983C8C4CF77E7E66DBB451F /* Foundation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Foundation.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/Foundation.h; sourceTree = SOURCE_ROOT; };
+		BCD4C945792011930288526A /* OSchema.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OSchema.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OSchema.h; sourceTree = SOURCE_ROOT; };
+		BE4260AED4B0490DC6DFF627 /* CompoundPropertyReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CompoundPropertyReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/CompoundPropertyReader.h; sourceTree = SOURCE_ROOT; };
+		BF194A51D0EFBDA91BE4C555 /* ReadWrite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ReadWrite.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5/ReadWrite.h; sourceTree = SOURCE_ROOT; };
+		C0B5E80D8E170EA19081AB5F /* OObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OObject.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OObject.h; sourceTree = SOURCE_ROOT; };
+		C1D834B807204D2F9CBC7793 /* ImathShear.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathShear.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathShear.h; sourceTree = SOURCE_ROOT; };
+		C4513F2A0ABB5352B6CC514C /* IPolyMesh.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IPolyMesh.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/IPolyMesh.h; sourceTree = SOURCE_ROOT; };
+		C511E03138B1AE848FC584BF /* OGeomParam.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OGeomParam.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OGeomParam.h; sourceTree = SOURCE_ROOT; };
+		C6BE98F52089B286433ACD8D /* Dimensions.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Dimensions.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Dimensions.h; sourceTree = SOURCE_ROOT; };
+		CB5C15EA0881D35A88C22937 /* EngineOpenGLES.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EngineOpenGLES.h; path = ../../../addons/ofxImGui/src/EngineOpenGLES.h; sourceTree = SOURCE_ROOT; };
+		CB9ABAD87EE4B53D54D11785 /* IexMacros.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexMacros.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexMacros.h; sourceTree = SOURCE_ROOT; };
+		CC26ADFA0FD5298C6709F1B6 /* ImathColorAlgo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathColorAlgo.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathColorAlgo.h; sourceTree = SOURCE_ROOT; };
+		CC3FB40FFA9B90D6106B7051 /* Naming.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Naming.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/Naming.h; sourceTree = SOURCE_ROOT; };
+		CC4AF7DBDBC499DBB324A0D6 /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory/All.h; sourceTree = SOURCE_ROOT; };
+		CC8065C40845064079876EF8 /* SchemaInfoDeclarations.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SchemaInfoDeclarations.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/SchemaInfoDeclarations.h; sourceTree = SOURCE_ROOT; };
+		CDBA02AB96B0467F37301DA4 /* IMaterial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IMaterial.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/IMaterial.h; sourceTree = SOURCE_ROOT; };
+		CE2CE042A12ADE3777F91F9E /* ScalarPropertyReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ScalarPropertyReader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ScalarPropertyReader.h; sourceTree = SOURCE_ROOT; };
+		CE67DFF1411CFB8C8F026EA7 /* OTypedScalarProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OTypedScalarProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OTypedScalarProperty.h; sourceTree = SOURCE_ROOT; };
+		CE6D83D82DF692199417BFE3 /* ImathExport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathExport.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathExport.h; sourceTree = SOURCE_ROOT; };
+		CEC2E049A3F4648AC8319AA2 /* H5api_adpt.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = H5api_adpt.h; path = ../../../addons/ofxAlembic/libs/alembic/include/H5api_adpt.h; sourceTree = SOURCE_ROOT; };
+		CF4D4CA3C8C73239DDA67235 /* OCompoundProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OCompoundProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OCompoundProperty.h; sourceTree = SOURCE_ROOT; };
+		D018DF128AD4B1424132770F /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/All.h; sourceTree = SOURCE_ROOT; };
+		D136722DFECE498D0E5167B7 /* FilmBackXformOp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FilmBackXformOp.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/FilmBackXformOp.h; sourceTree = SOURCE_ROOT; };
+		D2C40E255940FF0B7642E9EC /* MetaData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MetaData.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/MetaData.h; sourceTree = SOURCE_ROOT; };
+		D2D3B3EBE0F09AECC792BE92 /* ImathGLU.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathGLU.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathGLU.h; sourceTree = SOURCE_ROOT; };
+		D58DCB2C0AEFDE6171E29540 /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Syphon.framework; path = ../../../addons/ofxSyphon/libs/Syphon/lib/osx/Syphon.framework; sourceTree = "<group>"; };
+		D5945955E6CA87DFD4E9CABB /* ofxMakeTopMostWindow.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMakeTopMostWindow.h; path = ../../../addons/ofxMakeTopMostWindow/src/ofxMakeTopMostWindow.h; sourceTree = SOURCE_ROOT; };
+		D77815659FA55F22171F0FA4 /* OGeomBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OGeomBase.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OGeomBase.h; sourceTree = SOURCE_ROOT; };
+		D7C7BDAD29F580A47FF56B52 /* BaseEngine.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BaseEngine.cpp; path = ../../../addons/ofxImGui/src/BaseEngine.cpp; sourceTree = SOURCE_ROOT; };
+		D91100C1FBA245AD6CB55BD3 /* ofxImGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxImGui.h; path = ../../../addons/ofxImGui/src/ofxImGui.h; sourceTree = SOURCE_ROOT; };
+		D97DA3B436D198CDA0367D82 /* ImathColor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathColor.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathColor.h; sourceTree = SOURCE_ROOT; };
+		D99A3FFBF6622302D3DE1774 /* SpookyV2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SpookyV2.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util/SpookyV2.h; sourceTree = SOURCE_ROOT; };
+		DAE0FC94CFCDD45C89A97A3B /* ofxAlembicWriter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAlembicWriter.cpp; path = ../../../addons/ofxAlembic/src/ofxAlembicWriter.cpp; sourceTree = SOURCE_ROOT; };
+		E088C062B429FDC1E945E810 /* MaterialAssignment.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MaterialAssignment.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial/MaterialAssignment.h; sourceTree = SOURCE_ROOT; };
+		E135C7F22D40FCFD9C5AB94B /* imgui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = imgui.h; path = ../../../addons/ofxImGui/libs/imgui/src/imgui.h; sourceTree = SOURCE_ROOT; };
+		E14ED5FC6F1FAB30EBBE78B2 /* ILight.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ILight.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/ILight.h; sourceTree = SOURCE_ROOT; };
+		E15D471D4A2E4CEB037D28FD /* OSubD.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OSubD.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/OSubD.h; sourceTree = SOURCE_ROOT; };
+		E24554354C8A113551A95008 /* ofxAlembic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAlembic.h; path = ../../../addons/ofxAlembic/src/ofxAlembic.h; sourceTree = SOURCE_ROOT; };
+		E31212D88D18B605741B7C8B /* ImathSphere.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathSphere.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathSphere.h; sourceTree = SOURCE_ROOT; };
+		E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = SyphonNameboundClient.m; path = ../../../addons/ofxSyphon/libs/Syphon/src/SyphonNameboundClient.m; sourceTree = SOURCE_ROOT; };
+		E3701B5DB7BC92D9DA2A95FF /* ofxAlembicReader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAlembicReader.h; path = ../../../addons/ofxAlembic/src/ofxAlembicReader.h; sourceTree = SOURCE_ROOT; };
+		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E46860946141544D16D973BB /* ImathVec.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathVec.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathVec.h; sourceTree = SOURCE_ROOT; };
+		E4B69B5B0A3A1756003C02F2 /* VirtualMapperDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualMapperDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E63B07B0A3A27033CE0C14C9 /* IBaseProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IBaseProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/IBaseProperty.h; sourceTree = SOURCE_ROOT; };
+		E68A00035D2F8150E6BFE01B /* ObjectHeader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ObjectHeader.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ObjectHeader.h; sourceTree = SOURCE_ROOT; };
+		E68E2DC6B608124861A94FB1 /* OScalarProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OScalarProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/OScalarProperty.h; sourceTree = SOURCE_ROOT; };
+		E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxSyphonServerDirectory.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonServerDirectory.mm; sourceTree = SOURCE_ROOT; };
+		E871F4E93D7E4FC31747606F /* FaceSetExclusivity.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FaceSetExclusivity.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/FaceSetExclusivity.h; sourceTree = SOURCE_ROOT; };
+		E8F7A272887DEFFE5DE6A8FE /* ForwardDeclarations.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ForwardDeclarations.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract/ForwardDeclarations.h; sourceTree = SOURCE_ROOT; };
+		E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofAppUtils.cpp; path = src/ofAppUtils.cpp; sourceTree = SOURCE_ROOT; };
+		E9B4B0E089A40DAAA649EB09 /* ITypedArrayProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ITypedArrayProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/ITypedArrayProperty.h; sourceTree = SOURCE_ROOT; };
+		E9C4B429457F0929D1FFE1CF /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/All.h; sourceTree = SOURCE_ROOT; };
+		EA530E998F36974DAACE9F83 /* ImathFrustum.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathFrustum.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathFrustum.h; sourceTree = SOURCE_ROOT; };
+		EAC0B6A5DEB8E5DFAB531122 /* IlmThreadPool.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IlmThreadPool.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IlmThreadPool.h; sourceTree = SOURCE_ROOT; };
+		EC442C2C3FE39878FCBD17A8 /* SchemaInfoDeclarations.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SchemaInfoDeclarations.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/SchemaInfoDeclarations.h; sourceTree = SOURCE_ROOT; };
+		EE2E01A393B5FD7ECB70F63B /* IexThrowErrnoExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexThrowErrnoExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexThrowErrnoExc.h; sourceTree = SOURCE_ROOT; };
+		F35632066802CBB3FA78B49B /* CameraSample.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CameraSample.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/CameraSample.h; sourceTree = SOURCE_ROOT; };
+		F3691601523E29EC4CFC2625 /* ImathEuler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathEuler.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathEuler.h; sourceTree = SOURCE_ROOT; };
+		F3C0E3B143120C8DDB5D55B2 /* IArrayProperty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IArrayProperty.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/IArrayProperty.h; sourceTree = SOURCE_ROOT; };
+		F4503FE3F7569A289BF3F300 /* IexMathIeeeExc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexMathIeeeExc.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexMathIeeeExc.h; sourceTree = SOURCE_ROOT; };
+		F796EDFDDAF1AEA28D9C970C /* ImathInterval.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathInterval.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathInterval.h; sourceTree = SOURCE_ROOT; };
+		F83210077D01C5A559AB2D99 /* ofxAlembicUtil.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAlembicUtil.h; path = ../../../addons/ofxAlembic/src/ofxAlembicUtil.h; sourceTree = SOURCE_ROOT; };
+		F8EF123C36B79562B683FD51 /* IexNamespace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexNamespace.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexNamespace.h; sourceTree = SOURCE_ROOT; };
+		F935F5C75519226CD7A9FA3C /* IexExport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IexExport.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/IexExport.h; sourceTree = SOURCE_ROOT; };
+		FAC4F88CA28B3CA8D0EEAA59 /* ImathFrustumTest.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathFrustumTest.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathFrustumTest.h; sourceTree = SOURCE_ROOT; };
+		FB3FB0F9768F55BDC2492FEE /* ofxImGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxImGui.cpp; path = ../../../addons/ofxImGui/src/ofxImGui.cpp; sourceTree = SOURCE_ROOT; };
+		FB9D90FDF2F7A2B5548E4A71 /* CurveType.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CurveType.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom/CurveType.h; sourceTree = SOURCE_ROOT; };
+		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
+		FD24C7DBE373C3B79648C23F /* BaseEngine.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BaseEngine.h; path = ../../../addons/ofxImGui/src/BaseEngine.h; sourceTree = SOURCE_ROOT; };
+		FE622BCECC1E404FBF538CE5 /* ImathMatrix.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathMatrix.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathMatrix.h; sourceTree = SOURCE_ROOT; };
+		FE7D9F5B188B6FD8CBBA9B98 /* ofxAlembicUtil.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAlembicUtil.cpp; path = ../../../addons/ofxAlembic/src/ofxAlembicUtil.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4B69B590A3A1756003C02F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+				E1A3FD40C8BCD507345F1126 /* Syphon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		162B11A6E87BB4BCFA23D9A8 /* ofxMakeTopMostWindow */ = {
+			isa = PBXGroup;
+			children = (
+				C67EB54515EBBEC3D765AEF2 /* src */,
+			);
+			name = ofxMakeTopMostWindow;
+			sourceTree = "<group>";
+		};
+		1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */ = {
+			isa = PBXGroup;
+			children = (
+				6ECEF0D76BC33727823EADFF /* src */,
+				6E54289412D2D94F45A05113 /* libs */,
+			);
+			name = ofxXmlSettings;
+			sourceTree = "<group>";
+		};
+		2317994671CD76BBA16927B8 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				65F3085962B3A8825746C3C2 /* Syphon */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		2351472CDFA0ED00281DB9C0 /* Abc */ = {
+			isa = PBXGroup;
+			children = (
+				E9C4B429457F0929D1FFE1CF /* All.h */,
+				B584ACE8FE66A97AB5D391D9 /* ArchiveInfo.h */,
+				473F9F2BC406AB49EC4DE7D4 /* Argument.h */,
+				03BD0A876C221A7C5823A83F /* Base.h */,
+				5CCD1095105C0848E5A0E20A /* ErrorHandler.h */,
+				12E34E7E93B2AA257DB12F90 /* Foundation.h */,
+				2FAD8237BEE8E1F639484EAF /* IArchive.h */,
+				F3C0E3B143120C8DDB5D55B2 /* IArrayProperty.h */,
+				E63B07B0A3A27033CE0C14C9 /* IBaseProperty.h */,
+				88D20ACEB81FEEA99D8A2CA4 /* ICompoundProperty.h */,
+				24B88980AE24A5DF45CA2606 /* IObject.h */,
+				895B377199E7D63C6438BF69 /* ISampleSelector.h */,
+				4F2D09AE2A24A443118F5A67 /* IScalarProperty.h */,
+				A66E82A681BECB4D0DBB23BB /* ISchema.h */,
+				7BC6846FD0788ECDE70FAA8C /* ISchemaObject.h */,
+				E9B4B0E089A40DAAA649EB09 /* ITypedArrayProperty.h */,
+				910106D7808297BEA49AB109 /* ITypedScalarProperty.h */,
+				158631E6903027C1CB6E984E /* OArchive.h */,
+				0273F1062002666F73AECBAF /* OArrayProperty.h */,
+				20A676A1035426214BCE4FA6 /* OBaseProperty.h */,
+				CF4D4CA3C8C73239DDA67235 /* OCompoundProperty.h */,
+				C0B5E80D8E170EA19081AB5F /* OObject.h */,
+				E68E2DC6B608124861A94FB1 /* OScalarProperty.h */,
+				BCD4C945792011930288526A /* OSchema.h */,
+				A57F19DB6C7CD9DF2175074C /* OSchemaObject.h */,
+				74B4827ECCB54E7D42AEEBE1 /* OTypedArrayProperty.h */,
+				CE67DFF1411CFB8C8F026EA7 /* OTypedScalarProperty.h */,
+				9427BCBCEF448D2C75AC8F6F /* Reference.h */,
+				4963E38B8AF4E75763348D90 /* SourceName.h */,
+				9847AD64E0A54B989F297C21 /* TypedArraySample.h */,
+				7F6680A728AFA77AA2F46EDC /* TypedPropertyTraits.h */,
+			);
+			name = Abc;
+			sourceTree = "<group>";
+		};
+		2A1336095212A903730ECDCA /* AbcGeom */ = {
+			isa = PBXGroup;
+			children = (
+				AA8725E30D2563380DB2C800 /* All.h */,
+				7B8DFF2DE221E55FDB10E9BA /* ArchiveBounds.h */,
+				95ABCF662BFF2AA92D851397 /* Basis.h */,
+				F35632066802CBB3FA78B49B /* CameraSample.h */,
+				FB9D90FDF2F7A2B5548E4A71 /* CurveType.h */,
+				E871F4E93D7E4FC31747606F /* FaceSetExclusivity.h */,
+				D136722DFECE498D0E5167B7 /* FilmBackXformOp.h */,
+				B983C8C4CF77E7E66DBB451F /* Foundation.h */,
+				B37B3E3B9D68364EE20EA824 /* GeometryScope.h */,
+				162B7F615FE588D9EF5C5E6A /* ICamera.h */,
+				09B9E760DBBC145524471FA3 /* ICurves.h */,
+				2010A9A64249B5378BCFA262 /* IFaceSet.h */,
+				85888E905AF4A6FA79B9D071 /* IGeomBase.h */,
+				9D42274BD8A2B4295590BEE1 /* IGeomParam.h */,
+				E14ED5FC6F1FAB30EBBE78B2 /* ILight.h */,
+				452EB2338BFC60C65C00A316 /* INuPatch.h */,
+				6795941B62F6FFC494625137 /* IPoints.h */,
+				C4513F2A0ABB5352B6CC514C /* IPolyMesh.h */,
+				86811417D8011A9AE868DEEE /* ISubD.h */,
+				525BBFE4F102B1370988A3CD /* IXform.h */,
+				46EC632D743DBAAC234A8E46 /* OCamera.h */,
+				4C53BB241DF1AACF41FE9C39 /* OCurves.h */,
+				7A46D5FB121597D90DB15CAB /* OFaceSet.h */,
+				D77815659FA55F22171F0FA4 /* OGeomBase.h */,
+				C511E03138B1AE848FC584BF /* OGeomParam.h */,
+				562E398EF064FA96B5373F0B /* OLight.h */,
+				65716CE9D5CC66C6B339383E /* ONuPatch.h */,
+				61687CD837E8A703A2C3BA3F /* OPoints.h */,
+				AFBCCDFADC95FD43411DB2EE /* OPolyMesh.h */,
+				E15D471D4A2E4CEB037D28FD /* OSubD.h */,
+				3B78A9E05B0868CD10902E76 /* OXform.h */,
+				EC442C2C3FE39878FCBD17A8 /* SchemaInfoDeclarations.h */,
+				96BA0FEAA57F5344E25B239A /* Visibility.h */,
+				A546FE19250B567954EFFDE0 /* XformOp.h */,
+				198918A105DCDFD6C4D620E5 /* XformSample.h */,
+			);
+			name = AbcGeom;
+			sourceTree = "<group>";
+		};
+		398D2AD7D162CE13BF40CD4F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				821159A073ABA066739FD401 /* osx */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		42040A065A588BDDE518E51D /* AbcCoreOgawa */ = {
+			isa = PBXGroup;
+			children = (
+				86A94BC15C9696C9DDF93F5B /* All.h */,
+				11633B36C5B76E48706284B8 /* ReadWrite.h */,
+			);
+			name = AbcCoreOgawa;
+			sourceTree = "<group>";
+		};
+		49A9E39C52C2DF4DDA1E185F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0FB83AC7747296DD35C1C295 /* ofxSyphon.h */,
+				01FAC3552E00C3620035EA2F /* ofxSyphonClient.h */,
+				03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */,
+				46BBCC26D60B589958BF0D03 /* ofxSyphonServer.h */,
+				32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */,
+				337B812806A0E7D26A029E5A /* ofxSyphonServerDirectory.h */,
+				E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		50EAFB5FF7C5722E7B4895C7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				71FFD50EA75BCC76F0C58D12 /* SyphonNameboundClient.h */,
+				E3405C5AE387BDDC2AD19473 /* SyphonNameboundClient.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6178F566608DB3D53012CCC7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D018DF128AD4B1424132770F /* All.h */,
+				8087B4D4C8280EBCC9603C76 /* Config.h */,
+				6A1B00F5A0789E1DD37CBC5A /* Digest.h */,
+				C6BE98F52089B286433ACD8D /* Dimensions.h */,
+				7B8D7C3EF7DCCC49D7873F74 /* Exception.h */,
+				77F34D515A6EFE32BDDAA77C /* Export.h */,
+				B12CCA25936622A17F9928AB /* Foundation.h */,
+				69E6C376A393D0E113FF85A6 /* Murmur3.h */,
+				CC3FB40FFA9B90D6106B7051 /* Naming.h */,
+				4428940387E71AB9B25A46EA /* OperatorBool.h */,
+				590B1E5C3E1D2FB6A3F1B73E /* PlainOldDataType.h */,
+				D99A3FFBF6622302D3DE1774 /* SpookyV2.h */,
+				10E89DC3012CC27A7C17AD1A /* TokenMap.h */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		65F3085962B3A8825746C3C2 /* Syphon */ = {
+			isa = PBXGroup;
+			children = (
+				50EAFB5FF7C5722E7B4895C7 /* src */,
+				398D2AD7D162CE13BF40CD4F /* lib */,
+			);
+			name = Syphon;
+			sourceTree = "<group>";
+		};
+		6948EE371B920CB800B5AC1A /* local_addons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = local_addons;
+			sourceTree = "<group>";
+		};
+		6E54289412D2D94F45A05113 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */,
+				B21E7E5F548EEA92F368040B /* tinyxml.h */,
+				832BDC407620CDBA568B713D /* tinyxmlerror.cpp */,
+				FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6ECEF0D76BC33727823EADFF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */,
+				01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6FF8AA08E79CFA38503CDB0E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D7C7BDAD29F580A47FF56B52 /* BaseEngine.cpp */,
+				FD24C7DBE373C3B79648C23F /* BaseEngine.h */,
+				8E362ECECD928E7B3EBA5C53 /* BaseTheme.cpp */,
+				B462DABAC6A023A1D88702C7 /* BaseTheme.h */,
+				2F1C686ADB50E8F79292BA80 /* EngineGLFW.cpp */,
+				3A9013A02246381F14572188 /* EngineGLFW.h */,
+				3174462C64E918D8DA23041B /* EngineOpenGLES.cpp */,
+				CB5C15EA0881D35A88C22937 /* EngineOpenGLES.h */,
+				3AB24D308736280A07568671 /* imconfig.h */,
+				FB3FB0F9768F55BDC2492FEE /* ofxImGui.cpp */,
+				D91100C1FBA245AD6CB55BD3 /* ofxImGui.h */,
+				0BB9F7D314FADD51BAB96878 /* ThemeTest.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		768C3255AF2F3E1A78DC4DF4 /* ofxImGui */ = {
+			isa = PBXGroup;
+			children = (
+				6FF8AA08E79CFA38503CDB0E /* src */,
+				C618591A26FF62625326E2DD /* libs */,
+			);
+			name = ofxImGui;
+			sourceTree = "<group>";
+		};
+		7F3C04577424427D348B1425 /* ofxSyphon */ = {
+			isa = PBXGroup;
+			children = (
+				49A9E39C52C2DF4DDA1E185F /* src */,
+				2317994671CD76BBA16927B8 /* libs */,
+			);
+			name = ofxSyphon;
+			sourceTree = "<group>";
+		};
+		807146441E0D13714E9F4654 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6CF9B1FD213484DDDB7AE362 /* imgui.cpp */,
+				E135C7F22D40FCFD9C5AB94B /* imgui.h */,
+				9CC36552DD0A47E758D71FB5 /* imgui_demo.cpp */,
+				9E02D9F3A04B5573758EBCF8 /* imgui_draw.cpp */,
+				12EBC5773B81D5E37E068E24 /* imgui_internal.h */,
+				0F99D91BAC240A07901D0E6A /* stb_rect_pack.h */,
+				75EDE0F944593EF8C610B0A1 /* stb_textedit.h */,
+				80F80BA4DD89C624504E035E /* stb_truetype.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		81821C5B2706C0FEDE7B7EFB /* AbcCoreAbstract */ = {
+			isa = PBXGroup;
+			children = (
+				9F96948C6BD5BE9D6AF81D2F /* All.h */,
+				96290A46FDBD3ACAFFF8D2B8 /* ArchiveReader.h */,
+				5825A3B242BE6FBE5F19B9D5 /* ArchiveWriter.h */,
+				80605FA88C79C8F47A083CE2 /* ArrayPropertyReader.h */,
+				964C650431B20781ECCE4161 /* ArrayPropertyWriter.h */,
+				25386A7CDFD9DB5B47F1FE85 /* ArraySample.h */,
+				9BAE4AD1CE98585DD0DC4B91 /* ArraySampleKey.h */,
+				22EBF2EAEA0E9ED192D4D9D8 /* BasePropertyReader.h */,
+				868A5140E67FF182F39474F0 /* BasePropertyWriter.h */,
+				BE4260AED4B0490DC6DFF627 /* CompoundPropertyReader.h */,
+				7F194478E266268E40876C0D /* CompoundPropertyWriter.h */,
+				5BF1FDC87FC6998C0C9A807D /* DataType.h */,
+				E8F7A272887DEFFE5DE6A8FE /* ForwardDeclarations.h */,
+				4FF35C1E21D41542495F3951 /* Foundation.h */,
+				D2C40E255940FF0B7642E9EC /* MetaData.h */,
+				E68A00035D2F8150E6BFE01B /* ObjectHeader.h */,
+				324E5811575790AD1F5F3FCC /* ObjectReader.h */,
+				12C290126503F54305375478 /* ObjectWriter.h */,
+				18846481F44844AACFC18F24 /* PropertyHeader.h */,
+				5E1ABC9FFBDAA4BBC1BE38E7 /* ReadArraySampleCache.h */,
+				CE2CE042A12ADE3777F91F9E /* ScalarPropertyReader.h */,
+				594DFDAC2AEE5BA85E9C736E /* ScalarPropertyWriter.h */,
+				440ED5E8FAE331E2C93D0160 /* ScalarSample.h */,
+				01B583BFB534C5A7A2068BFE /* TimeSampling.h */,
+				2DF2A7EEB15B92A5E338F003 /* TimeSamplingType.h */,
+			);
+			name = AbcCoreAbstract;
+			sourceTree = "<group>";
+		};
+		821159A073ABA066739FD401 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				D58DCB2C0AEFDE6171E29540 /* Syphon.framework */,
+			);
+			name = osx;
+			sourceTree = "<group>";
+		};
+		8D2869234BA7562D78D731FF /* imgui */ = {
+			isa = PBXGroup;
+			children = (
+				807146441E0D13714E9F4654 /* src */,
+			);
+			name = imgui;
+			sourceTree = "<group>";
+		};
+		8E8755E87E311C6148CDAFB9 /* AbcCollection */ = {
+			isa = PBXGroup;
+			children = (
+				20DE1A52289C29C92EE40BDC /* All.h */,
+				B5F64354365EA8DA9FAF3C35 /* ICollections.h */,
+				B1D22A486E3C33282B845685 /* OCollections.h */,
+				21CD45C305AF079F4130FCED /* SchemaInfoDeclarations.h */,
+			);
+			name = AbcCollection;
+			sourceTree = "<group>";
+		};
+		9270470C1DB30AF1001F4AE2 /* ofxTopWindow */ = {
+			isa = PBXGroup;
+			children = (
+				9270470D1DB30AF1001F4AE2 /* ofxTopWindow.h */,
+				9270470E1DB30AF1001F4AE2 /* ofxTopWindow.mm */,
+			);
+			path = ofxTopWindow;
+			sourceTree = "<group>";
+		};
+		945AE2B303476DF03A420828 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E24554354C8A113551A95008 /* ofxAlembic.h */,
+				4D61C51025AA82EDA75E1D13 /* ofxAlembicReader.cpp */,
+				E3701B5DB7BC92D9DA2A95FF /* ofxAlembicReader.h */,
+				588FA58D63E226EB270AA690 /* ofxAlembicType.cpp */,
+				A4118E6B8DDE7AF2045C2A10 /* ofxAlembicType.h */,
+				FE7D9F5B188B6FD8CBBA9B98 /* ofxAlembicUtil.cpp */,
+				F83210077D01C5A559AB2D99 /* ofxAlembicUtil.h */,
+				DAE0FC94CFCDD45C89A97A3B /* ofxAlembicWriter.cpp */,
+				697744953DFB27A2976F57D6 /* ofxAlembicWriter.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		A5809D6C11CA9ED06184B0F8 /* alembic */ = {
+			isa = PBXGroup;
+			children = (
+				D9837AD61C29BD4E4EE38D72 /* include */,
+			);
+			name = alembic;
+			sourceTree = "<group>";
+		};
+		BB3E9CF0CA00AA789E98926B /* AbcMaterial */ = {
+			isa = PBXGroup;
+			children = (
+				1E4A016509A7FF070488EC55 /* All.h */,
+				CDBA02AB96B0467F37301DA4 /* IMaterial.h */,
+				E088C062B429FDC1E945E810 /* MaterialAssignment.h */,
+				459A0BA3CCF5B63F5CFDF296 /* MaterialFlatten.h */,
+				307FAF0B7F7A46006233A35E /* OMaterial.h */,
+				CC8065C40845064079876EF8 /* SchemaInfoDeclarations.h */,
+			);
+			name = AbcMaterial;
+			sourceTree = "<group>";
+		};
+		BB4B014C10F69532006C3DED /* addons */ = {
+			isa = PBXGroup;
+			children = (
+				C3344BA3A60864607A515CB3 /* ofxAlembic */,
+				CB480773A518EB96FF506657 /* ofxGrabCam */,
+				768C3255AF2F3E1A78DC4DF4 /* ofxImGui */,
+				162B11A6E87BB4BCFA23D9A8 /* ofxMakeTopMostWindow */,
+				7F3C04577424427D348B1425 /* ofxSyphon */,
+				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
+			);
+			name = addons;
+			sourceTree = "<group>";
+		};
+		C121489AE7577F0ACC0BA622 /* Alembic */ = {
+			isa = PBXGroup;
+			children = (
+				2351472CDFA0ED00281DB9C0 /* Abc */,
+				8E8755E87E311C6148CDAFB9 /* AbcCollection */,
+				81821C5B2706C0FEDE7B7EFB /* AbcCoreAbstract */,
+				C47368A986CA6626434556F3 /* AbcCoreFactory */,
+				D9FA8CD1143F175C78BB587C /* AbcCoreHDF5 */,
+				42040A065A588BDDE518E51D /* AbcCoreOgawa */,
+				2A1336095212A903730ECDCA /* AbcGeom */,
+				BB3E9CF0CA00AA789E98926B /* AbcMaterial */,
+				6178F566608DB3D53012CCC7 /* Util */,
+			);
+			name = Alembic;
+			sourceTree = "<group>";
+		};
+		C3344BA3A60864607A515CB3 /* ofxAlembic */ = {
+			isa = PBXGroup;
+			children = (
+				945AE2B303476DF03A420828 /* src */,
+				CEA47FCBEB3E42FE14A37F51 /* libs */,
+			);
+			name = ofxAlembic;
+			sourceTree = "<group>";
+		};
+		C47368A986CA6626434556F3 /* AbcCoreFactory */ = {
+			isa = PBXGroup;
+			children = (
+				CC4AF7DBDBC499DBB324A0D6 /* All.h */,
+				849E1DBCF520303F3C690EB7 /* IFactory.h */,
+			);
+			name = AbcCoreFactory;
+			sourceTree = "<group>";
+		};
+		C618591A26FF62625326E2DD /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				8D2869234BA7562D78D731FF /* imgui */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		C67EB54515EBBEC3D765AEF2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D5945955E6CA87DFD4E9CABB /* ofxMakeTopMostWindow.h */,
+				86C632CE7213A964EE3A1FA7 /* ofxMakeTopMostWindow.mm */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		CB480773A518EB96FF506657 /* ofxGrabCam */ = {
+			isa = PBXGroup;
+			children = (
+				F60C58CA4909EB621B1DBD95 /* src */,
+			);
+			name = ofxGrabCam;
+			sourceTree = "<group>";
+		};
+		CEA47FCBEB3E42FE14A37F51 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				A5809D6C11CA9ED06184B0F8 /* alembic */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		D9837AD61C29BD4E4EE38D72 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C121489AE7577F0ACC0BA622 /* Alembic */,
+				CEC2E049A3F4648AC8319AA2 /* H5api_adpt.h */,
+				82C615338C4F09C416A9A85A /* H5pubconf.h */,
+				B56E12732448ACD396D26FC1 /* H5public.h */,
+				5312B6B757092C2BA908CE48 /* H5version.h */,
+				EE767237440C944F2418C7BA /* OpenEXR */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		D9FA8CD1143F175C78BB587C /* AbcCoreHDF5 */ = {
+			isa = PBXGroup;
+			children = (
+				956B59664BF16405139529DA /* All.h */,
+				BF194A51D0EFBDA91BE4C555 /* ReadWrite.h */,
+			);
+			name = AbcCoreHDF5;
+			sourceTree = "<group>";
+		};
+		E4328144138ABC890047C5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4328148138ABC890047C5CB /* openFrameworksDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4B69B4A0A3A1720003C02F2 = {
+			isa = PBXGroup;
+			children = (
+				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
+				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E4EEC9E9138DF44700A80321 /* openFrameworks */,
+				BB4B014C10F69532006C3DED /* addons */,
+				6948EE371B920CB800B5AC1A /* local_addons */,
+				E4B69B5B0A3A1756003C02F2 /* VirtualMapperDebug.app */,
+			);
+			sourceTree = "<group>";
+		};
+		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9270470C1DB30AF1001F4AE2 /* ofxTopWindow */,
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				2AA5218C8179465A94181B83 /* Camera.h */,
+				4300465E4B5B65B2EE265C5C /* ImOf.h */,
+				E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */,
+				195129592521AA26628BA6CE /* Scene.h */,
+				AB542D509EAED59E752B31A2 /* ExternalInput.h */,
+				927047121DB56090001F4AE2 /* ImageInput.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4EEC9E9138DF44700A80321 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */,
+				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
+			);
+			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		EE767237440C944F2418C7BA /* OpenEXR */ = {
+			isa = PBXGroup;
+			children = (
+				513D56FF406D47EEA5535483 /* half.h */,
+				2E1C5802AF1A0BCBD925A83C /* halfExport.h */,
+				33F6BDD0D691DFD2B73AB546 /* halfFunction.h */,
+				3EE891267C41ED7182747850 /* halfLimits.h */,
+				813339A635253A039C45EE0C /* Iex.h */,
+				2D44A6806BC6CD4FFD2FF583 /* IexBaseExc.h */,
+				0DD459D8F73B1DCD9B0B3C8F /* IexErrnoExc.h */,
+				F935F5C75519226CD7A9FA3C /* IexExport.h */,
+				7555BCD3B214E474E9AD2F69 /* IexForward.h */,
+				CB9ABAD87EE4B53D54D11785 /* IexMacros.h */,
+				5852A658C91E9B64B21ECF9B /* IexMathExc.h */,
+				9BCC6DDAABD371C4791A5FFC /* IexMathFloatExc.h */,
+				9A54FB9E05FF7C8764E730D1 /* IexMathFpu.h */,
+				F4503FE3F7569A289BF3F300 /* IexMathIeeeExc.h */,
+				F8EF123C36B79562B683FD51 /* IexNamespace.h */,
+				EE2E01A393B5FD7ECB70F63B /* IexThrowErrnoExc.h */,
+				88039D5988BD4E6D4797AB7E /* IlmBaseConfig.h */,
+				430BDE8DDB6C9AFC150D3750 /* IlmThread.h */,
+				20697DC2697C847AD2B27D04 /* IlmThreadExport.h */,
+				5F36A548F289ED63B0829720 /* IlmThreadForward.h */,
+				79E742BD452310B9C2CF9DB7 /* IlmThreadMutex.h */,
+				101E761929E83468D16A2A18 /* IlmThreadNamespace.h */,
+				EAC0B6A5DEB8E5DFAB531122 /* IlmThreadPool.h */,
+				48D94E3E5B28F26DD8B5BFA2 /* IlmThreadSemaphore.h */,
+				15A77854394DC41D18D37C0D /* ImathBox.h */,
+				41B565A42C643056C246E781 /* ImathBoxAlgo.h */,
+				D97DA3B436D198CDA0367D82 /* ImathColor.h */,
+				CC26ADFA0FD5298C6709F1B6 /* ImathColorAlgo.h */,
+				F3691601523E29EC4CFC2625 /* ImathEuler.h */,
+				428551F150A6DEFF71E02A23 /* ImathExc.h */,
+				CE6D83D82DF692199417BFE3 /* ImathExport.h */,
+				1ABB536897316FE4B29C1B36 /* ImathForward.h */,
+				A382513F15CB60C170CFCE8B /* ImathFrame.h */,
+				EA530E998F36974DAACE9F83 /* ImathFrustum.h */,
+				FAC4F88CA28B3CA8D0EEAA59 /* ImathFrustumTest.h */,
+				AD82981344EBE8F6FDBFCB60 /* ImathFun.h */,
+				92AF9D179A5C8DF95B867B46 /* ImathGL.h */,
+				D2D3B3EBE0F09AECC792BE92 /* ImathGLU.h */,
+				01B2F93328BA412A539B9D70 /* ImathHalfLimits.h */,
+				28A0FC736B05D31032869338 /* ImathInt64.h */,
+				F796EDFDDAF1AEA28D9C970C /* ImathInterval.h */,
+				5183C31CBA6E5C0F2D7B20D7 /* ImathLimits.h */,
+				331854AB017BD641BC91921E /* ImathLine.h */,
+				2FA1EE557BF65E3644BF1EDB /* ImathLineAlgo.h */,
+				77D4665423AD4BCF82ACE20E /* ImathMath.h */,
+				FE622BCECC1E404FBF538CE5 /* ImathMatrix.h */,
+				171DCDDD47B122C214C267C4 /* ImathMatrixAlgo.h */,
+				333972711B5FDAEEDD8A9F5B /* ImathNamespace.h */,
+				255843B4CF0786C090DE345E /* ImathPlane.h */,
+				B7C4333F713122E24EFCC036 /* ImathPlatform.h */,
+				B8D435E3793F51B76FFEAC77 /* ImathQuat.h */,
+				6DA766A720ED9E4569DAABDE /* ImathRandom.h */,
+				ABC27B1E47C5B2ECDEB8FA2F /* ImathRoots.h */,
+				C1D834B807204D2F9CBC7793 /* ImathShear.h */,
+				E31212D88D18B605741B7C8B /* ImathSphere.h */,
+				E46860946141544D16D973BB /* ImathVec.h */,
+				2A49006B85A6F36FEEE8FEAD /* ImathVecAlgo.h */,
+			);
+			name = OpenEXR;
+			sourceTree = "<group>";
+		};
+		F60C58CA4909EB621B1DBD95 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				126D728B075C482C4C740428 /* ofxGrabCam.cpp */,
+				411825D206FEFBA451C69368 /* ofxGrabCam.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4B69B5A0A3A1756003C02F2 /* VirtualMapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "VirtualMapper" */;
+			buildPhases = (
+				E4B69B580A3A1756003C02F2 /* Sources */,
+				E4B69B590A3A1756003C02F2 /* Frameworks */,
+				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
+				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
+			);
+			name = VirtualMapper;
+			productName = myOFApp;
+			productReference = E4B69B5B0A3A1756003C02F2 /* VirtualMapperDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "VirtualMapper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = E4B69B4A0A3A1720003C02F2;
+			productRefGroup = E4B69B4A0A3A1720003C02F2;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4328144138ABC890047C5CB /* Products */;
+					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E4B69B5A0A3A1756003C02F2 /* VirtualMapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = openFrameworksDebug.a;
+			remoteRef = E4328147138ABC890047C5CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4B69B580A3A1756003C02F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				8CEED0871A520A02AC26B231 /* ofAppUtils.cpp in Sources */,
+				D17988540C5C1823DDFD48B7 /* ofxAlembicReader.cpp in Sources */,
+				17F86ECD30824BDEBC82D836 /* ofxAlembicType.cpp in Sources */,
+				6F7F2BBDC3266D263C42FB90 /* ofxAlembicUtil.cpp in Sources */,
+				F8958EEA9D38C800E68DA60E /* ofxAlembicWriter.cpp in Sources */,
+				4B84BE00D8222E1072317E49 /* ofxGrabCam.cpp in Sources */,
+				DBBE189ECD171A97DCF46C6A /* BaseEngine.cpp in Sources */,
+				27CF6B6E279F8EE58C9D4B90 /* BaseTheme.cpp in Sources */,
+				462C212713EFFA5383B35DAB /* EngineGLFW.cpp in Sources */,
+				000315A9FA4E2F9A09533E05 /* EngineOpenGLES.cpp in Sources */,
+				E5A8B10F278E540A1F9F39E6 /* ofxImGui.cpp in Sources */,
+				5C2607C471F8D48C0036C56E /* imgui.cpp in Sources */,
+				E984796BE84AA4315636B6E7 /* imgui_demo.cpp in Sources */,
+				00413C35AAE31B483D7538AB /* imgui_draw.cpp in Sources */,
+				40AD1C19B4636C07ADF68C6E /* ofxMakeTopMostWindow.mm in Sources */,
+				1F558B76FB3412843DDAA031 /* ofxSyphonClient.mm in Sources */,
+				8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */,
+				9270470F1DB30AF1001F4AE2 /* ofxTopWindow.mm in Sources */,
+				11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */,
+				C9109422648B170B07A778CF /* SyphonNameboundClient.m in Sources */,
+				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
+				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,
+				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
+				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4EEB9AC138B136A00A80321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4B69B4E0A3A1720003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					src/osx,
+					src/win32,
+					../../../addons/ofxAlembic/libs,
+					../../../addons/ofxAlembic/libs/alembic,
+					../../../addons/ofxAlembic/libs/alembic/include,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util,
+					../../../addons/ofxAlembic/libs/alembic/include/OpenEXR,
+					../../../addons/ofxAlembic/libs/alembic/lib,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx,
+					../../../addons/ofxAlembic/src,
+					../../../addons/ofxGrabCam/src,
+					../../../addons/ofxImGui/libs,
+					../../../addons/ofxImGui/libs/imgui,
+					../../../addons/ofxImGui/libs/imgui/src,
+					../../../addons/ofxImGui/src,
+					../../../addons/ofxMakeTopMostWindow/src,
+					../../../addons/ofxSyphon/libs,
+					../../../addons/ofxSyphon/libs/Syphon,
+					../../../addons/ofxSyphon/libs/Syphon/lib,
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+					../../../addons/ofxSyphon/libs/Syphon/src,
+					../../../addons/ofxSyphon/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libAlembic.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5_hl.a,
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E4B69B4F0A3A1720003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					src/osx,
+					src/win32,
+					../../../addons/ofxAlembic/libs,
+					../../../addons/ofxAlembic/libs/alembic,
+					../../../addons/ofxAlembic/libs/alembic/include,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util,
+					../../../addons/ofxAlembic/libs/alembic/include/OpenEXR,
+					../../../addons/ofxAlembic/libs/alembic/lib,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx,
+					../../../addons/ofxAlembic/src,
+					../../../addons/ofxGrabCam/src,
+					../../../addons/ofxImGui/libs,
+					../../../addons/ofxImGui/libs/imgui,
+					../../../addons/ofxImGui/libs/imgui/src,
+					../../../addons/ofxImGui/src,
+					../../../addons/ofxMakeTopMostWindow/src,
+					../../../addons/ofxSyphon/libs,
+					../../../addons/ofxSyphon/libs/Syphon,
+					../../../addons/ofxSyphon/libs/Syphon/lib,
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+					../../../addons/ofxSyphon/libs/Syphon/src,
+					../../../addons/ofxSyphon/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libAlembic.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5_hl.a,
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E4B69B600A3A1757003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					src/osx,
+					src/win32,
+					../../../addons/ofxAlembic/libs,
+					../../../addons/ofxAlembic/libs/alembic,
+					../../../addons/ofxAlembic/libs/alembic/include,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util,
+					../../../addons/ofxAlembic/libs/alembic/include/OpenEXR,
+					../../../addons/ofxAlembic/libs/alembic/lib,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx,
+					../../../addons/ofxAlembic/src,
+					../../../addons/ofxGrabCam/src,
+					../../../addons/ofxImGui/libs,
+					../../../addons/ofxImGui/libs/imgui,
+					../../../addons/ofxImGui/libs/imgui/src,
+					../../../addons/ofxImGui/src,
+					../../../addons/ofxMakeTopMostWindow/src,
+					../../../addons/ofxSyphon/libs,
+					../../../addons/ofxSyphon/libs/Syphon,
+					../../../addons/ofxSyphon/libs/Syphon/lib,
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+					../../../addons/ofxSyphon/libs/Syphon/src,
+					../../../addons/ofxSyphon/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+				);
+				ICON = "$(ICON_NAME_DEBUG)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = /Applications;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libAlembic.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5_hl.a,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4B69B610A3A1757003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					src/osx,
+					src/win32,
+					../../../addons/ofxAlembic/libs,
+					../../../addons/ofxAlembic/libs/alembic,
+					../../../addons/ofxAlembic/libs/alembic/include,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCollection,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreAbstract,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreFactory,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreOgawa,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcGeom,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcMaterial,
+					../../../addons/ofxAlembic/libs/alembic/include/Alembic/Util,
+					../../../addons/ofxAlembic/libs/alembic/include/OpenEXR,
+					../../../addons/ofxAlembic/libs/alembic/lib,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx,
+					../../../addons/ofxAlembic/src,
+					../../../addons/ofxGrabCam/src,
+					../../../addons/ofxImGui/libs,
+					../../../addons/ofxImGui/libs/imgui,
+					../../../addons/ofxImGui/libs/imgui/src,
+					../../../addons/ofxImGui/src,
+					../../../addons/ofxMakeTopMostWindow/src,
+					../../../addons/ofxSyphon/libs,
+					../../../addons/ofxSyphon/libs/Syphon,
+					../../../addons/ofxSyphon/libs/Syphon/lib,
+					../../../addons/ofxSyphon/libs/Syphon/lib/osx,
+					../../../addons/ofxSyphon/libs/Syphon/src,
+					../../../addons/ofxSyphon/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+				);
+				ICON = "$(ICON_NAME_RELEASE)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = /Applications;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libAlembic.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5.a,
+					../../../addons/ofxAlembic/libs/alembic/lib/osx/libhdf5_hl.a,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "VirtualMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B4E0A3A1720003C02F2 /* Debug */,
+				E4B69B4F0A3A1720003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "VirtualMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B600A3A1757003C02F2 /* Debug */,
+				E4B69B610A3A1757003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4B69B4C0A3A1720003C02F2 /* Project object */;
+}
