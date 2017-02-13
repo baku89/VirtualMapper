@@ -1,11 +1,3 @@
-//
-//  Camera.h
-//  videoMappingPreview
-//
-//  Created by 麦 on 1/23/15.
-//
-//
-
 #pragma once
 
 #include "ofMain.h"

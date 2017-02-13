@@ -1,12 +1,4 @@
-//
-//  Scene.h
-//  VirtualMapper
-//
-//  Created by Baku Hashimoto on 10/2/16.
-//
-//
-
-#pragma once
+#pragma once 
 
 #include "ofMain.h"
 

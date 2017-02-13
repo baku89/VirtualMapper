@@ -1,11 +1,3 @@
-//
-//  ofAppUtils.cpp
-//  videoMappingPreview
-//
-//  Created by 麦 on 1/20/15.
-//
-//
-
 #include "ofApp.h"
 
 //--------------------------------------------------------------

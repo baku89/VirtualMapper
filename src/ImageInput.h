@@ -1,11 +1,3 @@
-//
-//  ImageInput.h
-//  VirtualMapper
-//
-//  Created by 麦 on 10/17/16.
-//
-//
-
 #pragma once
 
 #include "ofMain.h"
