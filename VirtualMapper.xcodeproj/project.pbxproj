@@ -461,6 +461,70 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>40AD1C19B4636C07ADF68C6E</key>
+			<dict>
+				<key>fileRef</key>
+				<string>86C632CE7213A964EE3A1FA7</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>86C632CE7213A964EE3A1FA7</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.objcpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxMakeTopMostWindow.mm</string>
+				<key>path</key>
+				<string>../../../addons/ofxMakeTopMostWindow/src/ofxMakeTopMostWindow.mm</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>C67EB54515EBBEC3D765AEF2</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>D5945955E6CA87DFD4E9CABB</string>
+					<string>86C632CE7213A964EE3A1FA7</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>162B11A6E87BB4BCFA23D9A8</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>C67EB54515EBBEC3D765AEF2</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxMakeTopMostWindow</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>D5945955E6CA87DFD4E9CABB</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxMakeTopMostWindow.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxMakeTopMostWindow/src/ofxMakeTopMostWindow.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>80F80BA4DD89C624504E035E</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -678,6 +742,28 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>E5A8B10F278E540A1F9F39E6</key>
+			<dict>
+				<key>fileRef</key>
+				<string>FB3FB0F9768F55BDC2492FEE</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>FB3FB0F9768F55BDC2492FEE</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxImGui.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxImGui/src/ofxImGui.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>3AB24D308736280A07568671</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -690,80 +776,6 @@
 				<string>imconfig.h</string>
 				<key>path</key>
 				<string>../../../addons/ofxImGui/src/imconfig.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>748079BFB4742DB856EABE40</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Helpers.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxImGui/src/Helpers.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>A0F2BFB15B92B4C6EB9527DE</key>
-			<dict>
-				<key>fileRef</key>
-				<string>2C966A8F6085AAA2FED6F411</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>2C966A8F6085AAA2FED6F411</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Helpers.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxImGui/src/Helpers.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>450466BDE619E4EC9BF85C57</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Gui.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxImGui/src/Gui.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>016BB55A143AD429330F07DB</key>
-			<dict>
-				<key>fileRef</key>
-				<string>F0E2047B4D03D5151730B52B</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>F0E2047B4D03D5151730B52B</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Gui.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxImGui/src/Gui.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -905,11 +917,8 @@
 					<string>3A9013A02246381F14572188</string>
 					<string>3174462C64E918D8DA23041B</string>
 					<string>CB5C15EA0881D35A88C22937</string>
-					<string>F0E2047B4D03D5151730B52B</string>
-					<string>450466BDE619E4EC9BF85C57</string>
-					<string>2C966A8F6085AAA2FED6F411</string>
-					<string>748079BFB4742DB856EABE40</string>
 					<string>3AB24D308736280A07568671</string>
+					<string>FB3FB0F9768F55BDC2492FEE</string>
 					<string>D91100C1FBA245AD6CB55BD3</string>
 					<string>0BB9F7D314FADD51BAB96878</string>
 				</array>
@@ -4295,65 +4304,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>FD988079F5AD5391EF9143C1</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Win32Window.h</string>
-				<key>path</key>
-				<string>src/win32/Win32Window.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>DD6C15F2CE69B47B5D1CE6F5</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>7020ED04F21D41C4FB6C79EA</string>
-					<string>FD988079F5AD5391EF9143C1</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>win32</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
-			<key>7020ED04F21D41C4FB6C79EA</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Win32Receiver.h</string>
-				<key>path</key>
-				<string>src/win32/Win32Receiver.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>AB542D509EAED59E752B31A2</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>SharedInput.h</string>
-				<key>path</key>
-				<string>src/SharedInput.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
 			<key>195129592521AA26628BA6CE</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -4369,14 +4319,14 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>2C668C7B330C0D0E0464AF54</key>
+			<key>8A5F3921D70080BFE7C868AA</key>
 			<dict>
 				<key>fileRef</key>
-				<string>B840BB822D2A51517B9D0560</string>
+				<string>97A2DBA8AE689D8D377B793E</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>B840BB822D2A51517B9D0560</key>
+			<key>97A2DBA8AE689D8D377B793E</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.objcpp</string>
@@ -4385,43 +4335,27 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>OSXWindow.mm</string>
+				<string>ofxTopWindow.mm</string>
 				<key>path</key>
-				<string>src/osx/OSXWindow.mm</string>
+				<string>src/ofxTopWindow/ofxTopWindow.mm</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>EA3B7A637A9706C2E6917731</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>OSXWindow.h</string>
-				<key>path</key>
-				<string>src/osx/OSXWindow.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>4B62EAA0855F70AD03E186A8</key>
+			<key>2E3236478FD8406FBDBA68A6</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>4E70B918283A2B4ABE46710D</string>
-					<string>EA3B7A637A9706C2E6917731</string>
-					<string>B840BB822D2A51517B9D0560</string>
+					<string>1973941ED00EADDAF44C42D2</string>
+					<string>97A2DBA8AE689D8D377B793E</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
 				<key>name</key>
-				<string>osx</string>
+				<string>ofxTopWindow</string>
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>4E70B918283A2B4ABE46710D</key>
+			<key>1973941ED00EADDAF44C42D2</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -4430,9 +4364,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>OSXReceiver.h</string>
+				<string>ofxTopWindow.h</string>
 				<key>path</key>
-				<string>src/osx/OSXReceiver.h</string>
+				<string>src/ofxTopWindow/ofxTopWindow.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -4473,6 +4407,36 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>6F48C58A76B944D4B1986660</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ImageInput.h</string>
+				<key>path</key>
+				<string>src/ImageInput.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>72B4FF2B5EE380AAC4455DB5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ExternalInput.h</string>
+				<key>path</key>
+				<string>src/ExternalInput.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>2AA5218C8179465A94181B83</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -4506,6 +4470,7 @@
 					<string>C3344BA3A60864607A515CB3</string>
 					<string>CB480773A518EB96FF506657</string>
 					<string>768C3255AF2F3E1A78DC4DF4</string>
+					<string>162B11A6E87BB4BCFA23D9A8</string>
 					<string>7F3C04577424427D348B1425</string>
 					<string>1F4FB5C423662B96ADFDCC0B</string>
 				</array>
@@ -4669,8 +4634,7 @@
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>src/osx</string>
-						<string>src/win32</string>
+						<string>src/ofxTopWindow</string>
 						<string>../../../addons/ofxAlembic/libs</string>
 						<string>../../../addons/ofxAlembic/libs/alembic</string>
 						<string>../../../addons/ofxAlembic/libs/alembic/include</string>
@@ -4693,6 +4657,7 @@
 						<string>../../../addons/ofxImGui/libs/imgui</string>
 						<string>../../../addons/ofxImGui/libs/imgui/src</string>
 						<string>../../../addons/ofxImGui/src</string>
+						<string>../../../addons/ofxMakeTopMostWindow/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -4766,8 +4731,7 @@
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>src/osx</string>
-						<string>src/win32</string>
+						<string>src/ofxTopWindow</string>
 						<string>../../../addons/ofxAlembic/libs</string>
 						<string>../../../addons/ofxAlembic/libs/alembic</string>
 						<string>../../../addons/ofxAlembic/libs/alembic/include</string>
@@ -4790,6 +4754,7 @@
 						<string>../../../addons/ofxImGui/libs/imgui</string>
 						<string>../../../addons/ofxImGui/libs/imgui/src</string>
 						<string>../../../addons/ofxImGui/src</string>
+						<string>../../../addons/ofxMakeTopMostWindow/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -4855,7 +4820,7 @@
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
 					<string>8CEED0871A520A02AC26B231</string>
-					<string>2C668C7B330C0D0E0464AF54</string>
+					<string>8A5F3921D70080BFE7C868AA</string>
 					<string>D17988540C5C1823DDFD48B7</string>
 					<string>17F86ECD30824BDEBC82D836</string>
 					<string>6F7F2BBDC3266D263C42FB90</string>
@@ -4865,11 +4830,11 @@
 					<string>27CF6B6E279F8EE58C9D4B90</string>
 					<string>462C212713EFFA5383B35DAB</string>
 					<string>000315A9FA4E2F9A09533E05</string>
-					<string>016BB55A143AD429330F07DB</string>
-					<string>A0F2BFB15B92B4C6EB9527DE</string>
+					<string>E5A8B10F278E540A1F9F39E6</string>
 					<string>5C2607C471F8D48C0036C56E</string>
 					<string>E984796BE84AA4315636B6E7</string>
 					<string>00413C35AAE31B483D7538AB</string>
+					<string>40AD1C19B4636C07ADF68C6E</string>
 					<string>1F558B76FB3412843DDAA031</string>
 					<string>8D60C222CBD3F869382832E9</string>
 					<string>11DF9AB1B4EAA63E3B190CA0</string>
@@ -4970,8 +4935,7 @@
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>src/osx</string>
-						<string>src/win32</string>
+						<string>src/ofxTopWindow</string>
 						<string>../../../addons/ofxAlembic/libs</string>
 						<string>../../../addons/ofxAlembic/libs/alembic</string>
 						<string>../../../addons/ofxAlembic/libs/alembic/include</string>
@@ -4994,6 +4958,7 @@
 						<string>../../../addons/ofxImGui/libs/imgui</string>
 						<string>../../../addons/ofxImGui/libs/imgui/src</string>
 						<string>../../../addons/ofxImGui/src</string>
+						<string>../../../addons/ofxMakeTopMostWindow/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -5058,8 +5023,7 @@
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>src/osx</string>
-						<string>src/win32</string>
+						<string>src/ofxTopWindow</string>
 						<string>../../../addons/ofxAlembic/libs</string>
 						<string>../../../addons/ofxAlembic/libs/alembic</string>
 						<string>../../../addons/ofxAlembic/libs/alembic/include</string>
@@ -5082,6 +5046,7 @@
 						<string>../../../addons/ofxImGui/libs/imgui</string>
 						<string>../../../addons/ofxImGui/libs/imgui/src</string>
 						<string>../../../addons/ofxImGui/src</string>
+						<string>../../../addons/ofxMakeTopMostWindow/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -5137,12 +5102,12 @@
 					<string>E4B69E1E0A3A1BDC003C02F2</string>
 					<string>E4B69E1F0A3A1BDC003C02F2</string>
 					<string>2AA5218C8179465A94181B83</string>
+					<string>72B4FF2B5EE380AAC4455DB5</string>
+					<string>6F48C58A76B944D4B1986660</string>
 					<string>4300465E4B5B65B2EE265C5C</string>
 					<string>E90E22A08B0BB5F0E822BA4A</string>
-					<string>4B62EAA0855F70AD03E186A8</string>
+					<string>2E3236478FD8406FBDBA68A6</string>
 					<string>195129592521AA26628BA6CE</string>
-					<string>AB542D509EAED59E752B31A2</string>
-					<string>DD6C15F2CE69B47B5D1CE6F5</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
