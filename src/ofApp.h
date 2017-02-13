@@ -13,7 +13,8 @@
 
 #include "ImOf.h"
 #include "Scene.h"
-#include "SharedInput.h"
+
+#include "SourceManager.h"
 
 
 //#include "OSXReceiver.h"
@@ -25,9 +26,6 @@
 #define CAM_INDEX_DEFAULT -1
 #define CAM_DEFAULT_TEXT "(default camera)"
 #define CAM_KEYS_SIZE 9
-
-#define INPUT_IMAGE		0
-#define INPUT_SYPHON	1
 
 
 
@@ -73,11 +71,9 @@ public:
 
 	ofxImGui::Gui	gui;
 	
-	ofTexture	defaultTex;
-	
 	Scene		scene;
 	
-	SharedInput	sharedInput;
+	SourceManager		sourceManager;
 	
 	int			camIndex;
 	

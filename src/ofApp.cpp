@@ -21,14 +21,11 @@ void ofApp::setup(){
 	ofSetFrameRate(60);
 	ofSetWindowTitle("Virtual Mapper");
 	ofEnableSmoothing();
-
-	
-	ofLoadImage(defaultTex, "default_screen.jpg");
 	
 	gui.setup();
 	ImGui::GetIO().MouseDrawCursor = false;
 	
-	sharedInput.setup();
+	sourceManager.setup();
 	
 	ofxXmlSettings settings;
 	
@@ -41,7 +38,6 @@ void ofApp::setup(){
 	
 	// load
 //	settings.load("settings.xml");
-//    defaultTex.load("default_texture.jpg");
 	
 	// ui
 //	setGUI();
@@ -75,9 +71,7 @@ void ofApp::update(){
 //    receiver.update();
 	
 //    int w, h;
-//	
-//	w = defaultTex.getWidth();
-//	h = defaultTex.getHeight();
+//
 //	
 //	if (texWidth != w || texHeight != h) {
 //		texWidth = w;
@@ -145,24 +139,11 @@ void ofApp::draw(){
 	{
 		ofEnableDepthTest();
 		
-		if (inputSource == INPUT_SYPHON) {
-			sharedInput.bind();
-		} else {
-			defaultTex.bind();
-		}
+		sourceManager.bind();
 		
 		scene.draw();
 		
-		if (inputSource == INPUT_SYPHON) {
-			defaultTex.unbind();
-		} else {
-			defaultTex.unbind();
-		}
-		
-		// draw screen mesh
-//		defaultTex.bind();
-//		screen.draw();
-//		defaultTex.unbind();
+		sourceManager.unbind();
 		
 		// draw scene mesh
 		/*
@@ -270,31 +251,9 @@ void ofApp::draw(){
 			}
 		}
 		
-		if (ImGui::CollapsingHeader("Input Source", true)) {
+		if (ImGui::CollapsingHeader("Source", true)) {
 			
-			
-			ImGui::RadioButton("Image", &inputSource, INPUT_IMAGE);
-			ImGui::SameLine();
-			
-			ImGui::RadioButton("Syphon", &inputSource, INPUT_SYPHON);
-			
-			if (inputSource == INPUT_SYPHON) {
-				
-				
-				string itemsStr = "";
-				
-				for (auto& n : sharedInput.getNames()) {
-					itemsStr += n + '\0';
-				}
-			
-				const char* items = itemsStr.c_str();
-				static int index = -1;
-				
-				if (ImGui::Combo("Server", &index, items)) {
-					ofLogNotice() << index;
-					sharedInput.setIndex(index);
-				}
-			}
+			sourceManager.drawImGui();
 			
 		}
 	}

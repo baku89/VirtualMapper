@@ -4,7 +4,9 @@
 #include "ofMain.h"
 #include "ofxSyphon.h"
 
-class SharedInput {
+#include "SourceTexture.h"
+
+class SourceSyphon : public SourceTexture {
 public:
 	
 	void setup() {
@@ -14,16 +16,8 @@ public:
 		
 		updateInputsString();
 		
-		ofAddListener(dir.events.serverAnnounced, this, &SharedInput::changed);
-		ofAddListener(dir.events.serverRetired, this, &SharedInput::changed);
-	}
-	
-	ofTexture getTexture() {
-		return client.getTexture();
-	}
-	
-	const vector<string> getNames() {
-		return inputs;
+		ofAddListener(dir.events.serverAnnounced, this, &SourceSyphon::changed);
+		ofAddListener(dir.events.serverRetired, this, &SourceSyphon::changed);
 	}
 	
 	bool setIndex(int idx) {
@@ -35,6 +29,10 @@ public:
 		}
 	}
 	
+	string getName() {
+		return "Syphon";
+	}
+	
 	void bind() {
 		client.draw(0, 0, 1, 1);
 		client.getTexture().bind();
@@ -42,6 +40,17 @@ public:
 	
 	void unbind() {
 		client.getTexture().unbind();
+	}
+	
+	void drawImGui() {
+		
+		static int index = -1;
+		
+		if (ImGui::Combo("Server", &index, inputNames.c_str())) {
+			ofLogNotice() << index;
+			setIndex(index);
+		}
+		
 	}
 	
 private:
@@ -52,7 +61,7 @@ private:
 	
 	void updateInputsString() {
 		
-		inputs.clear();
+		inputNames = "";
 		
 		for (auto server : dir.getServerList()) {
 			
@@ -62,14 +71,14 @@ private:
 				name += " - " + server.serverName;
 			}
 			
-			inputs.push_back(name);
+			inputNames += name + '\0';
 		}
 	}
 	
 	// member
-	vector<string>				inputs;
+	string						inputNames;
 	
 	ofxSyphonClient				client;
 	ofxSyphonServerDirectory	dir;
-
+	
 };
