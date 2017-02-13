@@ -3,10 +3,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	
-//	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
-//	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
-//	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
 
 	// setup window attributes
 	ofEnableNormalizedTexCoords();
@@ -33,13 +29,9 @@ void ofApp::setup(){
 	style->FrameRounding = 2;
 	style->GrabRounding = 2;
 	
-	// set cam
-	grabCam.setFixUpDirectionEnabled(true);
-	grabCam.setPosition(100, 36, 100);
-	grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
-	
 	
 	// setup source
+	viewManager.setup();
 	sourceManager.setup();
 	
 	// load settings
@@ -47,82 +39,16 @@ void ofApp::setup(){
 	
 	showControl = settings.getValue("showControl", true);
 	
-	scene.loadSettings(settings);
+	sceneManager.loadSettings(settings);
 	viewManager.loadSettings(settings);
 	sourceManager.loadSettings(settings);
-	
-	// load camera settings
-//	loadCams();
-//	camIndex = CAM_INDEX_DEFAULT;
-	//updateCamList();
-
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//	
-//	isModalOpened = false;
-	
-    // update input
-//    receiver.update();
-	
-//    int w, h;
-//
-//	
-//	if (texWidth != w || texHeight != h) {
-//		texWidth = w;
-//		texHeight = h;
-//		scaleScreenUV();
-//	}
-	
 
-//	if ( receiver.isChanged() ) {
-	
-        // update input list
-//        vector<string> inputs = receiver.getInputs();
-	
-		/*
-        ddlInput->clearToggles();
-        for (string i : inputs) {
-            ddlInput->addToggle( i );
-        }
-		*/
-		
-		/*
-        ddlInput->addToggles( receiver.getInputs() );
-        ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
-	}
-            ddlInput->addToggle( i.substr(0, DDL_MAX_LENGTH) );
-        }
-        ddlInput->setLabelText( (receiver.getActiveInput()).substr(0, DDL_MAX_LENGTH) );
-		*/
-//	}
-	
-	// gui update
-	/*
-	camPos = grabCam.getPosition();
-	ndCamX->setValue( camPos.x );
-	ndCamY->setValue( camPos.y );
-	ndCamZ->setValue( camPos.z );
-	
-	camEuler = grabCam.getOrientationEuler();
-	msCamH->setValue( camEuler.x );
-	msCamP->setValue( camEuler.y );
-	msCamB->setValue( camEuler.z );
-	
-	// detect if cam moved
-	if (camIndex != CAM_INDEX_DEFAULT) {
-		
-		if (cams[camIndex].position != grabCam.getPosition()
-			|| (cams[camIndex].euler - grabCam.getOrientationEuler()).length() > 0.005f
-			|| cams[camIndex].fov != grabCam.getFov()) {
-			
-			camIndex = CAM_INDEX_DEFAULT;
-		}
-	}
-    
-    receiver.next();
-	 */
+	sceneManager.update();
+	viewManager.update(sceneManager);
 }
 
 //--------------------------------------------------------------
@@ -131,11 +57,8 @@ void ofApp::draw(){
 	
 	ofBackground(0);
 	
-	grabCam.begin();
-	{
-		viewManager.draw(scene, sourceManager);
-	}
-	grabCam.end();
+	
+	viewManager.draw(sceneManager, sourceManager);
 
 	// cam list
 	/*
@@ -198,56 +121,10 @@ void ofApp::drawImGui() {
 				showControl = false;
 			}
 			
-			if (ImGui::CollapsingHeader("Scene")) {
-				
-				scene.drawImGui();
-			}
+			sceneManager.drawImGui();
+			viewManager.drawImGui(sceneManager);
+			sourceManager.drawImGui();
 			
-			viewManager.drawImGui();
-			
-			/*
-			if (ImGui::CollapsingHeader("Camera", true)) {
-				
-				
-				
-				for (int i = 0; i < scene.getNumCameras(); i++) {
-					if (ImGui::RadioButton(scene.getCameraName(i).c_str(), &camIndex, i)) {
-						
-						ofCamera cam = scene.getCamera(camIndex);
-						
-						grabCam.setGlobalPosition(cam.getGlobalPosition());
-						grabCam.setOrientation(cam.getOrientationQuat());
-						grabCam.setFov(cam.getFov());
-					}
-				}
-				
-				// matrix
-				if (ImGui::TreeNode("Transform")) {
-					
-					
-					float *pos = grabCam.getGlobalPosition().getPtr();
-					ImGui::InputFloat3("Position", pos);
-					grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
-					
-					float *euler = grabCam.getOrientationEuler().getPtr();
-					ImGui::InputFloat3("Orientation", euler);
-					ofVec3f ne(euler[0], euler[1], euler[2]);
-					grabCam.setOrientation(ne);
-					
-					float fov = grabCam.getFov();
-					ImGui::SliderFloat("Fov", &fov, 0, 180);
-					grabCam.setFov(fov);
-					
-					ImGui::TreePop();
-				}
-			}
-			 */
-			
-			if (ImGui::CollapsingHeader("Source", true)) {
-				
-				sourceManager.drawImGui();
-				
-			}
 		}
 		ImGui::End();
 		
@@ -273,14 +150,12 @@ void ofApp::drawImGui() {
 //--------------------------------------------------------------
 void ofApp::exit() {
 	
-	scene.exit();
-	
 	// save settings
 	ofxXmlSettings settings;
 	
 	settings.setValue("showControl", showControl);
 	
-	scene.saveSettings(settings);
+	sceneManager.saveSettings(settings);
 	viewManager.saveSettings(settings);
 	sourceManager.saveSettings(settings);
 	
@@ -335,7 +210,7 @@ void ofApp::keyReleased(int key){
 void ofApp::mousePressed(int x, int y, int button) {
 
 	bool guiCaptured = ImGui::GetIO().WantCaptureMouse;
-	grabCam.setMouseActionsEnabled(!guiCaptured);
+	viewManager.setMouseActionsEnabled(!guiCaptured);
 }
 
 //--------------------------------------------------------------

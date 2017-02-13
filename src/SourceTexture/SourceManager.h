@@ -50,18 +50,20 @@ public:
 	
 	void drawImGui() {
 		
-		for (int i = 0; i < sources.size(); i++) {
+		if (ImGui::CollapsingHeader("Source", true)) {
 			
-			ImGui::RadioButton(sources[i]->getName().c_str(), &selected, i);
-			
-			if (i < sources.size() - 1) {
-				ImGui::SameLine();
+			for (int i = 0; i < sources.size(); i++) {
+				
+				ImGui::RadioButton(sources[i]->getName().c_str(), &selected, i);
+				
+				if (i < sources.size() - 1) {
+					ImGui::SameLine();
+				}
+				
 			}
 			
+			sources[selected]->drawImGui();
 		}
-		
-		sources[selected]->drawImGui();
-		
 	}
 	
 	void bind() {

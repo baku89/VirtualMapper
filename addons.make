@@ -1,4 +1,4 @@
-ofxAlembic
+ofxFBX
 ofxGrabCam
 ofxImGui
 ofxSyphon
