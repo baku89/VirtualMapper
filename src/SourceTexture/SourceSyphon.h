@@ -9,6 +9,8 @@
 class SourceSyphon : public SourceTexture {
 public:
 	
+	SourceSyphon() : index(-1) {}
+	
 	void setup() {
 		
 		client.setup();
@@ -18,6 +20,51 @@ public:
 		
 		ofAddListener(dir.events.serverAnnounced, this, &SourceSyphon::changed);
 		ofAddListener(dir.events.serverRetired, this, &SourceSyphon::changed);
+	}
+	
+	void loadSettings(ofxXmlSettings &settings) {
+		settings.pushTag("syphon");
+		
+		if (settings.tagExists("inputName")) {
+			
+			string savedName = settings.getValue("inputName", "");
+			
+			int i = 0;
+			for (auto server : dir.getServerList()) {
+				
+				string name = server.appName;
+				
+				if (server.serverName != "") {
+					name += " - " + server.serverName;
+				}
+				
+				if (savedName == name) {
+					ofLogNotice() << "set to " << name;
+					client.set(server);
+					index = i;
+				}
+				
+				i++;
+			}
+			
+		}
+		
+		settings.popTag();
+	}
+	
+	void saveSettings(ofxXmlSettings &settings) {
+		settings.addTag("syphon");
+		settings.pushTag("syphon");
+		
+		if (client.getApplicationName() != "") {
+			string inputName = client.getApplicationName();
+			if (client.getServerName() != "") {
+				inputName += " - " + client.getServerName();
+			}
+			settings.addValue("inputName", inputName);
+		}
+		
+		settings.popTag();
 	}
 	
 	bool setIndex(int idx) {
@@ -43,14 +90,9 @@ public:
 	}
 	
 	void drawImGui() {
-		
-		static int index = -1;
-		
 		if (ImGui::Combo("Server", &index, inputNames.c_str())) {
-			ofLogNotice() << index;
 			setIndex(index);
 		}
-		
 	}
 	
 private:
@@ -76,6 +118,7 @@ private:
 	}
 	
 	// member
+	int							index;
 	string						inputNames;
 	
 	ofxSyphonClient				client;

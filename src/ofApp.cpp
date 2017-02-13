@@ -31,6 +31,9 @@ void ofApp::setup(){
 	
 	settings.load("settings.xml");
 	
+	
+	sourceManager.loadSettings(settings);
+	
 	scene.open(settings.getValue("scene:path", "default_scene.abc"));
 	
 	
@@ -267,6 +270,8 @@ void ofApp::exit() {
 	
 	
 	ofxXmlSettings settings;
+	
+	sourceManager.saveSettings(settings);
 	
 	settings.setValue("scene:path", scene.getPath());
 	

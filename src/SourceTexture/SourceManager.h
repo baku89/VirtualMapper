@@ -7,6 +7,7 @@
 //
 
 #include "ofxImGui.h"
+#include "ofxXmlSettings.h"
 
 #include "SourceTexture.h"
 #include "SourceImage.h"
@@ -16,7 +17,7 @@
 class SourceManager {
 public:
 	
-	SourceManager() : index(0) {}
+	SourceManager() : selected(0) {}
 	
 	void setup() {
 		
@@ -29,12 +30,35 @@ public:
 		
 	}
 	
+	void loadSettings(ofxXmlSettings& settings) {
+		settings.pushTag("sources");
+		
+		selected = settings.getValue("selected", 0);
+		
+		for (auto& source : sources) {
+			source->loadSettings(settings);
+		}
+		settings.popTag();
+	}
+	
+	void saveSettings(ofxXmlSettings& settings) {
+		settings.addTag("sources");
+		settings.pushTag("sources");
+		
+		settings.setValue("selected", selected);
+		
+		for (auto& source : sources) {
+			source->saveSettings(settings);
+		}
+		settings.popTag();
+	}
+	
 	
 	void drawImGui() {
 		
 		for (int i = 0; i < sources.size(); i++) {
 			
-			ImGui::RadioButton(sources[i]->getName().c_str(), &index, i);
+			ImGui::RadioButton(sources[i]->getName().c_str(), &selected, i);
 			
 			if (i < sources.size() - 1) {
 				ImGui::SameLine();
@@ -42,22 +66,22 @@ public:
 			
 		}
 		
-		sources[index]->drawImGui();
+		sources[selected]->drawImGui();
 		
 	}
 	
 	void bind() {
-		sources[index]->bind();
+		sources[selected]->bind();
 	}
 	
 	void unbind() {
-		sources[index]->unbind();
+		sources[selected]->unbind();
 	}
 	
 	
 private:
 	
-	int index;
+	int selected;
 	
 	vector<SourceTexture*> sources;
 	

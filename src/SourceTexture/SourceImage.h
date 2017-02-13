@@ -5,19 +5,38 @@
 #include "SourceTexture.h"
 
 #define DEFAULT_PATH		"default_screen.jpg"
-#define DEFAULT_FILENAME	"(No Image)"
 
 class SourceImage : public SourceTexture {
 public:
 	
-	SourceImage() : fileName(DEFAULT_FILENAME) {}
+	SourceImage() : isLoaded(false) {}
 	
 	void setup() {
 		ofLoadImage(texture, DEFAULT_PATH);
 	}
 	
-	string getName() {
-		return "Image";
+	void loadSettings(ofxXmlSettings &settings) {
+		
+		settings.pushTag("image");
+		
+		if (settings.tagExists("path")) {
+			load(settings.getValue("path", ""));
+		}
+		
+		settings.popTag();
+		
+	}
+	
+	void saveSettings(ofxXmlSettings &settings) {
+		
+		settings.addTag("image");
+		settings.pushTag("image");
+		
+		if (isLoaded) {
+			settings.setValue("path", file.getAbsolutePath());
+		}
+		
+		settings.popTag();
 	}
 	
 	void bind() {
@@ -35,25 +54,34 @@ public:
 			ofFileDialogResult result = ofSystemLoadDialog("Load Image File (.abc)", false, ofToDataPath("."));
 			
 			if (result.bSuccess) {
-				
-				bool isLoaded = ofLoadImage(texture, result.getPath());
-				fileName = result.getName();
-				
-				if (!isLoaded) {
-					ofLoadImage(texture, DEFAULT_PATH);
-					fileName = DEFAULT_FILENAME;
-				}
-				
+				load(result.getPath());
 			}
 		}
 		
 		ImGui::SameLine();
-		ImGui::Text("%s", fileName.c_str());
+		ImGui::Text("%s", isLoaded ? file.getFileName().c_str() : "(No Image)");
+	}
+	
+	//--------------------------------------------------------------
+	// custom methods
+	
+	string getName() {
+		return "Image";
 	}
 	
 private:
 	
-	string fileName;
+	void load(string path) {
+		isLoaded = ofLoadImage(texture, path);
+		file.open(path);
+		
+		if (!isLoaded) {
+			ofLoadImage(texture, DEFAULT_PATH);
+		}
+	}
 	
+	bool isLoaded;
+	
+	ofFile file;
 	ofTexture texture;
 };
