@@ -42,9 +42,12 @@ public:
 		
 		abcPath = path;
 		
-		ofxAlembic::IGeom *geom;
 		
-		for (int i = 0; (geom = abc.get(i)); i++) {
+		
+		
+		for (int i = 0; i < abc.size(); i++) {
+			
+			ofxAlembic::IGeom *geom = abc.get(i);
 			
 			string type = std::string(geom->getTypeName());
 

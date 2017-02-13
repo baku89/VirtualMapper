@@ -1,5 +1,6 @@
 # my pattern
 bin/data/backup
+bin/data/settings.xml
 
 #########################
 # openFrameworks patterns

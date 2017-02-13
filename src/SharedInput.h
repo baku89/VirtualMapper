@@ -20,8 +20,10 @@ public:
 		client.setup();
 		dir.setup();
 		
-		ofAddListener(dir.events.serverAnnounced, this, &SharedInput::announced);
-		ofAddListener(dir.events.serverRetired, this, &SharedInput::retired);
+		updateInputsString();
+		
+		ofAddListener(dir.events.serverAnnounced, this, &SharedInput::changed);
+		ofAddListener(dir.events.serverRetired, this, &SharedInput::changed);
 	}
 	
 	ofTexture getTexture() {
@@ -41,38 +43,41 @@ public:
 		}
 	}
 	
-private:
-	
-	void announced(ofxSyphonServerDirectoryEventArgs &arg) {
-
-		for (auto& dir : arg.servers) {
-			ofLogNotice() << dir.appName;
-			inputs.push_back( dir.appName );
-		}
-		
-		cout << "syphon annouced -- " << inputs.size() << endl;
+	void bind() {
+		client.draw(0, 0, 1, 1);
+		client.getTexture().bind();
 	}
 	
-	void retired(ofxSyphonServerDirectoryEventArgs &arg) {
+	void unbind() {
+		client.getTexture().unbind();
+	}
+	
+private:
+	
+	void changed(ofxSyphonServerDirectoryEventArgs &arg) {
+		updateInputsString();
+	}
+	
+	void updateInputsString() {
 		
-		for (auto& dir : arg.servers) {
-			string name = dir.appName;
+		inputs.clear();
+		
+		for (auto server : dir.getServerList()) {
 			
-			for (int i = inputs.size() - 1; i >= 0; i--) {
-				if (inputs[i] == name) {
-					inputs.erase( inputs.begin() + i );
-				}
+			string name = server.appName;
+			
+			if (server.serverName != "") {
+				name += " - " + server.serverName;
 			}
+			
+			inputs.push_back(name);
 		}
-		
-		cout << "syphon retired -- " << inputs.size() << endl;
 	}
 	
 	// member
+	vector<string>				inputs;
 	
 	ofxSyphonClient				client;
 	ofxSyphonServerDirectory	dir;
-	
-	vector<string>  inputs;
 
 };

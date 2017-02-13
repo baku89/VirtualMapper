@@ -23,7 +23,7 @@ void ofApp::setup(){
 	ofEnableSmoothing();
 
 	
-	ofLoadImage(screenTex, "default_screen.jpg");
+	ofLoadImage(defaultTex, "default_screen.jpg");
 	
 	gui.setup();
 	ImGui::GetIO().MouseDrawCursor = false;
@@ -145,9 +145,19 @@ void ofApp::draw(){
 	{
 		ofEnableDepthTest();
 		
-		screenTex.bind();
+		if (inputSource == INPUT_SYPHON) {
+			sharedInput.bind();
+		} else {
+			defaultTex.bind();
+		}
+		
 		scene.draw();
-		screenTex.unbind();
+		
+		if (inputSource == INPUT_SYPHON) {
+			defaultTex.unbind();
+		} else {
+			defaultTex.unbind();
+		}
 		
 		// draw screen mesh
 //		defaultTex.bind();
@@ -270,12 +280,11 @@ void ofApp::draw(){
 			
 			if (inputSource == INPUT_SYPHON) {
 				
-				const vector<string> names = sharedInput.getNames();
 				
 				string itemsStr = "";
 				
-				for (auto& n : names) {
-					itemsStr += n + "\0";
+				for (auto& n : sharedInput.getNames()) {
+					itemsStr += n + '\0';
 				}
 			
 				const char* items = itemsStr.c_str();
@@ -284,7 +293,6 @@ void ofApp::draw(){
 				if (ImGui::Combo("Server", &index, items)) {
 					ofLogNotice() << index;
 					sharedInput.setIndex(index);
-//					screenTex = sharedInput.getTexture();
 				}
 			}
 			

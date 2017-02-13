@@ -70,9 +70,10 @@ public:
 	
 	// variables
 	
-	ofxImGui	gui;
+
+	ofxImGui::Gui	gui;
 	
-	ofTexture	screenTex;
+	ofTexture	defaultTex;
 	
 	Scene		scene;
 	
