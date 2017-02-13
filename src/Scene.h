@@ -33,7 +33,21 @@ public:
 		if (isAlembicLoaded) {
 			abc.draw();
 		} else {
+			ofPushMatrix();
+			ofRotateX(90);
 			ofDrawPlane(0, 0, 0, 100, 100);
+			ofPopMatrix();
+		}
+	}
+	
+	void drawWireframe() {
+		if (isAlembicLoaded) {
+			abc.debugDraw();
+		} else {
+			ofPushMatrix();
+			ofRotateZ(90);
+			ofDrawGridPlane(10.0f, 5);
+			ofPopMatrix();
 		}
 	}
 	
@@ -49,8 +63,6 @@ public:
 		
 		ImGui::SameLine();
 		ImGui::Text("%s", isAlembicLoaded ? ofFilePath::getFileName(abcPath).c_str() : "(No Scene)");
-		
-		
 	}
 	
 	void exit() {
@@ -95,6 +107,7 @@ private:
 		
 		abcPath = path;
 		
+		
 		for (int i = 0; i < abc.size(); i++) {
 			
 			ofxAlembic::IGeom *geom = abc.get(i);
@@ -108,11 +121,20 @@ private:
 				ofCamera cam;
 				abc.get(i, cam);
 				
+				
 				string name = geom->getName();
 				name = name.substr(0, name.size() - 5);
 				
+				ofLogNotice() << "Camera Found!! " << cam.getFov() << " " << cam.getGlobalPosition();
+				
 				camList.push_back(pair<string, ofCamera>(name, cam));
 				
+			} else {
+				
+				ofMatrix4x4 node;
+				abc.get(i, node);
+				
+				ofLogNotice() << "------> " << node.getTranslation();
 			}
 		}
 	}

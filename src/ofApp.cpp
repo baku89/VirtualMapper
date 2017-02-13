@@ -33,6 +33,11 @@ void ofApp::setup(){
 	style->FrameRounding = 2;
 	style->GrabRounding = 2;
 	
+	// set cam
+	grabCam.setFixUpDirectionEnabled(true);
+	grabCam.setPosition(100, 36, 100);
+	grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
+	
 	
 	// setup source
 	sourceManager.setup();
@@ -43,6 +48,7 @@ void ofApp::setup(){
 	showControl = settings.getValue("showControl", true);
 	
 	scene.loadSettings(settings);
+	viewManager.loadSettings(settings);
 	sourceManager.loadSettings(settings);
 	
 	// load camera settings
@@ -127,33 +133,7 @@ void ofApp::draw(){
 	
 	grabCam.begin();
 	{
-		ofEnableDepthTest();
-		
-		sourceManager.bind();
-		
-		scene.draw();
-		
-		sourceManager.unbind();
-		
-		// draw scene mesh
-		/*
-		ofSetColor(16);
-		scene.draw();
-		ofSetColor(128);
-		scene.drawWireframe();
-		*/
-		
-		/*
-		// optional wireframe
-		if ( isShowWireframe ) {
-			ofSetColor(255, 255, 255, 255);
-			screen.drawWireframe();
-		}
-		if ( isShowGrid ) {
-			ofDrawGrid(2000.0f, 8.0f, false, true, true, true);
-		}
-		 */
-		ofDisableDepthTest();
+		viewManager.draw(scene, sourceManager);
 	}
 	grabCam.end();
 
@@ -222,6 +202,8 @@ void ofApp::drawImGui() {
 				
 				scene.drawImGui();
 			}
+			
+			viewManager.drawImGui();
 			
 			/*
 			if (ImGui::CollapsingHeader("Camera", true)) {
@@ -293,23 +275,18 @@ void ofApp::exit() {
 	
 	scene.exit();
 	
-	
+	// save settings
 	ofxXmlSettings settings;
 	
 	settings.setValue("showControl", showControl);
 	
 	scene.saveSettings(settings);
+	viewManager.saveSettings(settings);
 	sourceManager.saveSettings(settings);
 	
 	settings.saveFile("settings.xml");
 	
-//	gui->saveSettings("gui.xml");
-	
 //	saveCams();
-	
-//	settings.save("settings.xml");
-
-//	receiver.exit();
 }
 
 

@@ -12,8 +12,9 @@
 //#include "Camera.h"
 
 #include "ImOf.h"
-#include "Scene.h"
 
+#include "Scene.h"
+#include "ViewManager.h"
 #include "SourceManager.h"
 
 
@@ -57,6 +58,7 @@ public:
 	// variables
 	
 	Scene				scene;
+	ViewManager			viewManager;
 	SourceManager		sourceManager;
 
 	

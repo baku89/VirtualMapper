@@ -205,6 +205,7 @@
 		92AF9D179A5C8DF95B867B46 /* ImathGL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImathGL.h; path = ../../../addons/ofxAlembic/libs/alembic/include/OpenEXR/ImathGL.h; sourceTree = SOURCE_ROOT; };
 		92B367521E520812008E15B8 /* SourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SourceManager.h; path = SourceTexture/SourceManager.h; sourceTree = "<group>"; };
 		92B367531E520A54008E15B8 /* SourceImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceImage.h; path = SourceTexture/SourceImage.h; sourceTree = "<group>"; };
+		92B367571E522905008E15B8 /* ViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
 		9408548181B48BB727E555D5 /* SourceTexture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceTexture.h; path = src/SourceTexture/SourceTexture.h; sourceTree = SOURCE_ROOT; };
 		9427BCBCEF448D2C75AC8F6F /* Reference.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Reference.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/Abc/Reference.h; sourceTree = SOURCE_ROOT; };
 		956B59664BF16405139529DA /* All.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = All.h; path = ../../../addons/ofxAlembic/libs/alembic/include/Alembic/AbcCoreHDF5/All.h; sourceTree = SOURCE_ROOT; };
@@ -804,6 +805,7 @@
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				92B367571E522905008E15B8 /* ViewManager.h */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				2AA5218C8179465A94181B83 /* Camera.h */,
 				4300465E4B5B65B2EE265C5C /* ImOf.h */,

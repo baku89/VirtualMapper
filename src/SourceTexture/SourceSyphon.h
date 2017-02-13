@@ -81,7 +81,7 @@ public:
 	}
 	
 	void bind() {
-		client.draw(0, 0, 1, 1);
+		client.draw(0, 0, 0, 0);
 		client.getTexture().bind();
 	}
 	

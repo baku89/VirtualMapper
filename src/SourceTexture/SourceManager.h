@@ -1,10 +1,4 @@
-//
-//  SourceManager.h
-//  VirtualMapper
-//
-//  Created by Baku Hashimoto on 2017/02/14.
-//
-//
+#pragma once 
 
 #include "ofxImGui.h"
 #include "ofxXmlSettings.h"
