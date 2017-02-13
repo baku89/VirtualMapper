@@ -40,23 +40,11 @@ public:
 	void draw();
 	void exit();
 	
-	
 	void drawImGui();
-	
-    // src
-//    void sourceAnnouced();
-//    void sourceRetired();
 	
 	void keyReleased(int key);
 	void mousePressed(int x, int y, int button);
 	void mouseReleased(int x, int y, int button);
-	
-	// utils
-//	void setGUI();
-//	bool loadScreen(string file, string name);
-//	void scaleScreenUV();
-	
-//    void alert(string message);
 	
 //	void loadCams();
 //	void saveCams();
@@ -68,25 +56,19 @@ public:
 	
 	// variables
 	
-
-	ofxImGui::Gui	gui;
-	
-	Scene		scene;
-	
+	Scene				scene;
 	SourceManager		sourceManager;
+
 	
 	int					camIndex;
 	
+	
+	ofxImGui::Gui		gui;
 	bool				showControl;
 	
-//	bool isModalOpened;
-//	bool isWindowOnTop;
-//	ofTrueTypeFont font;
+	
 
 //	char camKeys[CAM_KEYS_SIZE];
-	
-    // source
-//    Receiver receiver;
 	
 	// scene
 	ofxGrabCam grabCam;
@@ -96,38 +78,4 @@ public:
 //	ofVec3f camPos;
 //	ofVec3f camEuler;
 //    ofImage defaultTex;
-	
-	// screen
-//    ofxAssimpModelLoader assimp;
-//    ofMesh screen;
-//    ofMesh stage;
-//	vector< ofVec2f > texCoordsOrigin;
-	
-    // texture
-//    ofMaterial material;
-//    int texWidth;
-//    int texHeight;
-	
-	// syphon
-	//int syphonIndex;
-	
-	// display
-//	bool isShowWireframe;
-//    bool isShowGrid;
-//	bool isFlipH, isFlipV;
-	
-	// ui
-	/*
-	ofxUICanvas *gui;
-	ofxUIDropDownList *ddlInput;//, *ddlCamList;
-	ofxUILabel *lblScreenName;
-	ofxUINumberDialer *ndCamX, *ndCamY, *ndCamZ;
-	ofxUIMinimalSlider *msCamFov, *msCamH, *msCamP, *msCamB;
-	bool isGuiPressed;
-	*/
-    
-  
-    // platform
-//    Window platformWindow;
-	
 };

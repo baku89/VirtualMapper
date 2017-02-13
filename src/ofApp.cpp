@@ -1,16 +1,9 @@
 #include "ofApp.h"
 
 
-#define IM_ARRAYSIZE(_ARR)  ((int)(sizeof(_ARR)/sizeof(*_ARR)))
-
 //--------------------------------------------------------------
 void ofApp::setup(){
-
 	
-//#ifdef TARGET_OSX
-//	ofSetDataPathRoot("../Resources/data/");
-//#endif
-
 //	camKeys[0] = '1'; camKeys[1] = '2'; camKeys[2] = '3';
 //	camKeys[3] = '4'; camKeys[4] = '5'; camKeys[5] = '6';
 //	camKeys[6] = '7'; camKeys[7] = '8'; camKeys[8] = '9';
@@ -52,32 +45,10 @@ void ofApp::setup(){
 	scene.loadSettings(settings);
 	sourceManager.loadSettings(settings);
 	
-	
-	
-	
-	// load
-//	settings.load("settings.xml");
-	
-	// ui
-//	setGUI();
-    // view
-//    platformWindow.setWindowOnTop(isWindowOnTop);
-//    resetCam();
-	
-	// load model
-//	string path = settings.getValue("settings:screenPath", "");
-//	string name = settings.getValue("settings:screenName", "null");
-//	loadScreen(path, name);
-	
 	// load camera settings
 //	loadCams();
 //	camIndex = CAM_INDEX_DEFAULT;
 	//updateCamList();
-	
-    // source
-//	texWidth = 0;
-//	texHeight = 0;
-//    receiver.setup();
 
 }
 
@@ -341,158 +312,6 @@ void ofApp::exit() {
 //	receiver.exit();
 }
 
-//--------------------------------------------------------------
-/*
-void ofApp::guiEvent(ofxUIEventArgs &e) {
-	
-	if (this == NULL) {
-		return;
-	}
-	
-	string name = e.widget->getName();
-	
-	if ( name == "3D LOAD" && !isModalOpened ) {
-		
-		isModalOpened = true;
-		platformWindow.setWindowOnTop(false);
-		ofFileDialogResult result = ofSystemLoadDialog("Load Model..");
-        platformWindow.setWindowOnTop(isWindowOnTop);
-		
-		string path = result.getPath();
-		string name = result.getName();
-        
-        // check if its extension is '.obj'
-        cout << path << endl;
-        cout << name << endl;
-        
-        string ext = name.substr(name.find_last_of(".") + 1);
-        if ( ext == "obj" || ext == "dae" ) {
-            loadScreen( path, name );
-        } else {
-            alert("This file type is not supported.");
-        }
- 
-	} else if (name == "INPUT LIST") {
-		
-		vector<int> indices = ddlInput->getSelectedIndeces();
-		
-		if (indices.size() > 0) {
-            
-            receiver.setInput( indices[0] );
-		}
- 
-	} else if ( name == "flip H" || name == "flip V" ) {
-		
-		cout << "change uv flip settings" << endl;
-		scaleScreenUV();
-
-	} else if ( name == "make window on top") {
-		
-		ofxUIToggle *t = (ofxUIToggle*) e.widget;
-		platformWindow.setWindowOnTop(t->getValue());
-		
-	} else if ( name == "add cam" && !isModalOpened ) {
-		
-		isModalOpened = true;
-		platformWindow.setWindowOnTop(false);
-		string name = ofSystemTextBoxDialog("Camera Name");
-		platformWindow.setWindowOnTop(isWindowOnTop);
-		
-		Camera nc;
-		nc.name = name;
-		nc.position.set( grabCam.getPosition() );
-		nc.euler.set( grabCam.getOrientationEuler() );
-		nc.fov = grabCam.getFov();
-		
-		cams.push_back(nc);
-		camIndex = cams.size() - 1;
-		
-	} else if ( name == "remove cam") {
-		
-		if ( camIndex != CAM_INDEX_DEFAULT) {
-			cams.erase( cams.begin() + camIndex );
-			camIndex = CAM_INDEX_DEFAULT;
-		}
-	
-	} else if ( name == "CAMERA FOV" ) {
-		
-		ofxUIMinimalSlider *s = (ofxUIMinimalSlider*) e.widget;
-		grabCam.setFov( s->getValue() );
-	
-	} else if ( name == "CAMERA X" || name == "CAMERA Y" || name == "CAMERA Z" ) {
-
-		grabCam.setPosition(ndCamX->getValue(),
-						ndCamY->getValue(),
-						ndCamZ->getValue());
-	
-	} else if ( name == "CAMERA H" || name == "CAMERA P" || name == "CAMERA B" ) {
-		
-		ofVec3f euler(msCamH->getValue(),
-					  msCamP->getValue(),
-					  msCamB->getValue());
-		grabCam.setOrientation( euler );
-	}
-}
-*/
-
-//--------------------------------------------------------------
-
-
-/*
-void ofApp::syphonAnnounced(ofxSyphonServerDirectoryEventArgs &arg) {
-	
-	for (auto& dir: arg.servers) {
-		
-		ddlSyphon->addToggle(dir.appName.substr(0, DDL_MAX_LENGTH));
-	}
-	
-	vector<ofxUILabelToggle*> toggles = ddlSyphon->getToggles();
-	if ( toggles.size() > 0 ) {
-		string firstToggleName = toggles[0]->getName().substr(0, DDL_MAX_LENGTH);
-		ddlSyphon->activateToggle(firstToggleName);
-		ddlSyphon->setLabelText(firstToggleName);
-		syphonIndex = 0;
-		isSyphonChanged = true;
-	}
-}
-
-void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
-{
-    cout << "SyphonRetired" << endl;
-    
-	vector<ofxUILabelToggle*> toggles = ddlSyphon->getToggles();
-	string name;
-	
-	for (auto& dir : arg.servers ) {
-		
-		name = dir.appName.substr(0, DDL_MAX_LENGTH);
-		
-		for (auto* t : toggles) {
-			if ( name == t->getName() ) {
-				ddlSyphon->removeToggle(name);
-			}
-		}
-	}
-	
-	// if other sources exists, activate index 0
-    // otherwise, set -1 (show default texture)
-    cout << syphonDir.size() << endl;
-    
-	if ( syphonDir.size() > 0 ) {
-        toggles = ddlSyphon->getToggles();
-		string firstToggleName = toggles[0]->getName().substr(0, DDL_MAX_LENGTH);
-		ddlSyphon->activateToggle(firstToggleName);
-		ddlSyphon->setLabelText(firstToggleName);
-		syphonIndex = 0;
-    } else {
-        ddlSyphon->clearToggles();
-        ddlSyphon->setLabelText("");
-        syphonIndex = -1;
-    }
-    
-    isSyphonChanged = true;
-}
- */
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
