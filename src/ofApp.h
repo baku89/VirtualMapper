@@ -39,9 +39,9 @@ public:
 	void update();
 	void draw();
 	void exit();
-
-	// event
-//	void guiEvent(ofxUIEventArgs &e);
+	
+	
+	void drawImGui();
 	
     // src
 //    void sourceAnnouced();
@@ -75,9 +75,9 @@ public:
 	
 	SourceManager		sourceManager;
 	
-	int			camIndex;
+	int					camIndex;
 	
-	int			inputSource;
+	bool				showControl;
 	
 //	bool isModalOpened;
 //	bool isWindowOnTop;

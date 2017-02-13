@@ -22,19 +22,35 @@ void ofApp::setup(){
 	ofSetWindowTitle("Virtual Mapper");
 	ofEnableSmoothing();
 	
-	gui.setup();
-	ImGui::GetIO().MouseDrawCursor = false;
+	// setup imgui
+	ImGuiIO * io = &ImGui::GetIO();
+	ImFontConfig font_config;
+	font_config.OversampleH = 1;
+	font_config.OversampleV = 1;
+	io->Fonts->AddFontFromFileTTF(&ofToDataPath("Karla-Regular.ttf")[0], 14.f, &font_config);
 	
+	gui.setup();
+	
+	ImGuiStyle *style = &ImGui::GetStyle();
+	style->WindowRounding = 0;
+	style->ScrollbarSize = 3;
+	style->ScrollbarRounding = 0;
+	style->FramePadding = ImVec2(6, 4);
+	style->ItemSpacing = ImVec2(4, 8);
+	style->FrameRounding = 2;
+	style->GrabRounding = 2;
+	
+	
+	// setup source
 	sourceManager.setup();
 	
-	ofxXmlSettings settings;
+	// load settings
+	ofxXmlSettings settings("settings.xml");
 	
-	settings.load("settings.xml");
+	showControl = settings.getValue("showControl", true);
 	
-	
+	scene.loadSettings(settings);
 	sourceManager.loadSettings(settings);
-	
-	scene.open(settings.getValue("scene:path", "default_scene.abc"));
 	
 	
 	
@@ -211,55 +227,93 @@ void ofApp::draw(){
 	
 	
 	
+	drawImGui();
+}
+
+//--------------------------------------------------------------
+void ofApp::drawImGui() {
+	
 	gui.begin();
-	{
-		if (ImGui::Button("Open Scene")) {
-			scene.openWithDialog();
-		}
+	
+	if (showControl) {
 		
+		static bool p_open = true;
 		
-		if (ImGui::CollapsingHeader("Camera", true)) {
+		ImGui::SetNextWindowPos(ImVec2(0, 0));
+		ImGui::Begin("Control", &p_open, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
+		ImGui::SetWindowSize(ImVec2(ImGui::GetWindowWidth(), ofGetHeight()));
+		{
+			if (ImGui::Button("Hide Control")) {
+				showControl = false;
+			}
 			
+			if (ImGui::CollapsingHeader("Scene")) {
+				
+				scene.drawImGui();
+			}
 			
-			
-			for (int i = 0; i < scene.getNumCameras(); i++) {
-				if (ImGui::RadioButton(scene.getCameraName(i).c_str(), &camIndex, i)) {
+			/*
+			if (ImGui::CollapsingHeader("Camera", true)) {
+				
+				
+				
+				for (int i = 0; i < scene.getNumCameras(); i++) {
+					if (ImGui::RadioButton(scene.getCameraName(i).c_str(), &camIndex, i)) {
+						
+						ofCamera cam = scene.getCamera(camIndex);
+						
+						grabCam.setGlobalPosition(cam.getGlobalPosition());
+						grabCam.setOrientation(cam.getOrientationQuat());
+						grabCam.setFov(cam.getFov());
+					}
+				}
+				
+				// matrix
+				if (ImGui::TreeNode("Transform")) {
 					
-					ofCamera cam = scene.getCamera(camIndex);
 					
-					grabCam.setGlobalPosition(cam.getGlobalPosition());
-					grabCam.setOrientation(cam.getOrientationQuat());
-					grabCam.setFov(cam.getFov());
+					float *pos = grabCam.getGlobalPosition().getPtr();
+					ImGui::InputFloat3("Position", pos);
+					grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
+					
+					float *euler = grabCam.getOrientationEuler().getPtr();
+					ImGui::InputFloat3("Orientation", euler);
+					ofVec3f ne(euler[0], euler[1], euler[2]);
+					grabCam.setOrientation(ne);
+					
+					float fov = grabCam.getFov();
+					ImGui::SliderFloat("Fov", &fov, 0, 180);
+					grabCam.setFov(fov);
+					
+					ImGui::TreePop();
 				}
 			}
+			 */
 			
-			// matrix
-			if (ImGui::TreeNode("Transform")) {
+			if (ImGui::CollapsingHeader("Source", true)) {
 				
+				sourceManager.drawImGui();
 				
-				float *pos = grabCam.getGlobalPosition().getPtr();
-				ImGui::InputFloat3("Position", pos);
-				grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
-				
-				float *euler = grabCam.getOrientationEuler().getPtr();
-				ImGui::InputFloat3("Orientation", euler);
-				ofVec3f ne(euler[0], euler[1], euler[2]);
-				grabCam.setOrientation(ne);
-				
-				float fov = grabCam.getFov();
-				ImGui::SliderFloat("Fov", &fov, 0, 180);
-				grabCam.setFov(fov);
-				
-				ImGui::TreePop();
 			}
 		}
+		ImGui::End();
 		
-		if (ImGui::CollapsingHeader("Source", true)) {
-			
-			sourceManager.drawImGui();
-			
+	} else {
+		
+		static bool p_open = true;
+		ImGui::SetNextWindowPos(ImVec2(0, 0));
+		ImGui::SetNextWindowSize(ImVec2(100, 40));
+		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));
+		ImGui::Begin("Show Control", &p_open, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+		{
+			if (ImGui::Button("Show Control")) {
+				showControl = true;
+			}
 		}
+		ImGui::End();
+		ImGui::PopStyleColor();
 	}
+	
 	gui.end();
 }
 
@@ -271,9 +325,10 @@ void ofApp::exit() {
 	
 	ofxXmlSettings settings;
 	
-	sourceManager.saveSettings(settings);
+	settings.setValue("showControl", showControl);
 	
-	settings.setValue("scene:path", scene.getPath());
+	scene.saveSettings(settings);
+	sourceManager.saveSettings(settings);
 	
 	settings.saveFile("settings.xml");
 	
@@ -441,6 +496,10 @@ void ofApp::syphonRetired(ofxSyphonServerDirectoryEventArgs &arg)
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
+	
+	if (key == 'c') {
+		showControl = !showControl;
+	}
 	
 	/*
 	if (key == 'r') {

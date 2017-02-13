@@ -10,56 +10,10 @@
 class Scene {
 public:
 	
-	bool openWithDialog() {
-		
-		ofFileDialogResult result = ofSystemLoadDialog("Load Scene File (.abc)", false, ofToDataPath("."));
-		if (result.bSuccess) {
-			string path = result.getPath();
-			if (open(path)) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
 	
-	bool open(string path) {
-		
-		camList.clear();
-		screenList.clear();
-		
-		if (!abc.open(path)) {
-			return false;
-		}
-		
-		abcPath = path;
-		
-		
-		
-		
-		for (int i = 0; i < abc.size(); i++) {
-			
-			ofxAlembic::IGeom *geom = abc.get(i);
-			
-			string type = std::string(geom->getTypeName());
-
-			ofLogNotice() << "[" << i << "] " << type << " " << geom->getFullName();
-			
-			if (type == "Camera") {
-				
-				ofCamera cam;
-				abc.get(i, cam);
-				
-				string name = geom->getName();
-				name = name.substr(0, name.size() - 5);
-				
-				camList.push_back(pair<string, ofCamera>(name, cam));
-			
-			}
-		}
-		
-		return true;
-	}
+	Scene() : isAlembicLoaded(false) {}
+	
+	
 	
 	size_t getNumCameras() {
 		return camList.size();
@@ -75,7 +29,28 @@ public:
 
 	
 	void draw() {
-		abc.draw();
+		
+		if (isAlembicLoaded) {
+			abc.draw();
+		} else {
+			ofDrawPlane(0, 0, 0, 100, 100);
+		}
+	}
+	
+	void drawImGui() {
+		if (ImGui::Button("Open Scene")) {
+			
+			ofFileDialogResult result = ofSystemLoadDialog("Load Scene File (.abc)", false, "");
+			
+			if (result.bSuccess) {
+				openAlembic(result.getPath());
+			}
+		}
+		
+		ImGui::SameLine();
+		ImGui::Text("%s", isAlembicLoaded ? ofFilePath::getFileName(abcPath).c_str() : "(No Scene)");
+		
+		
 	}
 	
 	void exit() {
@@ -86,7 +61,63 @@ public:
 		return abcPath;
 	}
 	
+	void loadSettings(ofxXmlSettings &settings) {
+		settings.pushTag("scene");
+		
+		if (settings.tagExists("alembicPath")) {
+			openAlembic(settings.getValue("alembicPath", ""));
+		}
+		
+		settings.popTag();
+	}
+	
+	void saveSettings(ofxXmlSettings &settings) {
+		settings.addTag("scene");
+		settings.pushTag("scene");
+		
+		if (isAlembicLoaded) {
+			settings.setValue("alembicPath", abcPath);
+		}
+		
+		settings.popTag();
+	}
+	
 private:
+	
+	void openAlembic(string path) {
+		
+		camList.clear();
+		screenList.clear();
+		
+		if (!(isAlembicLoaded = abc.open(path))) {
+			return;
+		}
+		
+		abcPath = path;
+		
+		for (int i = 0; i < abc.size(); i++) {
+			
+			ofxAlembic::IGeom *geom = abc.get(i);
+			
+			string type = std::string(geom->getTypeName());
+			
+			ofLogNotice() << "[" << i << "] " << type << " " << geom->getFullName();
+			
+			if (type == "Camera") {
+				
+				ofCamera cam;
+				abc.get(i, cam);
+				
+				string name = geom->getName();
+				name = name.substr(0, name.size() - 5);
+				
+				camList.push_back(pair<string, ofCamera>(name, cam));
+				
+			}
+		}
+	}
+	
+	bool				isAlembicLoaded;
 	
 	ofxAlembic::Reader	abc;
 	string				abcPath;
