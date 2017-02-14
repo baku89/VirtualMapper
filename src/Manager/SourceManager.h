@@ -1,14 +1,13 @@
 #pragma once 
 
-#include "ofxImGui.h"
-#include "ofxXmlSettings.h"
+#include "BaseManager.h"
 
 #include "SourceTexture.h"
 #include "SourceImage.h"
 #include "SourceSyphon.h"
 
 
-class SourceManager {
+class SourceManager : public BaseManager {
 public:
 	
 	SourceManager() : selected(0) {}

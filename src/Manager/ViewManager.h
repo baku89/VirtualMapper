@@ -1,10 +1,8 @@
 #pragma once
 
-#include "ofxImGui.h"
-#include "ofxXmlSettings.h"
 #include "ofxGrabCam.h"
-#include "ofxTopWindow.h"
 
+#include "BaseManager.h"
 #include "ImOf.h"
 #include "CameraInfo.h"
 #include "SourceManager.h"
@@ -46,10 +44,18 @@ static ofMatrix4x4 getMatrix4x4(ofxXmlSettings &settings, const string &tag) {
 }
 
 
-class ViewManager {
+class ViewManager : public BaseManager {
 public:
 	
-	ViewManager() : cameraIndex(0) {}
+	ViewManager() : cameraIndex(0) {
+		
+		visibility["grid"].set("Grid", true);
+		visibility["wireframe"].set("Wireframe", false);
+		visibility["screens"].set("Screens", true);
+		visibility["stages"].set("Stages", true);
+		visibility["guides"].set("Guides", true);
+	
+	}
 	
 	void setup() {
 		cameraList  = new vector<CameraInfo>();
@@ -101,14 +107,18 @@ public:
 				ImGui::TreePop();
 			}
 			
-			if (ImGui::TreeNode("Rendering")) {
-			
-				ImGui::Checkbox("Show Wireframe", &showWireframe);
-				ImGui::Checkbox("Show Grid", &showGrid);
+			if (ImGui::TreeNode("Visibility")) {
 				
-				if (ImGui::Checkbox("Show Window On Top", &showWindowTop)) {
-					ofxTopWindow::setWindowOnTop(showWindowTop);
+				ImGui::Columns(2, "visibility_column", false);
+				
+				int i = 0;
+				for (auto& kv : visibility) {
+					bool &val = const_cast<bool&>(kv.second.get());
+					ImGui::Checkbox(kv.second.getName().c_str(), &val);
+					ImGui::NextColumn();
 				}
+				
+				ImGui::Columns(1);
 				
 				ImGui::TreePop();
 			}
@@ -130,10 +140,14 @@ public:
 	void loadSettings(ofxXmlSettings &settings) {
 		settings.pushTag("view");
 		
-		showWireframe = settings.getValue("showWireframe", false);
-		showGrid = settings.getValue("showGrid", showGrid);
-		showWindowTop = settings.getValue("showWindowTop", false);
-		ofxTopWindow::setWindowOnTop(showWindowTop);
+		
+		settings.pushTag("visibility");
+		for (auto &kv : visibility) {
+			settings.getValue(kv.first, kv.second);
+		}
+		settings.popTag();
+		
+		
 		
 		settings.pushTag("camera");
 		{
@@ -165,8 +179,12 @@ public:
 		settings.addTag("view");
 		settings.pushTag("view");
 		
-		settings.setValue("showWireframe", showWireframe);
-		settings.setValue("showGrid", showGrid);
+		settings.addTag("visibility");
+		settings.pushTag("visibility");
+		for (auto& kv : visibility) {
+			settings.setValue(kv.first, kv.second);
+		}
+		settings.popTag();
 		
 		settings.addTag("camera");
 		settings.pushTag("camera");
@@ -213,25 +231,29 @@ public:
 		{
 			ofSetColor(255);
 			
-			ofEnableDepthTest();
-			ofEnableLighting();
-			cameraLight.setPosition(grabCam.getPosition());
-			cameraLight.enable();
+			if (visibility["screens"]) {
+				sourceManager.bind();
+				sceneManager.drawScreens();
+				sourceManager.unbind();
+			}
 			
-			sceneManager.drawStages();
+			if (visibility["stages"]) {
+				ofEnableDepthTest();
+				ofEnableLighting();
+				cameraLight.setPosition(grabCam.getPosition());
+				cameraLight.enable();
+				
+				sceneManager.drawStages();
+				
+				cameraLight.disable();
+				ofDisableLighting();
+			}
 			
-			cameraLight.disable();
-			ofDisableLighting();
-			
-			sourceManager.bind();
-			sceneManager.drawScreens();
-			sourceManager.unbind();
-			
-			if (showWireframe) {
+			if (visibility["wireframe"]) {
 				sceneManager.drawWireframe();
 			}
 			
-			if (showGrid) {
+			if (visibility["grid"]) {
 				ofPushStyle();
 				{
 					
@@ -322,7 +344,5 @@ private:
 	vector<CameraInfo>	*cameraList;
 	
 	int					cameraIndex;
-	bool				showWireframe, showGrid, showWindowTop;
-	
-	
+	map<string, ofParameter<bool>>	visibility;
 };

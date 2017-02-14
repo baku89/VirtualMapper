@@ -9,9 +9,13 @@
 
 #include "ImOf.h"
 #include "CameraInfo.h"
+
+#include "BaseManager.h"
+
 #include "SceneManager.h"
 #include "ViewManager.h"
 #include "SourceManager.h"
+#include "MiscManager.h"
 
 class ofApp : public ofBaseApp{
 
@@ -33,10 +37,14 @@ public:
 	
 	// variables
 	
-	SceneManager				sceneManager;
-	ViewManager			viewManager;
-	SourceManager		sourceManager;
+	// managers
+	vector<BaseManager*>	managers;
+	SceneManager			sceneManager;
+	ViewManager				viewManager;
+	SourceManager			sourceManager;
+	MiscManager				miscManager;
 	
+	// gui
 	ofxImGui::Gui		gui;
 	bool				showControl;
 	

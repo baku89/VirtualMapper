@@ -4,6 +4,7 @@
 
 #include "ofxFBX.h"
 
+#include "BaseManager.h"
 #include "CameraInfo.h"
 #include "ExtendedFBXManager.h"
 
@@ -25,7 +26,7 @@ inline ofMatrix4x4 cameraMatrixToOf(const FbxAMatrix & matrix){
 	return m;
 }
 
-class SceneManager {
+class SceneManager : public BaseManager {
 public:
 	
 	ofEvent<vector<CameraInfo>> cameraListUpdated;

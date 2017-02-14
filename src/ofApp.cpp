@@ -17,8 +17,14 @@ void ofApp::setup(){
 	
 	
 	// setup source
-	viewManager.setup();
-	sourceManager.setup();
+	managers.push_back(&sceneManager);
+	managers.push_back(&viewManager);
+	managers.push_back(&sourceManager);
+	managers.push_back(&miscManager);
+	
+	for (auto& manager : managers) {
+		manager->setup();
+	}
 	
 	// event
 	ofAddListener(sceneManager.cameraListUpdated, this, &ofApp::cameraListUpdated);
@@ -29,24 +35,25 @@ void ofApp::setup(){
 	
 	showControl = settings.getValue("showControl", true);
 	
-	sceneManager.loadSettings(settings);
-	viewManager.loadSettings(settings);
-	sourceManager.loadSettings(settings);
+	for (auto& manager : managers) {
+		manager->loadSettings(settings);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
-	sceneManager.update();
-	viewManager.update();
+	
+	for (auto& manager : managers) {
+		manager->update();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofBackground(0);
 	
-	
 	viewManager.draw(sceneManager, sourceManager);
+	
 	drawImGui();
 }
 
@@ -67,9 +74,9 @@ void ofApp::drawImGui() {
 				showControl = false;
 			}
 			
-			sceneManager.drawImGui();
-			viewManager.drawImGui();
-			sourceManager.drawImGui();
+			for (auto& manager : managers) {
+				manager->drawImGui();
+			}
 			
 		}
 		ImGui::End();
@@ -100,9 +107,9 @@ void ofApp::exit() {
 	
 	settings.setValue("showControl", showControl);
 	
-	sceneManager.saveSettings(settings);
-	viewManager.saveSettings(settings);
-	sourceManager.saveSettings(settings);
+	for (auto& manager : managers) {
+		manager->saveSettings(settings);
+	}
 	
 	settings.saveFile("settings.xml");
 }
