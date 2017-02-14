@@ -209,6 +209,7 @@ public:
 	
 	void updateCameraList(vector<CameraInfo> &_cameraList) {
 		cameraList = &_cameraList;
+		cameraIndex = 0;
 	}
 	
 	void update() {

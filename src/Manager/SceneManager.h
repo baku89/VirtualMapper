@@ -87,7 +87,7 @@ public:
 			}
 			
 			ImGui::SameLine();
-			ImGui::Text("%s", isFBXLoaded ? ofFilePath::getFileName(fbxScene.getFbxFilePath()).c_str() : "(No Scene)");
+			ImGui::Text("%s", isFBXLoaded ? ofFilePath::getFileName(fbxScene->getFbxFilePath()).c_str() : "(No Scene)");
 		}
 	}
 	
@@ -118,7 +118,7 @@ public:
 		settings.pushTag("scene");
 		
 		if (isFBXLoaded) {
-			settings.setValue("fbxPath", fbxScene.getFbxFilePath());
+			settings.setValue("fbxPath", fbxScene->getFbxFilePath());
 		}
 		
 		settings.popTag();
@@ -130,15 +130,21 @@ private:
 		
 		cameraList.clear();
 		
-		if (!(isFBXLoaded = fbxScene.load(path))) {
+		if (fbxScene != NULL) {
+			delete fbxScene;
+		}
+		
+		fbxScene = new ofxFBXScene();
+		
+		if (!(isFBXLoaded = fbxScene->load(path))) {
 			return;
 		}
 		
 		
-		fbxMan.setup( &fbxScene );
+		fbxMan.setup( fbxScene );
 		fbxMan.setAnimation(0);
 		
-		fbxsdk::FbxScene *fs = fbxScene.getFBXScene();
+		fbxsdk::FbxScene *fs = fbxScene->getFBXScene();
 		fbxsdk::FbxNode *node = fs->GetRootNode();
 		
 		searchCamera(node);
@@ -188,6 +194,6 @@ private:
 	bool				isFBXLoaded;
 	
 	vector<CameraInfo>	cameraList;
-	ofxFBXScene			fbxScene;
+	ofxFBXScene			*fbxScene;
 	ExtendedFBXManager	fbxMan;
 };
