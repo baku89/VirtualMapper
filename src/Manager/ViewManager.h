@@ -9,6 +9,42 @@
 #include "SourceManager.h"
 #include "SceneManager.h"
 
+static void setMatrix4x4(ofxXmlSettings &settings, const string &tag, ofMatrix4x4 m) {
+	
+	settings.addTag(tag);
+	settings.pushTag(tag);
+	{
+		float *mp = m.getPtr();
+		for (int j = 0; j < 4; j++) {
+			for (int i = 0; i < 4; i++) {
+				settings.addValue("m" + ofToString(j) + ofToString(i), mp[j*4 + i]);
+			}
+		}
+	}
+	settings.popTag();
+}
+
+static ofMatrix4x4 getMatrix4x4(ofxXmlSettings &settings, const string &tag) {
+	
+	ofMatrix4x4 m;
+	
+	if (settings.tagExists(tag)) {
+		settings.pushTag(tag);
+		
+		float values[16];
+		for (int j = 0; j < 4; j++) {
+			for (int i = 0; i < 4; i++) {
+				values[j*4 + i] = settings.getValue("m" + ofToString(j) + ofToString(i), (double)(i==j ? 1 : 0));
+			}
+		}
+		
+		m.set(values);
+		settings.popTag();
+	}
+	return m;
+}
+
+
 class ViewManager {
 public:
 	
@@ -37,11 +73,12 @@ public:
 					cameraNames += ofToString(i++) + ": " + camera.name + '\0';
 				}
 				
+				static int cameraComboIndex = 0;
 				
-				if (ImGui::Combo("", &cameraIndex, cameraNames.c_str())) {
+				if (ImGui::Combo("", &cameraComboIndex, cameraNames.c_str())) {
 					
 					if (cameraIndex >= 1) {
-						switchCamera();
+						applyCurrentCameraInfo();
 					}
 				}
 				
@@ -93,6 +130,28 @@ public:
 		showWireframe = settings.getValue("showWireframe", false);
 		showGrid = settings.getValue("showGrid", showGrid);
 		
+		settings.pushTag("camera");
+		{
+			cameraIndex = settings.getValue("index", 0);
+			
+			if (cameraIndex == 0) {
+				
+				if (settings.tagExists("info")) {
+					settings.pushTag("info");
+					
+					grabCam.setTransformMatrix( getMatrix4x4(settings, "matrix") );
+					grabCam.setFov( settings.getValue("fov", 40) );
+					grabCam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
+					
+					settings.popTag();
+				}
+			
+			} else if (cameraIndex <= cameraList->size()) {
+				applyCurrentCameraInfo();
+			}
+		}
+		settings.popTag();
+		
 		settings.popTag();
 	}
 	
@@ -103,6 +162,24 @@ public:
 		
 		settings.setValue("showWireframe", showWireframe);
 		settings.setValue("showGrid", showGrid);
+		
+		settings.addTag("camera");
+		settings.pushTag("camera");
+		{
+			settings.setValue("index", cameraIndex);
+			
+			if (cameraIndex == 0) {
+				settings.addTag("info");
+				settings.pushTag("info");
+				
+				setMatrix4x4(settings, "matrix", grabCam.getGlobalTransformMatrix());
+				settings.setValue("fov", grabCam.getFov());
+				settings.setValue("fixUpDirection", grabCam.getFixUpDirectionEnabled());
+				
+				settings.popTag();
+			}
+		}
+		settings.popTag();
 		
 		settings.popTag();
 	}
@@ -174,7 +251,11 @@ private:
 		return true;
 	}
 	
-	void switchCamera() {
+	void applyCurrentCameraInfo() {
+		if (cameraIndex == 0) {
+			resetCamera();
+		}
+		
 		CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
 		
 		grabCam.setTransformMatrix(camInfo.matrix);
@@ -184,8 +265,10 @@ private:
 	
 	void resetCamera() {
 		grabCam.setFixUpDirectionEnabled(true);
+		grabCam.resetTransform();
 		grabCam.setPosition(300, 100, 300);
 		grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
+		grabCam.setFov(40);
 		grabCam.setNearClip(1);
 		grabCam.setFarClip(10000);
 	}
@@ -202,7 +285,7 @@ private:
 		int ci = args.key - '0';
 		if (1 <= ci &&  ci <= cameraList->size())  {
 			cameraIndex = ci;
-			switchCamera();
+			applyCurrentCameraInfo();
 
 		} else if (args.key == 'r') {
 			resetCamera();
