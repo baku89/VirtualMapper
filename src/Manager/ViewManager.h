@@ -54,6 +54,62 @@ public:
 		visibility["screens"].set("Screens", true);
 		visibility["stages"].set("Stages", true);
 		visibility["guides"].set("Guides", true);
+		visibility["cameras"].set("Cameras", true);
+		
+		{
+			// create camera
+			
+			vector<ofVec3f> vs;
+			
+			vs.push_back(ofVec3f( 12.5, 12.5, 12.5));
+			vs.push_back(ofVec3f( 12.5, 12.5, 62.5));
+			vs.push_back(ofVec3f(-12.5, 12.5, 12.5));
+			vs.push_back(ofVec3f(-12.5, 12.5, 62.5));
+			
+			vs.push_back(ofVec3f( 12.5, -12.5, 12.5));
+			vs.push_back(ofVec3f( 12.5, -12.5, 62.5));
+			vs.push_back(ofVec3f(-12.5, -12.5, 12.5));
+			vs.push_back(ofVec3f(-12.5, -12.5, 62.5));
+			
+			vs.push_back(vs[0]); vs.push_back(vs[2]);
+			vs.push_back(vs[1]); vs.push_back(vs[3]);
+			vs.push_back(vs[4]); vs.push_back(vs[6]);
+			vs.push_back(vs[5]); vs.push_back(vs[7]);
+			
+			vs.push_back(vs[0]); vs.push_back(vs[4]);
+			vs.push_back(vs[1]); vs.push_back(vs[5]);
+			vs.push_back(vs[2]); vs.push_back(vs[6]);
+			vs.push_back(vs[3]); vs.push_back(vs[7]);
+			cameraMesh.addVertices(vs);
+			
+			vs.clear();
+			
+			vs.push_back(ofVec3f(   11,   11,    0));
+			vs.push_back(ofVec3f( 3.75, 3.75, 12.5));
+			vs.push_back(ofVec3f(  -11,   11,    0));
+			vs.push_back(ofVec3f(-3.75, 3.75, 12.5));
+			
+			vs.push_back(ofVec3f(   11,  -11,    0));
+			vs.push_back(ofVec3f( 3.75,-3.75, 12.5));
+			vs.push_back(ofVec3f(  -11,  -11,    0));
+			vs.push_back(ofVec3f(-3.75,-3.75, 12.5));
+			
+			vs.push_back(vs[0]); vs.push_back(vs[2]);
+			vs.push_back(vs[1]); vs.push_back(vs[3]);
+			vs.push_back(vs[4]); vs.push_back(vs[6]);
+			vs.push_back(vs[5]); vs.push_back(vs[7]);
+			
+			vs.push_back(vs[0]); vs.push_back(vs[4]);
+			vs.push_back(vs[1]); vs.push_back(vs[5]);
+			vs.push_back(vs[2]); vs.push_back(vs[6]);
+			vs.push_back(vs[3]); vs.push_back(vs[7]);
+			
+			cameraMesh.addVertices(vs);
+			cameraMesh.setMode(OF_PRIMITIVE_LINES);
+		}
+		
+		font.load("Karla-Regular.ttf", 9);
+		font.setLetterSpacing(1.1);
 	
 	}
 	
@@ -283,9 +339,21 @@ public:
 				ofPopStyle();
 			}
 			
+			if (visibility["cameras"]) {
+				for (auto& cameraInfo : *cameraList) {
+					drawCamera(cameraInfo);
+				}
+			}
+			
 			ofDisableDepthTest();
 		}
 		grabCam.end();
+		
+		if (visibility["cameras"]) {
+			for (auto& cameraInfo : *cameraList) {
+				drawCameraLabel(cameraInfo);
+			}
+		}
 		
 	}
 	
@@ -344,10 +412,41 @@ private:
 			resetCamera();
 		}
 	}
+	
+	void drawCamera(CameraInfo &cameraInfo) {
+		
+		ofPushStyle();
+		ofNoFill();
+		ofPushMatrix();
+		{
+			ofMultMatrix(cameraInfo.matrix);
+			
+			cameraMesh.draw();
+			
+			ofPushMatrix();
+			ofRotateY(-90);
+			ofDrawCircle(25, 25, 0, 12.5);
+			ofDrawCircle(50, 25, 0, 12.5);
+			ofPopMatrix();
+		}
+		ofPopMatrix();
+		ofPopStyle();
+	}
+	
+	void drawCameraLabel(CameraInfo &cameraInfo) {
+		
+		ofSetColor(255, 127);
+		ofVec3f p = grabCam.worldToScreen( cameraInfo.matrix.getTranslation() );
+		
+		font.drawString(cameraInfo.name, p.x + 15, p.y);
+	}
 
 	
 	// members
-	ofLight cameraLight;
+	ofLight				cameraLight;
+	
+	ofMesh				cameraMesh;
+	ofTrueTypeFont		font;
 	
 	ofxGrabCam			grabCam;
 	vector<CameraInfo>	*cameraList;
