@@ -2,6 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	
+#ifdef RELEASE
+	ofSetDataPathRoot("../Resources/data/");
+#endif
 
 	// setup window attributes
 	ofEnableNormalizedTexCoords();
