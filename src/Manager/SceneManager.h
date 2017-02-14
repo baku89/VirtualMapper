@@ -4,6 +4,8 @@
 
 #include "ofxFBX.h"
 
+#include "CameraInfo.h"
+
 
 inline ofMatrix4x4 cameraMatrixToOf(const FbxAMatrix & matrix){
 	ofMatrix4x4 m;
@@ -23,20 +25,10 @@ inline ofMatrix4x4 cameraMatrixToOf(const FbxAMatrix & matrix){
 	return m;
 }
 
-class CameraInfo {
-public:
-	CameraInfo() : name(""), matrix(), fov(40), nearClip(1), farClip(10000) {}
-	
-	string name;
-	ofMatrix4x4 matrix;
-	float fov;
-	float nearClip;
-	float farClip;
-};
-
 class SceneManager {
 public:
 	
+	ofEvent<vector<CameraInfo>> cameraListUpdated;
 	
 	SceneManager() : isFBXLoaded(false) {}
 	
@@ -140,6 +132,8 @@ private:
 		fbxsdk::FbxNode *node = fs->GetRootNode();
 		
 		searchCamera(node);
+		
+		ofNotifyEvent(cameraListUpdated, cameraList, this);
 	}
 	
 	void searchCamera(fbxsdk::FbxNode *node) {
@@ -147,8 +141,6 @@ private:
 		for (int i = 0; i < node->GetChildCount(); i++) {
 			
 			fbxsdk::FbxNode *child = node->GetChild(i);
-			
-			ofLogNotice() << "Type: " << std::string(child->GetTypeName());
 			
 			if (std::string(child->GetTypeName()) == "Camera") {
 				

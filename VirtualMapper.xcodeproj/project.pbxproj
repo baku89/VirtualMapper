@@ -248,6 +248,7 @@
 		9249B4CE1E527B3B00FD6422 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		9249B4CF1E527B3B00FD6422 /* SourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceManager.h; sourceTree = "<group>"; };
 		9249B4D01E527B3B00FD6422 /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
+		9249B4D21E52839F00FD6422 /* CameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraInfo.h; path = src/CameraInfo.h; sourceTree = SOURCE_ROOT; };
 		926D12444F34A19733B94742 /* fbxdynamicarray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdynamicarray.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxdynamicarray.h; sourceTree = SOURCE_ROOT; };
 		92B39A92012CF829933E280F /* fbxprocessorxref.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxprocessorxref.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxprocessorxref.h; sourceTree = SOURCE_ROOT; };
 		92D1C5A2A8B10209751893F5 /* fbxpose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpose.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxpose.h; sourceTree = SOURCE_ROOT; };
@@ -1011,6 +1012,7 @@
 				9249B4CC1E527B0E00FD6422 /* ImOf.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				9249B4D21E52839F00FD6422 /* CameraInfo.h */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				9249B4CD1E527B3B00FD6422 /* Manager */,
 				2E3236478FD8406FBDBA68A6 /* ofxTopWindow */,

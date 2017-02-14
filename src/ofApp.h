@@ -7,8 +7,8 @@
 #include "ofxSyphon.h"
 #include "ofxImGui.h"
 
-
 #include "ImOf.h"
+#include "CameraInfo.h"
 #include "SceneManager.h"
 #include "ViewManager.h"
 #include "SourceManager.h"
@@ -28,6 +28,8 @@ public:
 	void keyReleased(int key);
 	void mousePressed(int x, int y, int button);
 	void mouseReleased(int x, int y, int button);
+	
+	void cameraListUpdated(vector<CameraInfo> &cameraList);
 	
 	// variables
 	

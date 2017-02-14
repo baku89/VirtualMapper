@@ -17,8 +17,12 @@ void ofApp::setup(){
 	
 	
 	// setup source
-	viewManager.setup(&sceneManager);
+	viewManager.setup();
 	sourceManager.setup();
+	
+	// event
+	ofAddListener(sceneManager.cameraListUpdated, this, &ofApp::cameraListUpdated);
+	
 	
 	// load settings
 	ofxXmlSettings settings("settings.xml");
@@ -103,6 +107,10 @@ void ofApp::exit() {
 	settings.saveFile("settings.xml");
 }
 
+//--------------------------------------------------------------
+void ofApp::cameraListUpdated(vector<CameraInfo> &cameraList) {
+	viewManager.updateCameraList(cameraList);
+}
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){

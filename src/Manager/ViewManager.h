@@ -5,6 +5,7 @@
 #include "ofxGrabCam.h"
 
 #include "ImOf.h"
+#include "CameraInfo.h"
 #include "SourceManager.h"
 #include "SceneManager.h"
 
@@ -13,9 +14,8 @@ public:
 	
 	ViewManager() : cameraIndex(0) {}
 	
-	void setup(SceneManager *_sceneManager) {
-		
-		sceneManager = _sceneManager;
+	void setup() {
+		cameraList  = new vector<CameraInfo>();
 		
 		resetCamera();
 		
@@ -33,7 +33,7 @@ public:
 				
 				int i = 1;
 				
-				for (auto& camera : sceneManager->getCameras()) {
+				for (auto& camera : *cameraList) {
 					cameraNames += ofToString(i++) + ": " + camera.name + '\0';
 				}
 				
@@ -81,7 +81,7 @@ public:
 		if (cameraIndex >= 1) {
 		
 			ImOf::BeginPopup();
-			ImGui::Text("%d: %s", cameraIndex, sceneManager->getCameraAt(cameraIndex - 1).name.c_str());
+			ImGui::Text("%d: %s", cameraIndex, (*cameraList)[cameraIndex - 1].name.c_str());
 			ImGui::SetWindowPos(ImVec2(ofGetWidth() - ImGui::GetWindowWidth() - 10 , 10));
 			ImOf::EndPopup();
 		}
@@ -107,11 +107,15 @@ public:
 		settings.popTag();
 	}
 	
+	void updateCameraList(vector<CameraInfo> &_cameraList) {
+		cameraList = &_cameraList;
+	}
+	
 	void update() {
 		
 		if (cameraIndex >= 1) {
 			
-			CameraInfo camInfo = sceneManager->getCameraAt(cameraIndex - 1);
+			CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
 			ofMatrix4x4 mg = grabCam.getGlobalTransformMatrix();
 			
 			if ( camInfo.fov != grabCam.getFov() || !equalMatrix(camInfo.matrix, mg) ) {
@@ -171,7 +175,7 @@ private:
 	}
 	
 	void switchCamera() {
-		CameraInfo camInfo = sceneManager->getCameraAt(cameraIndex - 1);
+		CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
 		
 		grabCam.setTransformMatrix(camInfo.matrix);
 		grabCam.setFov(camInfo.fov);
@@ -196,7 +200,7 @@ private:
 	void keyPressed(ofKeyEventArgs & args) {
 		
 		int ci = args.key - '0';
-		if (1 <= ci &&  ci <= sceneManager->getNumCameras())  {
+		if (1 <= ci &&  ci <= cameraList->size())  {
 			cameraIndex = ci;
 			switchCamera();
 
@@ -207,13 +211,12 @@ private:
 
 	
 	// members
-	SceneManager *sceneManager;
 	
-	ofxGrabCam grabCam;
+	ofxGrabCam			grabCam;
+	vector<CameraInfo>	*cameraList;
 	
-	int cameraIndex;
-	
-	bool showWireframe, showGrid;
+	int					cameraIndex;
+	bool				showWireframe, showGrid;
 	
 	
 };
