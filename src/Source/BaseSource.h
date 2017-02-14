@@ -5,11 +5,11 @@
 #include "ofxImGui.h"
 #include "ofxXmlSettings.h"
 
-class SourceTexture {
+class BaseSource {
 public:
 	
-//	SourceTexture() {};
-//	virtual ~SourceTexture();
+//	BaseSource() {};
+//	virtual ~BaseSource();
 //
 	virtual void setup() {}
 	

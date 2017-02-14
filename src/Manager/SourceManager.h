@@ -2,9 +2,9 @@
 
 #include "BaseManager.h"
 
-#include "SourceTexture.h"
-#include "SourceImage.h"
-#include "SourceSyphon.h"
+#include "BaseSource.h"
+#include "ImageSource.h"
+#include "SyphonSource.h"
 
 
 class SourceManager : public BaseManager {
@@ -14,8 +14,8 @@ public:
 	
 	void setup() {
 		
-		sources.push_back(new SourceImage());
-		sources.push_back(new SourceSyphon());
+		sources.push_back(new ImageSource());
+		sources.push_back(new SyphonSource());
 		
 		for (auto& source : sources) {
 			source->setup();
@@ -78,7 +78,7 @@ private:
 	
 	int selected;
 	
-	vector<SourceTexture*> sources;
+	vector<BaseSource*> sources;
 	
 
 };

@@ -4,12 +4,12 @@
 #include "ofMain.h"
 #include "ofxSyphon.h"
 
-#include "SourceTexture.h"
+#include "BaseSource.h"
 
-class SourceSyphon : public SourceTexture {
+class SyphonSource : public BaseSource {
 public:
 	
-	SourceSyphon() : index(-1) {}
+	SyphonSource() : index(-1) {}
 	
 	void setup() {
 		
@@ -18,8 +18,8 @@ public:
 		
 		updateInputsString();
 		
-		ofAddListener(dir.events.serverAnnounced, this, &SourceSyphon::changed);
-		ofAddListener(dir.events.serverRetired, this, &SourceSyphon::changed);
+		ofAddListener(dir.events.serverAnnounced, this, &SyphonSource::changed);
+		ofAddListener(dir.events.serverRetired, this, &SyphonSource::changed);
 	}
 	
 	void loadSettings(ofxXmlSettings &settings) {

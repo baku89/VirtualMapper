@@ -226,7 +226,6 @@
 		7A455108E6F315006C580F4D /* fbxcolladatokens.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcolladatokens.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/collada/fbxcolladatokens.h; sourceTree = SOURCE_ROOT; };
 		7CA57EEE0024A034819A2667 /* fbxcolladaanimationelement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcolladaanimationelement.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/collada/fbxcolladaanimationelement.h; sourceTree = SOURCE_ROOT; };
 		7E43F5FD5CB7F1965F1A06E7 /* ofxFBXSkeleton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFBXSkeleton.cpp; path = ../../../addons/ofxFBX/src/ofxFBXSkeleton.cpp; sourceTree = SOURCE_ROOT; };
-		7F7A6978E17DF4BA6D5D5C1F /* SourceImage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceImage.h; path = src/SourceTexture/SourceImage.h; sourceTree = SOURCE_ROOT; };
 		8037C6748386104EE12E5A38 /* fbxscopedloadingfilename.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxscopedloadingfilename.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/fbxscopedloadingfilename.h; sourceTree = SOURCE_ROOT; };
 		806591F974876ED99123E1E5 /* fbxscene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxscene.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxscene.h; sourceTree = SOURCE_ROOT; };
 		80F80BA4DD89C624504E035E /* stb_truetype.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stb_truetype.h; path = ../../../addons/ofxImGui/libs/imgui/src/stb_truetype.h; sourceTree = SOURCE_ROOT; };
@@ -243,6 +242,9 @@
 		8D10EFCDAABDE2D0D7F2E8C7 /* fbxlight.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxlight.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxlight.h; sourceTree = SOURCE_ROOT; };
 		8E362ECECD928E7B3EBA5C53 /* BaseTheme.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BaseTheme.cpp; path = ../../../addons/ofxImGui/src/BaseTheme.cpp; sourceTree = SOURCE_ROOT; };
 		8F9B5A8520E871B683F5B209 /* fbxtime.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxtime.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxtime.h; sourceTree = SOURCE_ROOT; };
+		921813D91E53959100744992 /* BaseSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseSource.h; path = Source/BaseSource.h; sourceTree = "<group>"; };
+		921813DA1E53959100744992 /* ImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSource.h; path = Source/ImageSource.h; sourceTree = "<group>"; };
+		921813DB1E53959100744992 /* SyphonSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyphonSource.h; path = Source/SyphonSource.h; sourceTree = "<group>"; };
 		92202694DDBD60C5C8CE2BB9 /* fbxcameraswitcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcameraswitcher.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxcameraswitcher.h; sourceTree = SOURCE_ROOT; };
 		9249B4CC1E527B0E00FD6422 /* ImOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImOf.h; sourceTree = "<group>"; };
 		9249B4CE1E527B3B00FD6422 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
@@ -255,7 +257,6 @@
 		92EB03881E52F639008544A4 /* ExtendedFBXManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedFBXManager.h; sourceTree = "<group>"; };
 		92EB038E1E530C76008544A4 /* MiscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscManager.h; sourceTree = "<group>"; };
 		92EB038F1E530D6C008544A4 /* BaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
-		9408548181B48BB727E555D5 /* SourceTexture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceTexture.h; path = src/SourceTexture/SourceTexture.h; sourceTree = SOURCE_ROOT; };
 		9518DFB2ECB1FEE1B0AE1444 /* fbxlimitsutilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxlimitsutilities.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxlimitsutilities.h; sourceTree = SOURCE_ROOT; };
 		9522FCDC8D8DFC77AE018A73 /* fbxcontainertemplate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcontainertemplate.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxcontainertemplate.h; sourceTree = SOURCE_ROOT; };
 		95EB7C733541F64E2C4F7115 /* ofxFBXScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFBXScene.cpp; path = ../../../addons/ofxFBX/src/ofxFBXScene.cpp; sourceTree = SOURCE_ROOT; };
@@ -278,7 +279,6 @@
 		A9D80196A894A801BD9D02C2 /* fbxanimcurvebase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxanimcurvebase.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/animation/fbxanimcurvebase.h; sourceTree = SOURCE_ROOT; };
 		A9EB4A9E7B72267C4BEE61EC /* fbxiosettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxiosettings.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbxiosettings.h; sourceTree = SOURCE_ROOT; };
 		ABF16293ACA156861E2B147C /* fbxconstraintaim.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxconstraintaim.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/constraint/fbxconstraintaim.h; sourceTree = SOURCE_ROOT; };
-		AD384CD5BBAC0100D888A812 /* SourceSyphon.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceSyphon.h; path = src/SourceTexture/SourceSyphon.h; sourceTree = SOURCE_ROOT; };
 		AE9BCE2EE396658492C3272E /* fbxgeometrybase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxgeometrybase.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxgeometrybase.h; sourceTree = SOURCE_ROOT; };
 		AEC3DA887C2544FD554EBF31 /* fbxskeleton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxskeleton.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxskeleton.h; sourceTree = SOURCE_ROOT; };
 		B12A8F0647703A2DFA3B7C22 /* fbxiobase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxiobase.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbxiobase.h; sourceTree = SOURCE_ROOT; };
@@ -1021,7 +1021,7 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				9249B4CD1E527B3B00FD6422 /* Manager */,
 				2E3236478FD8406FBDBA68A6 /* ofxTopWindow */,
-				F0369433955D5A2F93E971B9 /* SourceTexture */,
+				F0369433955D5A2F93E971B9 /* Source */,
 				92EB03881E52F639008544A4 /* ExtendedFBXManager.h */,
 			);
 			path = src;
@@ -1036,14 +1036,14 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
-		F0369433955D5A2F93E971B9 /* SourceTexture */ = {
+		F0369433955D5A2F93E971B9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7F7A6978E17DF4BA6D5D5C1F /* SourceImage.h */,
-				AD384CD5BBAC0100D888A812 /* SourceSyphon.h */,
-				9408548181B48BB727E555D5 /* SourceTexture.h */,
+				921813D91E53959100744992 /* BaseSource.h */,
+				921813DA1E53959100744992 /* ImageSource.h */,
+				921813DB1E53959100744992 /* SyphonSource.h */,
 			);
-			name = SourceTexture;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		F5976C5BF0EA6F155AAECEB5 /* utils */ = {
@@ -1184,7 +1184,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    rsync -av  --progress \"bin/data\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\";\nfi";
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    cp -R \"bin/data\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\"\n    rm \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/data/settings.xml\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

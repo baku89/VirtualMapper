@@ -2,14 +2,14 @@
 
 #include "ofMain.h"
 
-#include "SourceTexture.h"
+#include "BaseSource.h"
 
 #define DEFAULT_PATH		"default_screen.jpg"
 
-class SourceImage : public SourceTexture {
+class ImageSource : public BaseSource {
 public:
 	
-	SourceImage() : isLoaded(false) {}
+	ImageSource() : isLoaded(false) {}
 	
 	void setup() {
 		ofLoadImage(texture, DEFAULT_PATH);
