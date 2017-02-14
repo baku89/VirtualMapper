@@ -222,16 +222,27 @@ public:
 			sourceManager.unbind();
 			
 			if (showWireframe) {
-				ofSetColor(128);
 				sceneManager.drawWireframe();
 			}
 			
 			if (showGrid) {
-				ofDrawAxis(200);
-				ofPushMatrix();
-				ofRotateZ(90);
-				ofDrawGridPlane(100.0f, 10);
-				ofPopMatrix();
+				ofPushStyle();
+				{
+					
+					ofSetLineWidth(2);
+					ofDrawAxis(400);
+					
+					ofSetLineWidth(1);
+					ofSetColor(128);
+					ofPushMatrix();
+					{
+						ofRotateZ(90);
+						ofDrawGridPlane(100.0f, 10);
+					}
+					ofPopMatrix();
+				
+				}
+				ofPopStyle();
 			}
 			
 			ofDisableDepthTest();

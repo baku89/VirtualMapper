@@ -53,14 +53,20 @@ public:
 	}
 	
 	void drawWireframe() {
+		ofPushStyle();
+		ofSetColor(255);
+		ofSetLineWidth(2);
+		
 		if (isFBXLoaded) {
-			fbxMan.drawSkeletons(6.);
+			fbxMan.drawMeshWireframes();
 		} else {
 			ofPushMatrix();
 			ofRotateZ(90);
 			ofDrawGridPlane(10.0f, 5);
 			ofPopMatrix();
 		}
+		
+		ofPopStyle();
 	}
 	
 	void drawImGui() {
