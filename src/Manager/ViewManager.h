@@ -74,9 +74,7 @@ public:
 					cameraNames += ofToString(i++) + ": " + camera.name + '\0';
 				}
 				
-				static int cameraComboIndex = 0;
-				
-				if (ImGui::Combo("", &cameraComboIndex, cameraNames.c_str())) {
+				if (ImGui::Combo("", &cameraIndex, cameraNames.c_str())) {
 					
 					if (cameraIndex >= 1) {
 						applyCurrentCameraInfo();
