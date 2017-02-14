@@ -66,12 +66,12 @@ public:
 		}
 	}
 	
-	void bind() {
-		sources[selected]->bind();
+	void bind(int textureLocation = 0) {
+		sources[selected]->bind(textureLocation);
 	}
 	
-	void unbind() {
-		sources[selected]->unbind();
+	void unbind(int textureLocation = 0) {
+		sources[selected]->unbind(textureLocation);
 	}
 	
 	

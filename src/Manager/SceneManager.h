@@ -5,7 +5,7 @@
 #include "ofxFBX.h"
 
 #include "CameraInfo.h"
-
+#include "ExtendedFBXManager.h"
 
 inline ofMatrix4x4 cameraMatrixToOf(const FbxAMatrix & matrix){
 	ofMatrix4x4 m;
@@ -44,6 +44,30 @@ public:
 		
 		if (isFBXLoaded) {
 			fbxMan.draw();
+		} else {
+			ofPushMatrix();
+			ofRotateX(90);
+			ofDrawPlane(0, 0, 0, 100, 100);
+			ofPopMatrix();
+		}
+	}
+	
+	void drawScreens() {
+		
+		if (isFBXLoaded) {
+			fbxMan.drawScreens();
+		} else {
+			ofPushMatrix();
+			ofRotateX(90);
+			ofDrawPlane(0, 0, 0, 100, 100);
+			ofPopMatrix();
+		}
+	}
+	
+	void drawStages() {
+		
+		if (isFBXLoaded) {
+			fbxMan.drawStages();
 		} else {
 			ofPushMatrix();
 			ofRotateX(90);
@@ -173,5 +197,5 @@ private:
 	
 	vector<CameraInfo>	cameraList;
 	ofxFBXScene			fbxScene;
-	ofxFBXManager		fbxMan;
+	ExtendedFBXManager	fbxMan;
 };

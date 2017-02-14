@@ -252,6 +252,7 @@
 		926D12444F34A19733B94742 /* fbxdynamicarray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdynamicarray.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxdynamicarray.h; sourceTree = SOURCE_ROOT; };
 		92B39A92012CF829933E280F /* fbxprocessorxref.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxprocessorxref.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxprocessorxref.h; sourceTree = SOURCE_ROOT; };
 		92D1C5A2A8B10209751893F5 /* fbxpose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpose.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxpose.h; sourceTree = SOURCE_ROOT; };
+		92EB03881E52F639008544A4 /* ExtendedFBXManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedFBXManager.h; sourceTree = "<group>"; };
 		9408548181B48BB727E555D5 /* SourceTexture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceTexture.h; path = src/SourceTexture/SourceTexture.h; sourceTree = SOURCE_ROOT; };
 		9518DFB2ECB1FEE1B0AE1444 /* fbxlimitsutilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxlimitsutilities.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxlimitsutilities.h; sourceTree = SOURCE_ROOT; };
 		9522FCDC8D8DFC77AE018A73 /* fbxcontainertemplate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcontainertemplate.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxcontainertemplate.h; sourceTree = SOURCE_ROOT; };
@@ -1017,6 +1018,7 @@
 				9249B4CD1E527B3B00FD6422 /* Manager */,
 				2E3236478FD8406FBDBA68A6 /* ofxTopWindow */,
 				F0369433955D5A2F93E971B9 /* SourceTexture */,
+				92EB03881E52F639008544A4 /* ExtendedFBXManager.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

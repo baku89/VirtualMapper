@@ -18,8 +18,8 @@ public:
 	
 	virtual string getName() {}
 	
-	virtual void bind() {}
-	virtual void unbind() {}
+	virtual void bind(int textureLocation) {}
+	virtual void unbind(int textureLocation) {}
 	
 	virtual void drawImGui() {}
 	

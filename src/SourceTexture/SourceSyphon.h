@@ -80,13 +80,13 @@ public:
 		return "Syphon";
 	}
 	
-	void bind() {
+	void bind(int textureLocation) {
 		client.draw(0, 0, 0, 0);
-		client.getTexture().bind();
+		client.getTexture().bind(textureLocation);
 	}
 	
-	void unbind() {
-		client.getTexture().unbind();
+	void unbind(int texturLocation) {
+		client.getTexture().unbind(texturLocation);
 	}
 	
 	void drawImGui() {

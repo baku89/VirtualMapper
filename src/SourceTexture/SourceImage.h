@@ -39,12 +39,12 @@ public:
 		settings.popTag();
 	}
 	
-	void bind() {
-		texture.bind();
+	void bind(int textureLocation) {
+		texture.bind(textureLocation);
 	}
 	
-	void unbind() {
-		texture.unbind();
+	void unbind(int textureLocation) {
+		texture.unbind(textureLocation);
 	}
 	
 	void drawImGui() {

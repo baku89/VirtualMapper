@@ -214,11 +214,17 @@ public:
 			ofSetColor(255);
 			
 			ofEnableDepthTest();
+			ofEnableLighting();
+			cameraLight.setPosition(grabCam.getPosition());
+			cameraLight.enable();
+			
+			sceneManager.drawStages();
+			
+			cameraLight.disable();
+			ofDisableLighting();
 			
 			sourceManager.bind();
-			
-			sceneManager.draw();
-			
+			sceneManager.drawScreens();
 			sourceManager.unbind();
 			
 			if (showWireframe) {
@@ -235,10 +241,10 @@ public:
 					ofSetLineWidth(1);
 					ofSetColor(128);
 					ofPushMatrix();
-					{
-						ofRotateZ(90);
-						ofDrawGridPlane(100.0f, 10);
-					}
+					
+					ofRotateZ(90);
+					ofDrawGridPlane(100.0f, 10);
+					
 					ofPopMatrix();
 				
 				}
@@ -310,6 +316,7 @@ private:
 
 	
 	// members
+	ofLight cameraLight;
 	
 	ofxGrabCam			grabCam;
 	vector<CameraInfo>	*cameraList;
