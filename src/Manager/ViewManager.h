@@ -4,25 +4,26 @@
 #include "ofxXmlSettings.h"
 #include "ofxGrabCam.h"
 
+#include "ImOf.h"
 #include "SourceManager.h"
 #include "SceneManager.h"
-
-
 
 class ViewManager {
 public:
 	
 	ViewManager() : cameraIndex(0) {}
 	
-	void setup() {
-		grabCam.setFixUpDirectionEnabled(true);
-		grabCam.setPosition(100, 36, 100);
-		grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
-		grabCam.setNearClip(1);
-		grabCam.setFarClip(10000);
+	void setup(SceneManager *_sceneManager) {
+		
+		sceneManager = _sceneManager;
+		
+		resetCamera();
+		
+		ofAddListener(ofEvents().mousePressed, this, &ViewManager::mousePressed);
+		ofAddListener(ofEvents().keyPressed, this, &ViewManager::keyPressed);
 	}
 	
-	void drawImGui(SceneManager &sceneManager) {
+	void drawImGui() {
 		
 		if (ImGui::CollapsingHeader("View")) {
 			
@@ -30,22 +31,17 @@ public:
 				string cameraNames = "(Custom)";
 				cameraNames += '\0';
 				
-				int i = 0;
+				int i = 1;
 				
-				for (auto& camera : sceneManager.getCameras()) {
-					cameraNames += "[" + ofToString(i++) + "] - " + camera.name + '\0';
+				for (auto& camera : sceneManager->getCameras()) {
+					cameraNames += ofToString(i++) + ": " + camera.name + '\0';
 				}
 				
 				
 				if (ImGui::Combo("", &cameraIndex, cameraNames.c_str())) {
 					
 					if (cameraIndex >= 1) {
-						CameraInfo camInfo = sceneManager.getCameras()[cameraIndex - 1];
-						
-						grabCam.setTransformMatrix(camInfo.matrix);
-						grabCam.setFov(camInfo.fov);
-						//grabCam.setNearClip(camInfo.nearClip);
-						//grabCam.setFarClip(camInfo.farClip);
+						switchCamera();
 					}
 				}
 				
@@ -80,6 +76,17 @@ public:
 
 	}
 	
+	void drawImPopup() {
+		
+		if (cameraIndex >= 1) {
+		
+			ImOf::BeginPopup();
+			ImGui::Text("%d: %s", cameraIndex, sceneManager->getCameraAt(cameraIndex - 1).name.c_str());
+			ImGui::SetWindowPos(ImVec2(ofGetWidth() - ImGui::GetWindowWidth() - 10 , 10));
+			ImOf::EndPopup();
+		}
+	}
+	
 	void loadSettings(ofxXmlSettings &settings) {
 		settings.pushTag("view");
 		
@@ -100,11 +107,11 @@ public:
 		settings.popTag();
 	}
 	
-	void update(SceneManager &sceneManager) {
+	void update() {
 		
 		if (cameraIndex >= 1) {
 			
-			CameraInfo camInfo = sceneManager.getCameras()[cameraIndex - 1];
+			CameraInfo camInfo = sceneManager->getCameraAt(cameraIndex - 1);
 			ofMatrix4x4 mg = grabCam.getGlobalTransformMatrix();
 			
 			if ( camInfo.fov != grabCam.getFov() || !equalMatrix(camInfo.matrix, mg) ) {
@@ -147,11 +154,6 @@ public:
 		
 	}
 	
-	
-	void setMouseActionsEnabled(bool flag) {
-		grabCam.setMouseActionsEnabled(flag);
-	}
-	
 private:
 	
 	bool equalMatrix(ofMatrix4x4 &a, ofMatrix4x4 &b) {
@@ -168,6 +170,44 @@ private:
 		return true;
 	}
 	
+	void switchCamera() {
+		CameraInfo camInfo = sceneManager->getCameraAt(cameraIndex - 1);
+		
+		grabCam.setTransformMatrix(camInfo.matrix);
+		grabCam.setFov(camInfo.fov);
+		grabCam.setFixUpDirectionEnabled(false);
+	}
+	
+	void resetCamera() {
+		grabCam.setFixUpDirectionEnabled(true);
+		grabCam.setPosition(300, 100, 300);
+		grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
+		grabCam.setNearClip(1);
+		grabCam.setFarClip(10000);
+	}
+	
+	// events
+	void mousePressed(ofMouseEventArgs & args) {
+		
+		bool guiCaptured = ImGui::GetIO().WantCaptureMouse;
+		grabCam.setMouseActionsEnabled(!guiCaptured);
+	}
+	
+	void keyPressed(ofKeyEventArgs & args) {
+		
+		int ci = args.key - '0';
+		if (1 <= ci &&  ci <= sceneManager->getNumCameras())  {
+			cameraIndex = ci;
+			switchCamera();
+
+		} else if (args.key == 'r') {
+			resetCamera();
+		}
+	}
+
+	
+	// members
+	SceneManager *sceneManager;
 	
 	ofxGrabCam grabCam;
 	

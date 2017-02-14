@@ -25,7 +25,6 @@
 		76932F2BDEBF5975C7B78E8F /* ofxFBXBone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22CDCA220E183DD55BC133AD /* ofxFBXBone.cpp */; };
 		7D001F1365B7FA85A22C5A60 /* GeometryUtility.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F049E55F4009A56C0E671 /* GeometryUtility.cxx */; };
 		8A5F3921D70080BFE7C868AA /* ofxTopWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97A2DBA8AE689D8D377B793E /* ofxTopWindow.mm */; };
-		8CEED0871A520A02AC26B231 /* ofAppUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */; };
 		8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */; };
 		914AF1870F96A0A63B4E36D8 /* AnimationUtility.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F974CED35D2D786D237B0A54 /* AnimationUtility.cxx */; };
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
@@ -86,7 +85,6 @@
 		03A62C7D237F368C62B1C1CC /* fbxobjectscontainer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxobjectscontainer.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxobjectscontainer.h; sourceTree = SOURCE_ROOT; };
 		03BF07E9870149605B47D31E /* fbxcluster.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcluster.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxcluster.h; sourceTree = SOURCE_ROOT; };
 		03EA4DA95B5E1B8409FC058E /* ofxSyphonClient.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxSyphonClient.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonClient.mm; sourceTree = SOURCE_ROOT; };
-		061A2ED1056973A2451D1E54 /* SourceManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SourceManager.h; path = src/SourceTexture/SourceManager.h; sourceTree = SOURCE_ROOT; };
 		06274A3A519F4DF9FF93FF8A /* fbxqueryevent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxqueryevent.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/fbxqueryevent.h; sourceTree = SOURCE_ROOT; };
 		06A711CCB2BE3D064DB718D0 /* fbxlayercontainer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxlayercontainer.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxlayercontainer.h; sourceTree = SOURCE_ROOT; };
 		06E41DD00B25018B612ED6E8 /* fbxtypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxtypes.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/arch/fbxtypes.h; sourceTree = SOURCE_ROOT; };
@@ -114,7 +112,6 @@
 		17E01B30EB739E71734D16FA /* ofxFBXMeshMaterial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFBXMeshMaterial.h; path = ../../../addons/ofxFBX/src/ofxFBXMeshMaterial.h; sourceTree = SOURCE_ROOT; };
 		18A1BDA2D31C530A67155363 /* fbxfile.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxfile.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxfile.h; sourceTree = SOURCE_ROOT; };
 		192B2F70E41189CCB5A164F6 /* fbxbitset.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxbitset.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxbitset.h; sourceTree = SOURCE_ROOT; };
-		195129592521AA26628BA6CE /* SceneManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = SceneManager.h; path = src/SceneManager.h; sourceTree = SOURCE_ROOT; };
 		1973941ED00EADDAF44C42D2 /* ofxTopWindow.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTopWindow.h; path = src/ofxTopWindow/ofxTopWindow.h; sourceTree = SOURCE_ROOT; };
 		1D467FFF3894D6268E7590DA /* ofxFBXUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFBXUtils.h; path = ../../../addons/ofxFBX/src/ofxFBXUtils.h; sourceTree = SOURCE_ROOT; };
 		1F990454C4809D12450971C2 /* fbxutils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxutils.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxutils.h; sourceTree = SOURCE_ROOT; };
@@ -163,7 +160,6 @@
 		3EB6ED4BC49F8F8AD7A66A90 /* ofxFBXPose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFBXPose.h; path = ../../../addons/ofxFBX/src/ofxFBXPose.h; sourceTree = SOURCE_ROOT; };
 		4085F5F1EECF5F4F74419D5A /* fbxentryview.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxentryview.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/shading/fbxentryview.h; sourceTree = SOURCE_ROOT; };
 		411825D206FEFBA451C69368 /* ofxGrabCam.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGrabCam.h; path = ../../../addons/ofxGrabCam/src/ofxGrabCam.h; sourceTree = SOURCE_ROOT; };
-		4300465E4B5B65B2EE265C5C /* ImOf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ImOf.h; path = src/ImOf.h; sourceTree = SOURCE_ROOT; };
 		450466BDE619E4EC9BF85C57 /* Gui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Gui.h; path = ../../../addons/ofxImGui/src/Gui.h; sourceTree = SOURCE_ROOT; };
 		4537733E6136904B2614EBD3 /* fbxproceduralgeometry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxproceduralgeometry.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxproceduralgeometry.h; sourceTree = SOURCE_ROOT; };
 		4574083FDE080B1731592BF8 /* fbxiopluginregistry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxiopluginregistry.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbxiopluginregistry.h; sourceTree = SOURCE_ROOT; };
@@ -248,6 +244,10 @@
 		8E362ECECD928E7B3EBA5C53 /* BaseTheme.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BaseTheme.cpp; path = ../../../addons/ofxImGui/src/BaseTheme.cpp; sourceTree = SOURCE_ROOT; };
 		8F9B5A8520E871B683F5B209 /* fbxtime.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxtime.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxtime.h; sourceTree = SOURCE_ROOT; };
 		92202694DDBD60C5C8CE2BB9 /* fbxcameraswitcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxcameraswitcher.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxcameraswitcher.h; sourceTree = SOURCE_ROOT; };
+		9249B4CC1E527B0E00FD6422 /* ImOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImOf.h; sourceTree = "<group>"; };
+		9249B4CE1E527B3B00FD6422 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		9249B4CF1E527B3B00FD6422 /* SourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceManager.h; sourceTree = "<group>"; };
+		9249B4D01E527B3B00FD6422 /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
 		926D12444F34A19733B94742 /* fbxdynamicarray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdynamicarray.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxdynamicarray.h; sourceTree = SOURCE_ROOT; };
 		92B39A92012CF829933E280F /* fbxprocessorxref.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxprocessorxref.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxprocessorxref.h; sourceTree = SOURCE_ROOT; };
 		92D1C5A2A8B10209751893F5 /* fbxpose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpose.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxpose.h; sourceTree = SOURCE_ROOT; };
@@ -362,7 +362,6 @@
 		E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxSyphonServerDirectory.mm; path = ../../../addons/ofxSyphon/src/ofxSyphonServerDirectory.mm; sourceTree = SOURCE_ROOT; };
 		E80751B1525838F6D217B364 /* fbxreadercollada14.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxreadercollada14.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/collada/fbxreadercollada14.h; sourceTree = SOURCE_ROOT; };
 		E85BEC397ADCAEE5DF1F06A1 /* fbxsdk_version.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxsdk_version.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fbxsdk_version.h; sourceTree = SOURCE_ROOT; };
-		E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofAppUtils.cpp; path = src/ofAppUtils.cpp; sourceTree = SOURCE_ROOT; };
 		EAB67E719F4161F06640C45F /* fbxwriterfbx6.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxwriterfbx6.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbx/fbxwriterfbx6.h; sourceTree = SOURCE_ROOT; };
 		EF72E11E9E2C7BFC3C625FED /* fbxsubdeformer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxsubdeformer.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxsubdeformer.h; sourceTree = SOURCE_ROOT; };
 		F0E2047B4D03D5151730B52B /* Gui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Gui.cpp; path = ../../../addons/ofxImGui/src/Gui.cpp; sourceTree = SOURCE_ROOT; };
@@ -371,7 +370,6 @@
 		F2396A328D2BBF34C87C48B6 /* fbxgenericnode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxgenericnode.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxgenericnode.h; sourceTree = SOURCE_ROOT; };
 		F3405F2FD06A9E93E066DE67 /* fbxpropertytypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpropertytypes.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/fbxpropertytypes.h; sourceTree = SOURCE_ROOT; };
 		F350BFDA80E2A610F07B6C24 /* fbxrenamingstrategyfbx7.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxrenamingstrategyfbx7.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxrenamingstrategyfbx7.h; sourceTree = SOURCE_ROOT; };
-		F3E5DD2CF5A74710ADB99289 /* ViewManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ViewManager.h; path = src/ViewManager.h; sourceTree = SOURCE_ROOT; };
 		F428ECF441DE3F2CEB74BC50 /* fbxhashmap.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxhashmap.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxhashmap.h; sourceTree = SOURCE_ROOT; };
 		F45EB81BF0E816003FD648FD /* fbxfiletokens.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxfiletokens.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbxfiletokens.h; sourceTree = SOURCE_ROOT; };
 		F4D043B132D6CF07CE3DA2C3 /* fbxwriterfbx5.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxwriterfbx5.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/fileio/fbx/fbxwriterfbx5.h; sourceTree = SOURCE_ROOT; };
@@ -731,6 +729,16 @@
 			name = imgui;
 			sourceTree = "<group>";
 		};
+		9249B4CD1E527B3B00FD6422 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9249B4CE1E527B3B00FD6422 /* SceneManager.h */,
+				9249B4CF1E527B3B00FD6422 /* SourceManager.h */,
+				9249B4D01E527B3B00FD6422 /* ViewManager.h */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		93AFD349B391BE90608F14CF /* sync */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,15 +1008,13 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9249B4CC1E527B0E00FD6422 /* ImOf.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				4300465E4B5B65B2EE265C5C /* ImOf.h */,
-				E90E22A08B0BB5F0E822BA4A /* ofAppUtils.cpp */,
+				9249B4CD1E527B3B00FD6422 /* Manager */,
 				2E3236478FD8406FBDBA68A6 /* ofxTopWindow */,
-				195129592521AA26628BA6CE /* SceneManager.h */,
 				F0369433955D5A2F93E971B9 /* SourceTexture */,
-				F3E5DD2CF5A74710ADB99289 /* ViewManager.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1026,7 +1032,6 @@
 			isa = PBXGroup;
 			children = (
 				7F7A6978E17DF4BA6D5D5C1F /* SourceImage.h */,
-				061A2ED1056973A2451D1E54 /* SourceManager.h */,
 				AD384CD5BBAC0100D888A812 /* SourceSyphon.h */,
 				9408548181B48BB727E555D5 /* SourceTexture.h */,
 			);
@@ -1182,7 +1187,6 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				8CEED0871A520A02AC26B231 /* ofAppUtils.cpp in Sources */,
 				8A5F3921D70080BFE7C868AA /* ofxTopWindow.mm in Sources */,
 				BC66EC6C15B019AAA2FB08B7 /* GetPosition.cxx in Sources */,
 				65CF1066220B6EAF92170D24 /* ofxFBXAnimation.cpp in Sources */,

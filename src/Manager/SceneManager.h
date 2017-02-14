@@ -92,6 +92,14 @@ public:
 		return cameraList;
 	}
 	
+	size_t getNumCameras() {
+		return cameraList.size();
+	}
+	
+	CameraInfo getCameraAt(size_t index) {
+		return cameraList[index];
+	}
+	
 	void loadSettings(ofxXmlSettings &settings) {
 		settings.pushTag("scene");
 		
