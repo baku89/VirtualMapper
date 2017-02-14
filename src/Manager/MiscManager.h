@@ -17,7 +17,6 @@ class MiscManager : public BaseManager {
 	
 	void loadSettings(ofxXmlSettings &settings) {
 		
-		
 		settings.pushTag("misc");
 		
 		showWindowTop = settings.getValue("showWindowTop", false);

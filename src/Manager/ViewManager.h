@@ -237,17 +237,21 @@ public:
 				sourceManager.unbind();
 			}
 			
+			
+			ofEnableDepthTest();
+			ofEnableLighting();
+			cameraLight.setPosition(grabCam.getPosition());
+			cameraLight.enable();
+			
 			if (visibility["stages"]) {
-				ofEnableDepthTest();
-				ofEnableLighting();
-				cameraLight.setPosition(grabCam.getPosition());
-				cameraLight.enable();
-				
 				sceneManager.drawStages();
-				
-				cameraLight.disable();
-				ofDisableLighting();
 			}
+			if (visibility["guides"]) {
+				sceneManager.drawGuides();
+			}
+			
+			cameraLight.disable();
+			ofDisableLighting();
 			
 			if (visibility["wireframe"]) {
 				sceneManager.drawWireframe();

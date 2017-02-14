@@ -53,29 +53,9 @@ public:
 		}
 	}
 	
-	void drawScreens() {
-		
-		if (isFBXLoaded) {
-			fbxMan.drawScreens();
-		} else {
-			ofPushMatrix();
-			ofRotateX(90);
-			ofDrawPlane(0, 0, 0, 100, 100);
-			ofPopMatrix();
-		}
-	}
-	
-	void drawStages() {
-		
-		if (isFBXLoaded) {
-			fbxMan.drawStages();
-		} else {
-			ofPushMatrix();
-			ofRotateX(90);
-			ofDrawPlane(0, 0, 0, 100, 100);
-			ofPopMatrix();
-		}
-	}
+	void drawScreens() {	drawPart(NODE_TYPE_SCREEN); }
+	void drawStages() {		drawPart(NODE_TYPE_STAGE); }
+	void drawGuides() {		drawPart(NODE_TYPE_GUIDE); }
 	
 	void drawWireframe() {
 		ofPushStyle();
@@ -149,7 +129,6 @@ private:
 	void openFBX(string path) {
 		
 		cameraList.clear();
-//		screenList.clear();
 		
 		if (!(isFBXLoaded = fbxScene.load(path))) {
 			return;
@@ -165,6 +144,18 @@ private:
 		searchCamera(node);
 		
 		ofNotifyEvent(cameraListUpdated, cameraList, this);
+	}
+	
+	void drawPart(int type) {
+
+		if (isFBXLoaded) {
+			fbxMan.drawPart(type);
+		} else {
+			ofPushMatrix();
+			ofRotateX(90);
+			ofDrawPlane(0, 0, 0, 100, 100);
+			ofPopMatrix();
+		}
 	}
 	
 	void searchCamera(fbxsdk::FbxNode *node) {
