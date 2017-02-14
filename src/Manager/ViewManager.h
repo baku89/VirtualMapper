@@ -3,6 +3,7 @@
 #include "ofxImGui.h"
 #include "ofxXmlSettings.h"
 #include "ofxGrabCam.h"
+#include "ofxTopWindow.h"
 
 #include "ImOf.h"
 #include "CameraInfo.h"
@@ -107,6 +108,10 @@ public:
 				ImGui::Checkbox("Show Wireframe", &showWireframe);
 				ImGui::Checkbox("Show Grid", &showGrid);
 				
+				if (ImGui::Checkbox("Show Window On Top", &showWindowTop)) {
+					ofxTopWindow::setWindowOnTop(showWindowTop);
+				}
+				
 				ImGui::TreePop();
 			}
 		}
@@ -129,6 +134,8 @@ public:
 		
 		showWireframe = settings.getValue("showWireframe", false);
 		showGrid = settings.getValue("showGrid", showGrid);
+		showWindowTop = settings.getValue("showWindowTop", false);
+		ofxTopWindow::setWindowOnTop(showWindowTop);
 		
 		settings.pushTag("camera");
 		{
@@ -299,7 +306,7 @@ private:
 	vector<CameraInfo>	*cameraList;
 	
 	int					cameraIndex;
-	bool				showWireframe, showGrid;
+	bool				showWireframe, showGrid, showWindowTop;
 	
 	
 };
