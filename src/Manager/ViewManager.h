@@ -104,6 +104,11 @@ public:
 				ImGui::SliderFloat("Fov", &fov, 0, 180);
 				grabCam.setFov(fov);
 				
+				bool fixUpDirection = grabCam.getFixUpDirectionEnabled();
+				if (ImGui::Checkbox("Fix Up Direction", &fixUpDirection)) {
+					grabCam.setFixUpDirectionEnabled(fixUpDirection);
+				}
+				
 				ImGui::TreePop();
 			}
 			
@@ -152,6 +157,7 @@ public:
 		settings.pushTag("camera");
 		{
 			cameraIndex = settings.getValue("index", 0);
+			grabCam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
 			
 			if (cameraIndex == 0) {
 				
@@ -160,7 +166,6 @@ public:
 					
 					grabCam.setTransformMatrix( getMatrix4x4(settings, "matrix") );
 					grabCam.setFov( settings.getValue("fov", 40) );
-					grabCam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
 					
 					settings.popTag();
 				}
@@ -190,6 +195,7 @@ public:
 		settings.pushTag("camera");
 		{
 			settings.setValue("index", cameraIndex);
+			settings.setValue("fixUpDirection", grabCam.getFixUpDirectionEnabled());
 			
 			if (cameraIndex == 0) {
 				settings.addTag("info");
@@ -197,7 +203,6 @@ public:
 				
 				setMatrix4x4(settings, "matrix", grabCam.getGlobalTransformMatrix());
 				settings.setValue("fov", grabCam.getFov());
-				settings.setValue("fixUpDirection", grabCam.getFixUpDirectionEnabled());
 				
 				settings.popTag();
 			}
@@ -309,7 +314,6 @@ private:
 		
 		grabCam.setTransformMatrix(camInfo.matrix);
 		grabCam.setFov(camInfo.fov);
-		grabCam.setFixUpDirectionEnabled(false);
 	}
 	
 	void resetCamera() {
