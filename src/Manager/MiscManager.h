@@ -25,7 +25,7 @@ class MiscManager : public BaseManager {
 		settings.popTag();
 	}
 	
-	void seaveSettings(ofxXmlSettings &settings) {
+	void saveSettings(ofxXmlSettings &settings) {
 		
 		settings.addTag("misc");
 		settings.pushTag("misc");
