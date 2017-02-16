@@ -76,7 +76,7 @@ public:
 		
 		if (ImGui::Button("Load Video")) {
 			
-			ofFileDialogResult result = ofSystemLoadDialog("Load Video File", false, ofToDataPath("."));
+			ofFileDialogResult result = ImOf::SystemLoadDialog("Load Video File", false, ofToDataPath("."));
 			
 			if (result.bSuccess) {
 				load(result.getPath());

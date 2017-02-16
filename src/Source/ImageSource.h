@@ -59,7 +59,7 @@ public:
 		
 		if (ImGui::Button("Load Image")) {
 			
-			ofFileDialogResult result = ofSystemLoadDialog("Load Image File", false);
+			ofFileDialogResult result = ImOf::SystemLoadDialog("Load Image File", false);
 			
 			if (result.bSuccess) {
 				load(result.getPath());
