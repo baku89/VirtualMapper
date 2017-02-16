@@ -27,6 +27,7 @@
 		8A5F3921D70080BFE7C868AA /* ofxTopWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97A2DBA8AE689D8D377B793E /* ofxTopWindow.mm */; };
 		8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */; };
 		914AF1870F96A0A63B4E36D8 /* AnimationUtility.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F974CED35D2D786D237B0A54 /* AnimationUtility.cxx */; };
+		92C4E04F1E556CD20079C0F7 /* virtual-mapper.icns in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */; };
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
 		955F5DACFFF26CD0C0B868C9 /* ofxFBXMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0170CD9A77207D4D9D94F05A /* ofxFBXMesh.cpp */; };
 		9B5EAD6903CBD88ED1D4627A /* ofxFBXNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC32795AF3AA319EA8B0C2 /* ofxFBXNode.cpp */; };
@@ -70,6 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				92C4E04F1E556CD20079C0F7 /* virtual-mapper.icns in CopyFiles */,
 				4D508D34156E7076531D9084 /* Syphon.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +255,7 @@
 		9249B4D21E52839F00FD6422 /* CameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraInfo.h; path = src/CameraInfo.h; sourceTree = SOURCE_ROOT; };
 		926D12444F34A19733B94742 /* fbxdynamicarray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdynamicarray.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxdynamicarray.h; sourceTree = SOURCE_ROOT; };
 		92B39A92012CF829933E280F /* fbxprocessorxref.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxprocessorxref.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxprocessorxref.h; sourceTree = SOURCE_ROOT; };
+		92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "virtual-mapper.icns"; sourceTree = "<group>"; };
 		92D1C5A2A8B10209751893F5 /* fbxpose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpose.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxpose.h; sourceTree = SOURCE_ROOT; };
 		92EB03881E52F639008544A4 /* ExtendedFBXManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedFBXManager.h; sourceTree = "<group>"; };
 		92EB038E1E530C76008544A4 /* MiscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscManager.h; sourceTree = "<group>"; };
@@ -1003,6 +1006,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
