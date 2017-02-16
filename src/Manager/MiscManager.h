@@ -12,6 +12,25 @@ class MiscManager : public BaseManager {
 			if (ImGui::Checkbox("Show Window On Top", &showWindowTop)) {
 				WindowUtils::setWindowOnTop(showWindowTop);
 			}
+			
+			if (ImGui::Button("Help")) {
+				showHelp = true;
+			}
+			
+			if (showHelp) {
+				ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
+				ImGui::Begin("Help", &showHelp, ImGuiWindowFlags_AlwaysAutoResize);
+				
+				ImGui::Text("Left click drag: Rotate camera\n"
+							"Right click drag: Zoom camera\n"
+							"Hold [H] whilst left click drag: Pan camera\n"
+							"[R]: Reset camera\n"
+							"[C]: Toggle control panel\n"
+							"[1-9]: Switch cameras in the scene file");
+
+				ImGui::End();
+				ImGui::PopStyleVar();
+			}
 		}
 	}
 	
@@ -39,5 +58,6 @@ class MiscManager : public BaseManager {
 private:
 	
 	bool				showWindowTop;
+	bool				showHelp;
 	
 };
