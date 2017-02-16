@@ -3,8 +3,9 @@
 #include "BaseManager.h"
 
 #include "BaseSource.h"
-#include "ImageSource.h"
 #include "SyphonSource.h"
+#include "ImageSource.h"
+#include "VideoSource.h"
 
 
 class SourceManager : public BaseManager {
@@ -14,13 +15,20 @@ public:
 	
 	void setup() {
 		
-		sources.push_back(new ImageSource());
 		sources.push_back(new SyphonSource());
+		sources.push_back(new ImageSource());
+		sources.push_back(new VideoSource());
 		
 		for (auto& source : sources) {
 			source->setup();
 		}
 		
+	}
+	
+	void update() {
+		for (auto& source : sources) {
+			source->update();
+		}
 	}
 	
 	void loadSettings(ofxXmlSettings& settings) {
