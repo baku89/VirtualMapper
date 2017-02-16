@@ -256,6 +256,7 @@
 		926D12444F34A19733B94742 /* fbxdynamicarray.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdynamicarray.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxdynamicarray.h; sourceTree = SOURCE_ROOT; };
 		92B39A92012CF829933E280F /* fbxprocessorxref.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxprocessorxref.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/utils/fbxprocessorxref.h; sourceTree = SOURCE_ROOT; };
 		92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "virtual-mapper.icns"; sourceTree = "<group>"; };
+		92C4E0521E55747C0079C0F7 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoSource.h; path = Source/VideoSource.h; sourceTree = "<group>"; };
 		92D1C5A2A8B10209751893F5 /* fbxpose.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxpose.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxpose.h; sourceTree = SOURCE_ROOT; };
 		92EB03881E52F639008544A4 /* ExtendedFBXManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtendedFBXManager.h; sourceTree = "<group>"; };
 		92EB038E1E530C76008544A4 /* MiscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscManager.h; sourceTree = "<group>"; };
@@ -1043,6 +1044,7 @@
 		F0369433955D5A2F93E971B9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				92C4E0521E55747C0079C0F7 /* VideoSource.h */,
 				921813D91E53959100744992 /* BaseSource.h */,
 				921813DA1E53959100744992 /* ImageSource.h */,
 				921813DB1E53959100744992 /* SyphonSource.h */,
@@ -1267,10 +1269,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					src/SourceTexture,
-					src/ofxTopWindow,
-					src/osx,
-					src/win32,
+					src/Source,
+					src/Manager,
+					src/WindowUtils,
 					../../../addons/ofxFBX/libs,
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1,
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1/include,
@@ -1345,10 +1346,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					src/SourceTexture,
-					src/ofxTopWindow,
-					src/osx,
-					src/win32,
+					src/Source,
+					src/Manager,
+					src/WindowUtils,
 					../../../addons/ofxFBX/libs,
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1,
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1/include,
