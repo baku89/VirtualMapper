@@ -17,6 +17,6 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFile</key>
-	<string>virtual-mapper.icns</string>
+	<string>${ICON}</string>
 </dict>
 </plist>
