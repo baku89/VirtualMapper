@@ -8,9 +8,6 @@
 class BaseSource {
 public:
 	
-//	BaseSource() {};
-//	virtual ~BaseSource();
-//
 	virtual void setup() {}
 	
 	virtual void loadSettings(ofxXmlSettings &settings) {}

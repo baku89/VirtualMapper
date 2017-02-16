@@ -26,9 +26,7 @@ public:
 	}
 	
 	void update() {
-		for (auto& source : sources) {
-			source->update();
-		}
+		sources[selected]->update();
 	}
 	
 	void loadSettings(ofxXmlSettings& settings) {
