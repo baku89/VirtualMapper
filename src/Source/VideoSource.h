@@ -55,7 +55,7 @@ public:
 		
 		if (ImGui::Button("Load Image")) {
 			
-			ofFileDialogResult result = ofSystemLoadDialog("Load Image File", false);
+			ofFileDialogResult result = ofSystemLoadDialog("Load Image File (.abc)", false, ofToDataPath("."));
 			
 			if (result.bSuccess) {
 				load(result.getPath());
