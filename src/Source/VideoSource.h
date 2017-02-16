@@ -48,6 +48,14 @@ public:
 		}
 	}
 	
+	ofTexture& getTexture() {
+		if (player.isLoaded()) {
+			return player.getTexture();
+		} else {
+			return defaultTex;
+		}
+	}
+	
 	void bind(int textureLocation) {
 		if (player.isLoaded()) {
 			player.getTexture().bind(textureLocation);

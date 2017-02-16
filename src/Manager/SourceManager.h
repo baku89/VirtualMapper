@@ -37,6 +37,9 @@ public:
 		for (auto& source : sources) {
 			source->loadSettings(settings);
 		}
+		
+		isFlipTexture = settings.getValue("isFlipTexture", false);
+		
 		settings.popTag();
 	}
 	
@@ -49,6 +52,9 @@ public:
 		for (auto& source : sources) {
 			source->saveSettings(settings);
 		}
+		
+		settings.setValue("isFlipTexture", isFlipTexture);
+		
 		settings.popTag();
 	}
 	
@@ -68,14 +74,34 @@ public:
 			}
 			
 			sources[selected]->drawImGui();
+			
+			ImGui::Separator();
+			
+			ImGui::Checkbox("Flip Texture Vertically", &isFlipTexture);
+			
 		}
 	}
 	
 	void bind(int textureLocation = 0) {
+		ofTexture& tex = sources[selected]->getTexture();
+		
 		sources[selected]->bind(textureLocation);
+		
+		if (isFlipTexture) {
+			ofSetMatrixMode(OF_MATRIX_TEXTURE);
+			ofPushMatrix();
+			ofTranslate(0, 1);
+			ofScale(1, -1);
+			ofSetMatrixMode(OF_MATRIX_MODELVIEW);
+		}
 	}
 	
 	void unbind(int textureLocation = 0) {
+		
+		ofSetMatrixMode(OF_MATRIX_TEXTURE);
+		ofPopMatrix();
+		ofSetMatrixMode(OF_MATRIX_MODELVIEW);
+		
 		sources[selected]->unbind(textureLocation);
 	}
 	
@@ -85,6 +111,7 @@ private:
 	int selected;
 	
 	vector<BaseSource*> sources;
+	bool				isFlipTexture;
 	
 
 };

@@ -18,6 +18,8 @@ public:
 	virtual void bind(int textureLocation) {}
 	virtual void unbind(int textureLocation) {}
 	
+	virtual ofTexture& getTexture() = 0;
+	
 	virtual void update() {}
 	
 	virtual void drawImGui() {}

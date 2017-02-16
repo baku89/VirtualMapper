@@ -51,6 +51,10 @@ public:
 		texture.unbind(textureLocation);
 	}
 	
+	ofTexture& getTexture() {
+		return texture;
+	}
+	
 	void drawImGui() {
 		
 		if (ImGui::Button("Load Image")) {
@@ -94,4 +98,5 @@ private:
 	
 	ofFile file;
 	ofTexture texture;
+	ofFbo  flippedTexture;
 };
