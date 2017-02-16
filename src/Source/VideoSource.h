@@ -5,7 +5,7 @@
 #include "ImOf.h"
 #include "BaseSource.h"
 
-#define DEFAULT_PATH		"default_screen.jpg"
+#define DEFAULT_PATH		"default_tex.png"
 
 class VideoSource : public BaseSource {
 public:
