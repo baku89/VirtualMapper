@@ -82,7 +82,7 @@ namespace ImOf
 	
 	inline void BeginPopup() {
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
-		ImGui::Begin("Long title", NULL, ImVec2(0,0), -1.0f, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
+		ImGui::Begin("", NULL, ImVec2(0,0), -1.0f, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
 	}
 	
 	inline void EndPopup() {
