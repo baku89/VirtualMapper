@@ -110,6 +110,14 @@ public:
 		
 		font.load("Karla-Regular.ttf", 9);
 		font.setLetterSpacing(1.1);
+		
+		
+		ofLoadImage(whiteTexture, "white.png");
+		
+		sceneBuffer.allocate(ofGetWidth(), ofGetHeight(), GL_RGB, 4);
+		screenMask.allocate(ofGetWidth(), ofGetHeight(), GL_RGB, 4);
+		screenBuffer.allocate(ofGetWidth(), ofGetHeight(), GL_RGB, 4);
+		alphaMaskShader.load("alpha-mask");
 	
 	}
 	
@@ -120,6 +128,7 @@ public:
 		
 		ofAddListener(ofEvents().mousePressed, this, &ViewManager::mousePressed);
 		ofAddListener(ofEvents().keyPressed, this, &ViewManager::keyPressed);
+		ofAddListener(ofEvents().windowResized, this, &ViewManager::windowResized);
 	}
 	
 	void drawImGui() {
@@ -183,6 +192,10 @@ public:
 				
 				ImGui::TreePop();
 			}
+			
+			ImGui::Separator();
+			
+			ImGui::Checkbox("Enable Screen Blending", &enableScreenBlending);
 		}
 
 	}
@@ -232,6 +245,8 @@ public:
 		}
 		settings.popTag();
 		
+		enableScreenBlending = settings.getValue("enableScreenBlending", false);
+		
 		settings.popTag();
 	}
 	
@@ -265,6 +280,8 @@ public:
 		}
 		settings.popTag();
 		
+		settings.setValue("enableScreenBlending", enableScreenBlending);
+		
 		settings.popTag();
 	}
 	
@@ -289,55 +306,94 @@ public:
 	
 	void draw(SceneManager &sceneManager, SourceManager &sourceManager) {
 		
+		ofEnableAlphaBlending();
+		
+		if (enableScreenBlending) {
+			// to generate depth buffer
+			grabCam.begin();
+			{
+				ofEnableDepthTest();
+				
+				if (visibility["screens"])  sceneManager.drawScreens();
+				if (visibility["stages"])	sceneManager.drawStages();
+				if (visibility["guides"])	sceneManager.drawGuides();
+				
+				ofDisableDepthTest();
+			}
+			grabCam.end();
+			
+			// screen mask
+			screenMask.begin();
+			grabCam.begin();
+			{
+				ofEnableDepthTest();
+				ofBackground(0);
+				
+				whiteTexture.bind();
+				
+				ofSetColor(255);
+				if (visibility["screens"])  sceneManager.drawScreens();
+				
+				ofSetColor(0);
+				if (visibility["stages"])	sceneManager.drawStages();
+				if (visibility["guides"])	sceneManager.drawGuides();
+				
+				whiteTexture.unbind();
+				ofDisableDepthTest();
+			}
+			grabCam.end();
+			screenMask.end();
+			
+			// screen bufer
+			screenBuffer.begin();
+			grabCam.begin();
+			{
+				ofDisableDepthTest();
+				ofEnableBlendMode(OF_BLENDMODE_SCREEN);
+				
+				ofBackground(0);
+				ofSetColor(255);
+				
+				if (visibility["screens"]) {
+					sourceManager.bind();
+					sceneManager.drawScreens();
+					sourceManager.unbind();
+				}
+				
+				ofDisableBlendMode();
+				ofEnableDepthTest();
+			}
+			grabCam.end();
+			screenBuffer.end();
+		}
+
+		if (enableScreenBlending) sceneBuffer.begin();
 		grabCam.begin();
 		{
+			ofBackground(0);
 			ofSetColor(255);
+			ofEnableDepthTest();
 			
-			if (visibility["screens"]) {
+			if (!enableScreenBlending && visibility["screens"]) {
 				sourceManager.bind();
 				sceneManager.drawScreens();
 				sourceManager.unbind();
 			}
 			
-			
-			ofEnableDepthTest();
 			ofEnableLighting();
 			cameraLight.setPosition(grabCam.getPosition());
 			cameraLight.enable();
 			
-			if (visibility["stages"]) {
-				sceneManager.drawStages();
-			}
-			if (visibility["guides"]) {
-				sceneManager.drawGuides();
-			}
+			if (visibility["stages"])	sceneManager.drawStages();
+			if (visibility["guides"])	sceneManager.drawGuides();
 			
 			cameraLight.disable();
 			ofDisableLighting();
 			
-			if (visibility["wireframe"]) {
-				sceneManager.drawWireframe();
-			}
+			// draw utils
+			if (visibility["wireframe"])	sceneManager.drawWireframe();
+			if (visibility["grid"])			drawGrid();
 			
-			if (visibility["grid"]) {
-				ofPushStyle();
-				{
-					
-					ofSetLineWidth(2);
-					ofDrawAxis(400);
-					
-					ofSetLineWidth(1);
-					ofSetColor(128);
-					ofPushMatrix();
-					
-					ofRotateZ(90);
-					ofDrawGridPlane(100.0f, 10);
-					
-					ofPopMatrix();
-				
-				}
-				ofPopStyle();
-			}
 			
 			if (visibility["cameras"]) {
 				for (auto& cameraInfo : *cameraList) {
@@ -348,6 +404,22 @@ public:
 			ofDisableDepthTest();
 		}
 		grabCam.end();
+		if (enableScreenBlending) sceneBuffer.end();
+
+		
+		// composite all
+		if (enableScreenBlending) {
+			alphaMaskShader.begin();
+			
+			alphaMaskShader.setUniformTexture("screenTex", screenBuffer.getTexture(), 1);
+			alphaMaskShader.setUniformTexture("screenMask", screenMask.getTexture(), 2);
+			
+			ofDisableNormalizedTexCoords();
+			sceneBuffer.draw(0, 0);
+			ofEnableNormalizedTexCoords();
+			
+			alphaMaskShader.end();
+		}
 		
 		if (visibility["cameras"]) {
 			for (auto& cameraInfo : *cameraList) {
@@ -355,6 +427,7 @@ public:
 			}
 		}
 		
+		ofDisableAlphaBlending();
 	}
 	
 private:
@@ -413,6 +486,12 @@ private:
 		}
 	}
 	
+	void windowResized(ofResizeEventArgs & args) {
+		sceneBuffer.allocate(args.width, args.height, GL_RGB, 4);
+		screenMask.allocate(args.width, args.height, GL_RGB, 4);
+		screenBuffer.allocate(args.width, args.height, GL_RGB, 4);
+	}
+	
 	void drawCamera(CameraInfo &cameraInfo) {
 		
 		ofPushStyle();
@@ -435,14 +514,38 @@ private:
 	
 	void drawCameraLabel(CameraInfo &cameraInfo) {
 		
+		ofPushStyle();
 		ofSetColor(255, 127);
 		ofVec3f p = grabCam.worldToScreen( cameraInfo.matrix.getTranslation() );
 		
 		font.drawString(cameraInfo.name, p.x + 15, p.y);
+		ofPopStyle();
+	}
+	
+	void drawGrid() {
+		ofPushStyle();
+		{
+			ofSetLineWidth(2);
+			ofDrawAxis(400);
+			
+			ofSetLineWidth(1);
+			ofSetColor(128);
+			
+			ofPushMatrix();
+			{
+				ofRotateZ(90);
+				ofDrawGridPlane(100.0f, 10);
+			}
+			ofPopMatrix();
+		}
+		ofPopStyle();
 	}
 
 	
 	// members
+	ofFbo				sceneBuffer, screenMask, screenBuffer;
+	ofShader			alphaMaskShader;
+	
 	ofLight				cameraLight;
 	
 	ofMesh				cameraMesh;
@@ -450,7 +553,10 @@ private:
 	
 	ofxGrabCam			grabCam;
 	vector<CameraInfo>	*cameraList;
+	ofTexture			whiteTexture;
 	
 	int					cameraIndex;
 	map<string, ofParameter<bool>>	visibility;
+	
+	bool				enableScreenBlending;
 };
