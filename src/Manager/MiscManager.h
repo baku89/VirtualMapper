@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ofxTopWindow.h"
+#include "WindowUtils.h"
 #include "BaseManager.h"
 
 class MiscManager : public BaseManager {
@@ -10,7 +10,7 @@ class MiscManager : public BaseManager {
 		if (ImGui::CollapsingHeader("Misc")) {
 		
 			if (ImGui::Checkbox("Show Window On Top", &showWindowTop)) {
-				ofxTopWindow::setWindowOnTop(showWindowTop);
+				WindowUtils::setWindowOnTop(showWindowTop);
 			}
 		}
 	}
@@ -20,7 +20,7 @@ class MiscManager : public BaseManager {
 		settings.pushTag("misc");
 		
 		showWindowTop = settings.getValue("showWindowTop", false);
-		ofxTopWindow::setWindowOnTop(showWindowTop);
+		WindowUtils::setWindowOnTop(showWindowTop);
 		
 		settings.popTag();
 	}

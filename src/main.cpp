@@ -4,6 +4,8 @@
 #include "ofApp.h"
 #include "ofAppGLFWWindow.h"
 
+#include "WindowUtils.h"
+
 //========================================================================
 int main( ){
 	
@@ -12,7 +14,7 @@ int main( ){
 	GLFWwindow *gw = win.getGLFWWindow();
 	ofSetupOpenGL(&win, 1024,768,OF_WINDOW);			// <-------- setup the GL context
 	
-	ofxTopWindow::setTitlebarTransparent(gw);
+	WindowUtils::makeTitlebarTransparent();
 
 	// this kicks off the running of my app
 	// can be OF_WINDOW or OF_FULLSCREEN
