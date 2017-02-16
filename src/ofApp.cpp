@@ -71,6 +71,7 @@ void ofApp::drawImGui() {
 		static bool p_open = true;
 		
 		ImGui::SetNextWindowPos(ImVec2(0, 0));
+		ImGui::SetNextWindowSizeConstraints(ImVec2(250, ofGetHeight()), ImVec2(ofGetWidth(), ofGetHeight()));
 		ImGui::Begin("Control", &p_open, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
 		ImGui::SetWindowSize(ImVec2(ImGui::GetWindowWidth(), ofGetHeight()));
 		{
