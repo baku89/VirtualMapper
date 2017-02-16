@@ -308,77 +308,13 @@ public:
 		
 		ofEnableAlphaBlending();
 		
-		if (enableScreenBlending) {
-			// to generate depth buffer
-			grabCam.begin();
-			{
-				ofEnableDepthTest();
-				
-				if (visibility["screens"])  sceneManager.drawScreens();
-				if (visibility["stages"])	sceneManager.drawStages();
-				if (visibility["guides"])	sceneManager.drawGuides();
-				
-				ofDisableDepthTest();
-			}
-			grabCam.end();
-			
-			// screen mask
-			screenMask.begin();
-			grabCam.begin();
-			{
-				ofEnableDepthTest();
-				ofBackground(0);
-				
-				whiteTexture.bind();
-				
-				ofSetColor(255);
-				if (visibility["screens"])  sceneManager.drawScreens();
-				
-				ofSetColor(0);
-				if (visibility["stages"])	sceneManager.drawStages();
-				if (visibility["guides"])	sceneManager.drawGuides();
-				
-				whiteTexture.unbind();
-				ofDisableDepthTest();
-			}
-			grabCam.end();
-			screenMask.end();
-			
-			// screen bufer
-			screenBuffer.begin();
-			grabCam.begin();
-			{
-				ofDisableDepthTest();
-				ofEnableBlendMode(OF_BLENDMODE_SCREEN);
-				
-				ofBackground(0);
-				ofSetColor(255);
-				
-				if (visibility["screens"]) {
-					sourceManager.bind();
-					sceneManager.drawScreens();
-					sourceManager.unbind();
-				}
-				
-				ofDisableBlendMode();
-				ofEnableDepthTest();
-			}
-			grabCam.end();
-			screenBuffer.end();
-		}
-
-		if (enableScreenBlending) sceneBuffer.begin();
 		grabCam.begin();
 		{
 			ofBackground(0);
 			ofSetColor(255);
 			ofEnableDepthTest();
 			
-			if (!enableScreenBlending && visibility["screens"]) {
-				sourceManager.bind();
-				sceneManager.drawScreens();
-				sourceManager.unbind();
-			}
+			
 			
 			ofEnableLighting();
 			cameraLight.setPosition(grabCam.getPosition());
@@ -390,42 +326,35 @@ public:
 			cameraLight.disable();
 			ofDisableLighting();
 			
+			if (visibility["screens"]) {
+				
+				if (enableScreenBlending) {
+					glDepthMask(false);
+					ofEnableBlendMode(OF_BLENDMODE_SCREEN);
+				}
+				
+				sourceManager.bind();
+				sceneManager.drawScreens();
+				sourceManager.unbind();
+				
+				if (enableScreenBlending) {
+					ofDisableBlendMode();
+					glDepthMask(true);
+				}
+			}
+			
 			// draw utils
 			if (visibility["wireframe"])	sceneManager.drawWireframe();
 			if (visibility["grid"])			drawGrid();
 			
-			
-			if (visibility["cameras"]) {
-				for (auto& cameraInfo : *cameraList) {
-					drawCamera(cameraInfo);
-				}
-			}
-			
 			ofDisableDepthTest();
+			
+			if (visibility["cameras"]) drawCameras();
+			
 		}
 		grabCam.end();
-		if (enableScreenBlending) sceneBuffer.end();
-
 		
-		// composite all
-		if (enableScreenBlending) {
-			alphaMaskShader.begin();
-			
-			alphaMaskShader.setUniformTexture("screenTex", screenBuffer.getTexture(), 1);
-			alphaMaskShader.setUniformTexture("screenMask", screenMask.getTexture(), 2);
-			
-			ofDisableNormalizedTexCoords();
-			sceneBuffer.draw(0, 0);
-			ofEnableNormalizedTexCoords();
-			
-			alphaMaskShader.end();
-		}
-		
-		if (visibility["cameras"]) {
-			for (auto& cameraInfo : *cameraList) {
-				drawCameraLabel(cameraInfo);
-			}
-		}
+		if (visibility["cameras"]) drawCameraLabels();
 		
 		ofDisableAlphaBlending();
 	}
@@ -492,33 +421,41 @@ private:
 		screenBuffer.allocate(args.width, args.height, GL_RGB, 4);
 	}
 	
-	void drawCamera(CameraInfo &cameraInfo) {
+	void drawCameras() {
 		
 		ofPushStyle();
 		ofNoFill();
-		ofPushMatrix();
-		{
-			ofMultMatrix(cameraInfo.matrix);
-			
-			cameraMesh.draw();
-			
+		ofSetColor(255, 192);
+		
+		for (auto &cameraInfo : *cameraList) {
 			ofPushMatrix();
-			ofRotateY(-90);
-			ofDrawCircle(25, 25, 0, 12.5);
-			ofDrawCircle(50, 25, 0, 12.5);
+			{
+				ofMultMatrix(cameraInfo.matrix);
+				
+				cameraMesh.draw();
+				
+				ofPushMatrix();
+				ofRotateY(-90);
+				ofDrawCircle(25, 25, 0, 12.5);
+				ofDrawCircle(50, 25, 0, 12.5);
+				ofPopMatrix();
+			}
 			ofPopMatrix();
 		}
-		ofPopMatrix();
+		
 		ofPopStyle();
 	}
 	
-	void drawCameraLabel(CameraInfo &cameraInfo) {
+	void drawCameraLabels() {
 		
 		ofPushStyle();
-		ofSetColor(255, 127);
-		ofVec3f p = grabCam.worldToScreen( cameraInfo.matrix.getTranslation() );
+		ofSetColor(255, 192);
 		
-		font.drawString(cameraInfo.name, p.x + 15, p.y);
+		for (auto &cameraInfo : *cameraList) {
+			ofVec3f p = grabCam.worldToScreen( cameraInfo.matrix.getTranslation() );
+			font.drawString(cameraInfo.name, p.x + 15, p.y);
+		}
+		
 		ofPopStyle();
 	}
 	
