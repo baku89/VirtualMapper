@@ -89,4 +89,28 @@ namespace ImOf
 		ImGui::End();
 		ImGui::PopStyleVar();
 	}
+	
+	
+	inline void Alert(const string title, const string text, bool *show) {
+		
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
+		
+		if (*show) {
+			ImGui::OpenPopup(title.c_str());
+			*show = false;
+		}
+		
+		if (ImGui::BeginPopupModal(title.c_str(), NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
+			ImGui::Text("%s", text.c_str());
+			ImGui::Separator();
+			
+			if (ImGui::Button("OK")) {
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::EndPopup();
+		}
+		
+		ImGui::PopStyleVar();
+		
+	}
 }

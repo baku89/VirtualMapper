@@ -4,6 +4,7 @@
 
 #include "ofxFBX.h"
 
+#include "ImOf.h"
 #include "BaseManager.h"
 #include "CameraInfo.h"
 #include "ExtendedFBXManager.h"
@@ -29,9 +30,14 @@ inline ofMatrix4x4 cameraMatrixToOf(const FbxAMatrix & matrix){
 class SceneManager : public BaseManager {
 public:
 	
+	SceneManager()
+	: showFailedModal(false)
+	, isFBXLoaded(false)
+	{}
+
+	
 	ofEvent<vector<CameraInfo>> cameraListUpdated;
 	
-	SceneManager() : isFBXLoaded(false) {}
 	
 	void update() {
 		if (isFBXLoaded) {
@@ -89,6 +95,9 @@ public:
 			ImGui::SameLine();
 			ImGui::Text("%s", isFBXLoaded ? ofFilePath::getFileName(fbxScene->getFbxFilePath()).c_str() : "(No Scene)");
 		}
+		
+		// failed modal
+		ImOf::Alert("Unknown File Format", "Failed to laod FBX File.", &showFailedModal);
 	}
 	
 	vector<CameraInfo> getCameras() {
@@ -137,6 +146,7 @@ private:
 		fbxScene = new ofxFBXScene();
 		
 		if (!(isFBXLoaded = fbxScene->load(path))) {
+			showFailedModal = true;
 			return;
 		}
 		
@@ -190,6 +200,8 @@ private:
 			searchCamera(child);
 		}
 	}
+	
+	bool				showFailedModal;
 	
 	bool				isFBXLoaded;
 	
