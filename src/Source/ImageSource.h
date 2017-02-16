@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 
+#include "ImOf.h"
 #include "BaseSource.h"
 
 #define DEFAULT_PATH		"default_screen.jpg"
@@ -9,7 +10,10 @@
 class ImageSource : public BaseSource {
 public:
 	
-	ImageSource() : isLoaded(false) {}
+	ImageSource()
+	: showFailedModal(false)
+	, isLoaded(false)
+	{}
 	
 	void setup() {
 		ofLoadImage(texture, DEFAULT_PATH);
@@ -55,11 +59,15 @@ public:
 			
 			if (result.bSuccess) {
 				load(result.getPath());
+			} else {
+				showFailedModal = true;
 			}
 		}
 		
 		ImGui::SameLine();
 		ImGui::Text("%s", isLoaded ? file.getFileName().c_str() : "(No Image)");
+		
+		ImOf::Alert("Unkown Image Foramt", "Failed to load the image as texture.", &showFailedModal);
 	}
 	
 	//--------------------------------------------------------------
@@ -76,10 +84,12 @@ private:
 		file.open(path);
 		
 		if (!isLoaded) {
+			showFailedModal = true;
 			ofLoadImage(texture, DEFAULT_PATH);
 		}
 	}
 	
+	bool showFailedModal;
 	bool isLoaded;
 	
 	ofFile file;
