@@ -19,19 +19,27 @@
 @end
 
 
- void WindowUtils::setWindowOnTop(bool flag) {
+void WindowUtils::setWindowOnTop(bool flag) {
 	 
-	 NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
-	 
-	 if ( flag ) {
-		 
-		 [window setLevel:CGShieldingWindowLevel()];
-		 
-	 } else {
-		 
-		 [window setLevel:NSNormalWindowLevel];
-		 
-	 }
+	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
+
+	if (flag) {
+		[window setLevel:CGShieldingWindowLevel()];
+	} else {
+		[window setLevel:NSNormalWindowLevel];
+	}
+}
+
+bool WindowUtils::getWindowOnTop() {
+
+
+	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
+	
+	bool flag = window.level != NSNormalWindowLevel;
+	
+	ofLogNotice() << "top? = " << flag;
+
+	return flag;
 }
 
 

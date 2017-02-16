@@ -85,7 +85,7 @@ public:
 		if (ImGui::CollapsingHeader("Scene")) {
 			if (ImGui::Button("Open Scene")) {
 				
-				ofFileDialogResult result = ofSystemLoadDialog("Load Scene File (.fbx)", false, "");
+				ofFileDialogResult result = ImOf::SystemLoadDialog("Load Scene File (.fbx)", false, "");
 				
 				if (result.bSuccess) {
 					openFBX(result.getPath());

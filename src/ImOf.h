@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "ofxImGui.h"
 
+#include "WindowUtils.h"
+
 namespace ImOf
 {
 	inline void SetFont() {
@@ -90,7 +92,6 @@ namespace ImOf
 		ImGui::PopStyleVar();
 	}
 	
-	
 	inline void Alert(const string title, const string text, bool *show) {
 		
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
@@ -111,6 +112,14 @@ namespace ImOf
 		}
 		
 		ImGui::PopStyleVar();
+	}
+	
+	inline ofFileDialogResult SystemLoadDialog(string windowTitle, bool bFolderSelection, string defaultPath = "") {
+		bool windowTop = WindowUtils::getWindowOnTop();
+		WindowUtils::setWindowOnTop(false);
+		ofFileDialogResult result = ofSystemLoadDialog(windowTitle, bFolderSelection, defaultPath);
+		WindowUtils::setWindowOnTop(windowTop);
+		return result;
 		
 	}
 }
