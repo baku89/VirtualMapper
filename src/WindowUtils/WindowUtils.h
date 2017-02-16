@@ -2,9 +2,9 @@
 
 #include "ofMain.h"
 
-class ofxTopWindow {
+class WindowUtils {
 	
 public:
 	static void setWindowOnTop(bool flag);
-	static void setTitlebarTransparent(GLFWwindow *win);
+	static void makeTitlebarTransparent();
 };

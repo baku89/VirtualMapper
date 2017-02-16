@@ -1,4 +1,4 @@
-#include "ofxTopWindow.h"
+#include "WindowUtils.h"
 
 #import <Cocoa/Cocoa.h>
 
@@ -19,7 +19,7 @@
 @end
 
 
- void ofxTopWindow::setWindowOnTop(bool flag) {
+ void WindowUtils::setWindowOnTop(bool flag) {
 	 
 	 NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
 	 
@@ -35,9 +35,9 @@
 }
 
 
-void ofxTopWindow::setTitlebarTransparent(GLFWwindow *win) {
+void WindowUtils::makeTitlebarTransparent() {
 	
-	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();//(NSWindow *)win;
+	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
 	
 	window.titlebarAppearsTransparent = YES;
 	window.titleVisibility = NSWindowTitleHidden;
