@@ -9,7 +9,6 @@ void ofApp::setup(){
 
 	// setup window attributes
 	ofEnableNormalizedTexCoords();
-	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofSetWindowTitle("Virtual Mapper");
 	ofEnableSmoothing();
@@ -42,6 +41,7 @@ void ofApp::setup(){
 	for (auto& manager : managers) {
 		manager->loadSettings(settings);
 	}
+	
 }
 
 //--------------------------------------------------------------
