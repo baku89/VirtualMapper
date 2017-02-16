@@ -8,5 +8,5 @@ public:
 	static void setWindowOnTop(bool flag);
 	static bool getWindowOnTop();
 	
-	static void makeTitlebarTransparent();
+	static void setTitlebarTransparent(bool flag);
 };

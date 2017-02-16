@@ -5,12 +5,18 @@
 
 class MiscManager : public BaseManager {
 	
+	void setup() {}
+	
 	void drawImGui() {
 		
 		if (ImGui::CollapsingHeader("Misc")) {
 		
 			if (ImGui::Checkbox("Show Window On Top", &showWindowTop)) {
 				WindowUtils::setWindowOnTop(showWindowTop);
+			}
+			
+			if (ImGui::Checkbox("Enable Fullscreen", &showFullscreen)) {
+				ofGetWindowPtr()->setFullscreen(showFullscreen);
 			}
 			
 			if (ImGui::Button("Help")) {
@@ -38,8 +44,10 @@ class MiscManager : public BaseManager {
 		
 		settings.pushTag("misc");
 		
-		showWindowTop = settings.getValue("showWindowTop", false);
+		showWindowTop = settings.getValue("showWindowTop", showWindowTop);
 		WindowUtils::setWindowOnTop(showWindowTop);
+		
+		showWindowTop = settings.getValue("showFullscreen", showFullscreen);
 		
 		settings.popTag();
 	}
@@ -57,7 +65,8 @@ class MiscManager : public BaseManager {
 	
 private:
 	
-	bool				showWindowTop;
+	bool				showWindowTop = false;
+	bool				showFullscreen = false;
 	bool				showHelp;
 	
 };

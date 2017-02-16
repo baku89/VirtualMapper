@@ -43,14 +43,14 @@ bool WindowUtils::getWindowOnTop() {
 }
 
 
-void WindowUtils::makeTitlebarTransparent() {
+void WindowUtils::setTitlebarTransparent(bool flag) {
 	
 	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
 	
-	window.titlebarAppearsTransparent = YES;
-	window.titleVisibility = NSWindowTitleHidden;
-	window.backgroundColor = NSColor.blackColor;
-//	
+	window.titlebarAppearsTransparent = flag;
+	window.titleVisibility = flag ? NSWindowTitleHidden : NSWindowTitleVisible;
+	window.backgroundColor = flag ? NSColor.blackColor : NSColor.whiteColor;
+
 	static bool run_once = true;
 	if (run_once)
 	{

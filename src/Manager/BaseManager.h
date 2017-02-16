@@ -7,6 +7,8 @@ class BaseManager {
 
 public:
 	
+	BaseManager() {}
+	
 	virtual void setup() {}
 	virtual void update() {}
 	
