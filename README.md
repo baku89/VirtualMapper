@@ -1,10 +1,10 @@
-# Virtual Mapper v2.1.0
+# Virtual Mapper v2.1.2
 
 ![](./doc/thumbnail.png)
 
 [Download](https://github.com/baku89/VirtualMapper/releases)
 
-**Important: Currently v2.1.0 only supports MacOS. Please use v1.0 if you use Windows.**
+**Important: Currently v2.1.2 only supports macOS. Please use [v0.9](https://github.com/baku89/VirtualMapper/releases/tag/v0.9) if you use Windows.**
 
 ## About
 
@@ -13,8 +13,6 @@ Utility tool for projection mapping. You can preview 3d projected image in realt
 Develped by [Baku Hashimoto](http://baku89.com)
 
 ## Instructions
-
-To use:
 
 ### 1. Export FBX Scene
 
@@ -41,7 +39,7 @@ Then export FBX from **File > Export > FBX (\*.fbx)**.
 
 ### 2. Setup an sender application
 
-#### MacOS (via Syphon)
+#### macOS (via Syphon)
 
 There's several plugins for softwares below:
 
@@ -57,21 +55,22 @@ You can download plugins from [Spout official site](http://spout.zeal.co/).
 
 * After Effects: [benkuper/Spout-After-Effects](https://github.com/benkuper/Spout-AfterEffects)
 
-### 3. Launch Virtua lMapper
+### 3. Launch Virtual Mapper
 
 * Launch sender application and Virtual Mapper.
-* Load the Alembic file from `Open Scene`
-* Select the appropreate input source.
-
-Notes: if it doesn't work, try restarting the application.
+* Load the FBX file from **Scene > Open Scene**
+* Select the applopriate input source.
 
 <!--I uploaded [tutorial (when using After Effects as sender on mac)](https://vimeo.com/117640423).-->
 
 ## License
 
-Virtual Mapper is published under a MIT License. See the included LISENCE file.
+Virtual Mapper is published under a MIT License. See the included [LISENCE file](./LICENSE).
 
 ## TODO
 
-* supports retina display
-* adds rendering options
+* Windows support
+* retina display support
+* add rendering options
+* add "export to image / video" feature
+* OSC / MIDI controlling feature
