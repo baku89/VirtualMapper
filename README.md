@@ -1,10 +1,10 @@
-# Virtual Mapper v2.1.0
+# Virtual Mapper v2.1.1
 
 ![](./doc/thumbnail.png)
 
 [Download](https://github.com/baku89/VirtualMapper/releases)
 
-**Important: Currently v2.1.0 only supports MacOS. Please use v1.0 if you use Windows.**
+**Important: Currently v2.1.2 only supports MacOS. Please use [v0.9](https://github.com/baku89/VirtualMapper/releases/tag/v0.9) if you use Windows.**
 
 ## About
 
@@ -13,8 +13,6 @@ Utility tool for projection mapping. You can preview 3d projected image in realt
 Develped by [Baku Hashimoto](http://baku89.com)
 
 ## Instructions
-
-To use:
 
 ### 1. Export FBX Scene
 
