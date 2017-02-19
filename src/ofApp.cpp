@@ -99,8 +99,6 @@ void ofApp::drawImGui() {
 		ImOf::EndTransparentWindow();
 	}
 	
-	viewManager.drawImPopup();
-	
 	gui.end();
 }
 

@@ -5,29 +5,23 @@
 #include "ImOf.h"
 #include "BaseSource.h"
 
-#define DEFAULT_PATH		"default_tex.png"
-
 class VideoSource : public BaseSource {
 public:
 	
-	VideoSource()
-	: showFailedModal(false)
-	{}
+	VideoSource() {}
 	
-	void setup() {
-		ofLoadImage(defaultTex, DEFAULT_PATH);
-	}
+	void setup() {}
 	
 	void loadSettings(ofxXmlSettings &settings) {
 		
 		settings.pushTag("video");
 		
-		if (settings.tagExists("path")) {
-			load(settings.getValue("path", ""));
+		file.open( settings.getValue("path", "") );
+		if (file.exists()) {
+			willOpen = true;
 		}
 		
 		settings.popTag();
-		
 	}
 	
 	void saveSettings(ofxXmlSettings &settings) {
@@ -43,6 +37,10 @@ public:
 	}
 	
 	void update() {
+		if (willOpen) {
+			load(file.getAbsolutePath());
+		}
+		
 		if (player.isLoaded()) {
 			player.update();
 		}
@@ -52,7 +50,7 @@ public:
 		if (player.isLoaded()) {
 			return player.getTexture();
 		} else {
-			return defaultTex;
+			return std::ref(DefaultTexture);
 		}
 	}
 	
@@ -60,7 +58,7 @@ public:
 		if (player.isLoaded()) {
 			player.getTexture().bind(textureLocation);
 		} else {
-			defaultTex.bind();
+			DefaultTexture.bind();
 		}
 	}
 	
@@ -68,7 +66,7 @@ public:
 		if (player.isLoaded()) {
 			player.getTexture().unbind(textureLocation);
 		} else {
-			defaultTex.unbind();
+			DefaultTexture.unbind();
 		}
 	}
 	
@@ -108,9 +106,8 @@ public:
 	//--------------------------------------------------------------
 	// custom methods
 	
-	string getName() {
-		return "Video";
-	}
+	string getName() { return "Video"; }
+	bool isFlipped() { return false; }
 	
 private:
 	
@@ -120,14 +117,17 @@ private:
 		
 		if (player.isLoaded()) {
 			player.play();
-		} else {
+		} else if (!willOpen) {
 			showFailedModal = true;
 		}
+		
+		willOpen = false;
 	}
 	
-	bool showFailedModal;
+	bool showFailedModal = false;
 	
-	ofTexture defaultTex;
+	bool	willOpen = false;
+	
 	ofFile file;
 	ofVideoPlayer player;
 };

@@ -5,7 +5,9 @@
 
 class MiscManager : public BaseManager {
 	
-	void setup() {}
+	void setup() {
+		ofAddListener(ofEvents().keyPressed, this, &MiscManager::keyPressed);
+	}
 	
 	void drawImGui() {
 		
@@ -37,6 +39,8 @@ class MiscManager : public BaseManager {
 				ImGui::End();
 				ImGui::PopStyleVar();
 			}
+			
+			ImGui::Separator();
 		}
 	}
 	
@@ -62,8 +66,17 @@ class MiscManager : public BaseManager {
 		settings.popTag();
 	}
 	
-	
 private:
+	
+	void keyPressed(ofKeyEventArgs & args) {
+		
+		switch (args.key) {
+			case 'f':
+				showFullscreen = !showFullscreen;
+				ofGetWindowPtr()->setFullscreen(showFullscreen);
+				break;
+		}
+	}
 	
 	bool				showWindowTop = false;
 	bool				showFullscreen = false;

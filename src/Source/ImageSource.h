@@ -5,19 +5,10 @@
 #include "ImOf.h"
 #include "BaseSource.h"
 
-#define DEFAULT_PATH		"default_tex.png"
-
 class ImageSource : public BaseSource {
 public:
 	
-	ImageSource()
-	: showFailedModal(false)
-	, isLoaded(false)
-	{}
-	
-	void setup() {
-		ofLoadImage(texture, DEFAULT_PATH);
-	}
+	void setup() {}
 	
 	void loadSettings(ofxXmlSettings &settings) {
 		
@@ -36,7 +27,7 @@ public:
 		settings.addTag("image");
 		settings.pushTag("image");
 		
-		if (isLoaded) {
+		if (texture.isAllocated()) {
 			settings.setValue("path", file.getAbsolutePath());
 		}
 		
@@ -44,15 +35,23 @@ public:
 	}
 	
 	void bind(int textureLocation) {
-		texture.bind(textureLocation);
+		if (texture.isAllocated()) {
+			texture.bind(textureLocation);
+		} else {
+			DefaultTexture.bind(textureLocation);
+		}
 	}
 	
 	void unbind(int textureLocation) {
-		texture.unbind(textureLocation);
+		if (texture.isAllocated()) {
+			texture.unbind(textureLocation);
+		} else {
+			DefaultTexture.unbind(textureLocation);
+		}
 	}
 	
 	ofTexture& getTexture() {
-		return texture;
+		return texture.isAllocated() ? texture : DefaultTexture;
 	}
 	
 	void drawImGui() {
@@ -69,7 +68,7 @@ public:
 		}
 		
 		ImGui::SameLine();
-		ImGui::Text("%s", isLoaded ? file.getFileName().c_str() : "(No Image)");
+		ImGui::Text("%s", texture.isAllocated() ? file.getFileName().c_str() : "(No Image)");
 		
 		ImOf::Alert("Unkown Image Foramt", "Failed to load the image as texture.", &showFailedModal);
 	}
@@ -77,26 +76,30 @@ public:
 	//--------------------------------------------------------------
 	// custom methods
 	
-	string getName() {
-		return "Image";
-	}
+	string getName() { return "Image"; }
+	bool isFlipped() { return false; }
 	
 private:
 	
 	void load(string path) {
-		isLoaded = ofLoadImage(texture, path);
-		file.open(path);
+		bool succeed = ofLoadImage(texture, path);
 		
-		if (!isLoaded) {
-			showFailedModal = true;
-			ofLoadImage(texture, DEFAULT_PATH);
+		if (!succeed) {
+			texture.clear();
+			
+			if (!willLoad) {
+				showFailedModal = true;
+			}
+		} else {
+			file.open(path);
 		}
+		
+		willLoad = false;
 	}
 	
-	bool showFailedModal;
-	bool isLoaded;
+	bool		willLoad = true;
+	bool		showFailedModal = false;
 	
-	ofFile file;
-	ofTexture texture;
-	ofFbo  flippedTexture;
+	ofFile		file;
+	ofTexture	texture;
 };

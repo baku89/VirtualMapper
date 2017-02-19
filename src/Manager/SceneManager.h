@@ -94,6 +94,8 @@ public:
 			
 			ImGui::SameLine();
 			ImGui::Text("%s", isFBXLoaded ? ofFilePath::getFileName(fbxScene->getFbxFilePath()).c_str() : "(No Scene)");
+			
+			ImGui::Separator();
 		}
 		
 		// failed modal
@@ -167,10 +169,12 @@ private:
 		if (isFBXLoaded) {
 			fbxMan.drawPart(type);
 		} else {
-			ofPushMatrix();
-			ofRotateX(90);
-			ofDrawPlane(0, 0, 0, 100, 100);
-			ofPopMatrix();
+			if (type == NODE_TYPE_SCREEN) {
+				ofPushMatrix();
+				ofRotateX(90);
+				ofDrawPlane(0, 0, 0, 100, 100);
+				ofPopMatrix();
+			}
 		}
 	}
 	

@@ -79,15 +79,14 @@ public:
 			
 			ImGui::Checkbox("Flip Texture Vertically", &isFlipTexture);
 			
+			ImGui::Separator();
 		}
 	}
 	
 	void bind(int textureLocation = 0) {
-		ofTexture& tex = sources[selected]->getTexture();
-		
 		sources[selected]->bind(textureLocation);
 		
-		if (isFlipTexture) {
+		if (isFlipTexture == !sources[selected]->isFlipped()) {
 			ofSetMatrixMode(OF_MATRIX_TEXTURE);
 			ofPushMatrix();
 			ofTranslate(0, 1);

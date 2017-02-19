@@ -9,7 +9,7 @@
 class SyphonSource : public BaseSource {
 public:
 	
-	SyphonSource() : index(-1) {}
+	SyphonSource() {}
 	
 	void setup() {
 		
@@ -39,7 +39,6 @@ public:
 				}
 				
 				if (savedName == name) {
-					ofLogNotice() << "set to " << name;
 					client.set(server);
 					index = i;
 				}
@@ -76,9 +75,8 @@ public:
 		}
 	}
 	
-	string getName() {
-		return "Syphon";
-	}
+	string getName() { return "Syphon"; }
+	bool isFlipped() { return true; }
 	
 	ofTexture& getTexture() {
 		return client.getTexture();
@@ -86,17 +84,27 @@ public:
 	
 	void bind(int textureLocation) {
 		client.draw(10000, 10000, 1, 1);
-		client.getTexture().bind(textureLocation);
+		if (dir.size() > 0) {
+			client.getTexture().bind(textureLocation);
+		} else {
+			DefaultTexture.bind(textureLocation);
+		}
 	}
 	
-	void unbind(int texturLocation) {
-		client.getTexture().unbind(texturLocation);
+	void unbind(int textureLocation) {
+		if (dir.size() > 0) {
+			client.getTexture().unbind(textureLocation);
+		} else {
+			DefaultTexture.unbind(textureLocation);
+		}
 	}
 	
 	void drawImGui() {
+		ImGui::PushItemWidth(-1);
 		if (ImGui::Combo("Server", &index, inputNames.c_str())) {
 			setIndex(index);
 		}
+		ImGui::PopItemWidth();
 	}
 	
 private:
@@ -122,7 +130,7 @@ private:
 	}
 	
 	// member
-	int							index;
+	int							index = -1;
 	string						inputNames;
 	
 	ofxSyphonClient				client;

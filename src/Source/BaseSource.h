@@ -8,12 +8,14 @@
 class BaseSource {
 public:
 	
+	BaseSource() {
+		ofLoadImage(DefaultTexture, "default_tex.png");
+	}
+	
 	virtual void setup() {}
 	
 	virtual void loadSettings(ofxXmlSettings &settings) {}
 	virtual void saveSettings(ofxXmlSettings &settings) {}
-	
-	virtual string getName() {}
 	
 	virtual void bind(int textureLocation) {}
 	virtual void unbind(int textureLocation) {}
@@ -24,4 +26,9 @@ public:
 	
 	virtual void drawImGui() {}
 	
+	virtual string getName() {}
+	virtual bool isFlipped() {}
+
+protected:
+	ofTexture DefaultTexture;
 };

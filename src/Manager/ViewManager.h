@@ -136,17 +136,8 @@ public:
 		if (ImGui::CollapsingHeader("View")) {
 			
 			if (ImGui::TreeNode("Cameras")) {
-				string cameraNames = "(Custom)";
-				cameraNames += '\0';
-				
-				int i = 1;
-				
-				for (auto& camera : *cameraList) {
-					cameraNames += ofToString(i++) + ": " + camera.name + '\0';
-				}
 				
 				if (ImGui::Combo("", &cameraIndex, cameraNames.c_str())) {
-					
 					if (cameraIndex >= 1) {
 						applyCurrentCameraInfo();
 					}
@@ -155,19 +146,26 @@ public:
 				// Coordinates
 				ImGui::Text("Coord");
 					
-				float *pos = grabCam.getGlobalPosition().getPtr();
-				ImGui::InputFloat3("Pos", pos);
-				grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
+				static float *pos;
+				pos = grabCam.getGlobalPosition().getPtr();
+				if (ImGui::DragFloat3("Pos", pos, 1.0f, 0.0f, 0.0f, "%.1f")) {
+					grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
+				}
 			
 				
-				float *euler = grabCam.getOrientationEuler().getPtr();
-				ImGui::InputFloat3("Rot", euler);
-				const ofVec3f ne(euler[0], euler[1], euler[2]);
-				grabCam.setOrientation(ne);
+				static float *euler;
+				euler = grabCam.getOrientationEuler().getPtr();
+				if (ImGui::DragFloat3("Rot", euler, 1.0f, 0.0f, 0.0f, "%.1f")) {
+					static ofVec3f ne;
+					ne.set(euler[0], euler[1], euler[2]);
+					grabCam.setOrientation(ne);
+				}
 				
-				float fov = grabCam.getFov();
-				ImGui::SliderFloat("Fov", &fov, 0, 180);
-				grabCam.setFov(fov);
+				static float fov;
+				fov = grabCam.getFov();
+				if (ImGui::SliderFloat("Fov", &fov, 0, 180)) {
+					grabCam.setFov(fov);
+				}
 				
 				bool fixUpDirection = grabCam.getFixUpDirectionEnabled();
 				if (ImGui::Checkbox("Fix Up Direction", &fixUpDirection)) {
@@ -181,7 +179,8 @@ public:
 				
 				ImGui::Columns(2, "visibility_column", false);
 				
-				int i = 0;
+				static int i;
+				i = 0;
 				for (auto& kv : visibility) {
 					bool &val = const_cast<bool&>(kv.second.get());
 					ImGui::Checkbox(kv.second.getName().c_str(), &val);
@@ -196,14 +195,12 @@ public:
 			ImGui::Separator();
 			
 			ImGui::Checkbox("Enable Screen Blending", &enableScreenBlending);
+			
+			ImGui::Separator();
 		}
-
-	}
-	
-	void drawImPopup() {
 		
 		if (cameraIndex >= 1) {
-		
+			
 			ImOf::BeginPopup();
 			ImGui::Text("%d: %s", cameraIndex, (*cameraList)[cameraIndex - 1].name.c_str());
 			ImGui::SetWindowPos(ImVec2(ofGetWidth() - ImGui::GetWindowWidth() - 10 , 10));
@@ -288,6 +285,15 @@ public:
 	void updateCameraList(vector<CameraInfo> &_cameraList) {
 		cameraList = &_cameraList;
 		cameraIndex = 0;
+		
+		cameraNames = "(Custom)";
+		cameraNames += '\0';
+		
+		static int i;
+		i= 1;
+		for (auto& camera : *cameraList) {
+			cameraNames += ofToString(i++) + ": " + camera.name + '\0';
+		}
 	}
 	
 	void update() {
@@ -478,8 +484,9 @@ private:
 		ofPopStyle();
 	}
 
-	
 	// members
+	string				cameraNames;
+	
 	ofFbo				sceneBuffer, screenMask, screenBuffer;
 	ofShader			alphaMaskShader;
 	
