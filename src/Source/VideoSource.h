@@ -78,13 +78,11 @@ public:
 			
 			if (result.bSuccess) {
 				load(result.getPath());
-			} else {
-				showFailedModal = true;
 			}
 		}
 		
 		ImGui::SameLine();
-		ImGui::Text("%s", player.isLoaded() ? file.getFileName().c_str() : "(No Video)");
+		ImGui::Text("%s", player.isLoaded() ? file.getFileName().c_str() : "(No Source)");
 		
 		if (player.isLoaded()) {
 			float pos = player.getPosition();
@@ -95,8 +93,19 @@ public:
 				player.setPosition(pos);
 			}
 			
-			if (ImGui::Button(player.isPlaying() ? "Pause" : "Play", ImVec2(40.0f, 22.0f))) {
+			static ImVec2 cursorPos;
+			cursorPos = ImGui::GetCursorPos();
+			
+			if (ImGui::Button(player.isPlaying() ? "Pause###PlayToggle" : "Play###PlayToggle", ImVec2(40, 0))) {
 				player.setPaused( player.isPlaying() );
+			}
+			
+//			ofSetColor(255, 0, 0);
+//			ofDrawCircle(cursorPos.x + 20, cursorPos.y + ImGui::GetWindowFontSize() / 2 + ImGui::GetStyle().FramePadding.y, 10);
+			
+			ImGui::SameLine();
+			if (ImGui::Button("Close")) {
+				player.closeMovie();
 			}
 		}
 		

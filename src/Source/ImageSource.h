@@ -62,8 +62,6 @@ public:
 			
 			if (result.bSuccess) {
 				load(result.getPath());
-			} else {
-				showFailedModal = true;
 			}
 		}
 		
