@@ -10,7 +10,9 @@ public:
 	
 	VideoSource() {}
 	
-	void setup() {}
+	void setup() {
+		ofAddListener(ofEvents().keyPressed, this, &VideoSource::keyPressed);
+	}
 	
 	void loadSettings(ofxXmlSettings &settings) {
 		
@@ -89,19 +91,24 @@ public:
 			float sec = player.getDuration() * pos;
 			string secText = ofToString(sec, 1) + "s";
 			
-			if (ImGui::SliderFloat(secText.c_str(), &pos, 0.0f, 1.0f, "")) {
-				player.setPosition(pos);
+			
+			static int frame;
+			frame = player.getCurrentFrame();
+			
+			if (ImOf::Seekbar("#Seekbar",&frame, 0, player.getTotalNumFrames() - 1, ImVec2(-1, 0))) {
+				player.setFrame(frame);
+				player.update();
 			}
 			
 			static ImVec2 cursorPos;
 			cursorPos = ImGui::GetCursorPos();
 			
-			if (ImGui::Button(player.isPlaying() ? "Pause###PlayToggle" : "Play###PlayToggle", ImVec2(40, 0))) {
-				player.setPaused( player.isPlaying() );
-			}
+			static bool isPlaying;
+			isPlaying = player.isPlaying();
 			
-//			ofSetColor(255, 0, 0);
-//			ofDrawCircle(cursorPos.x + 20, cursorPos.y + ImGui::GetWindowFontSize() / 2 + ImGui::GetStyle().FramePadding.y, 10);
+			if (ImOf::PlayToggle("###PlayToggle", &isPlaying, ImVec2(30, 0))) {
+				player.setPaused(!isPlaying);
+			}
 			
 			ImGui::SameLine();
 			if (ImGui::Button("Close")) {
@@ -131,6 +138,24 @@ private:
 		}
 		
 		willOpen = false;
+	}
+	
+	void keyPressed(ofKeyEventArgs & args) {
+		switch (args.key) {
+			case ' ':
+				player.setPaused(player.isPlaying());
+				break;
+			case OF_KEY_LEFT:
+				player.setPaused(true);
+				player.setFrame(max(0, player.getCurrentFrame() - 1));
+				player.update();
+				break;
+			case OF_KEY_RIGHT:
+				player.setPaused(true);
+				player.nextFrame();
+				player.update();
+				break;
+		}
 	}
 	
 	bool showFailedModal = false;

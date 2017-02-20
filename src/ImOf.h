@@ -136,6 +136,98 @@ namespace ImOf
 		ofFileDialogResult result = ofSystemLoadDialog(windowTitle, bFolderSelection, defaultPath);
 		WindowUtils::setWindowOnTop(windowTop);
 		return result;
+	}
+	
+	inline ImVec2 CalcItemSize(ImVec2 size) {
+		ImVec2 itemSize;
 		
+		ImGui::PushItemWidth(size.x);
+		itemSize.x = ImGui::CalcItemWidth();
+		ImGui::PopItemWidth();
+		
+		if (size.y < 0.0f) {
+			itemSize.y = ImGui::GetContentRegionAvail().y - 2;
+			if (size.y < -1.0f) itemSize.y += size.y;
+		} else if (size.y == 0.0f) {
+			itemSize.y = ImGui::GetWindowFontSize() + ImGui::GetStyle().FramePadding.y * 2;
+		} else {
+			itemSize.y = size.y;
+		}
+
+		itemSize.y = (float)(int)itemSize.y;
+		
+		return itemSize;
+	}
+	
+	
+	static bool PlayToggle(const char* label, bool *playing, const ImVec2& size = ImVec2(30,0)) {
+		
+		static ImDrawList* drawList = ImGui::GetWindowDrawList();
+		static const ImVec2 itemSize = CalcItemSize(size);
+		static ImVec2 pos;
+		static int cx, cy;
+		static const ImU32 textColor = ImGui::ColorConvertFloat4ToU32(ImGui::GetStyle().Colors[ImGuiCol_Text]);
+		
+		pos = ImGui::GetCursorScreenPos();
+		cx = pos.x + itemSize.x / 2;
+		cy = pos.y + itemSize.y / 2;
+		
+		static bool result;
+		result = ImGui::Button(label, size);
+		
+		// draw icon
+		if (*playing) {
+			drawList->AddRectFilled(ImVec2(cx-6, cy-7), ImVec2(cx-2, cy+7), textColor);
+			drawList->AddRectFilled(ImVec2(cx+2, cy-7), ImVec2(cx+6, cy+7), textColor);
+		} else {
+			drawList->AddTriangleFilled(ImVec2(cx+7, cy), ImVec2(cx-4, cy+7), ImVec2(cx-4, cy-7), textColor);
+		}
+		
+		if (result) {
+			*playing = !(*playing);
+		}
+		
+		return result;
+	}
+	
+	static bool Seekbar(const char* label, int* v, int v_min, int v_max, const ImVec2& size = ImVec2(0,0)) {
+		
+		static ImDrawList* drawList = ImGui::GetWindowDrawList();
+		static const ImVec2 itemSize = CalcItemSize(size);
+		static ImVec2 pos;
+		static float cy;
+		static bool result;
+		static const ImU32 textColor = [] {
+			ImVec4 c = ImGui::GetStyle().Colors[ImGuiCol_Text];
+			return ImGui::ColorConvertFloat4ToU32(ImVec4(c.x * 0.8, c.y * 0.8, c.z * 0.8, 0.5f));
+		}();
+		static const ImVec4 sliderGrabColor = [] {
+			ImVec4 c = ImGui::GetStyle().Colors[ImGuiCol_Text];
+			return ImVec4(c.x * 0.8, c.y * 0.8, c.z * 0.8, 1.0f);
+		}();
+		
+		pos = ImGui::GetCursorScreenPos();
+		cy = pos.y + itemSize.y / 2;
+		
+		drawList->AddLine(ImVec2(pos.x, cy), ImVec2(pos.x + itemSize.x, cy), textColor);
+		
+		// draw slider
+		ImGuiStyle& style = ImGui::GetStyle();
+		static const int prevGrabRounding = style.GrabRounding;
+		
+		ImGui::PushItemWidth(size.x);
+		ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 18);
+		ImGui::PushStyleColor(ImGuiCol_SliderGrab, sliderGrabColor);
+		ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
+		style.GrabRounding = 9;
+		
+		result = ImGui::SliderInt(label, v, v_min, v_max, "");
+		
+		style.GrabRounding = prevGrabRounding;
+		ImGui::PopStyleColor(); ImGui::PopStyleColor();
+		ImGui::PopStyleVar();
+		ImGui::PopItemWidth();
+		
+		return result;
 	}
 }
