@@ -61,6 +61,14 @@ You can download plugins from [Spout official site](http://spout.zeal.co/).
 * Load the FBX file from **Scene > Open Scene**
 * Select the applopriate input source.
 
+#### NOTE: When you could not open the app and find below alert:
+
+![](./doc/unidentified_alert.png)
+
+Please open **System Preferences > Security & Privacy**, and then click in **Open Anyway**.
+
+![](./doc/unidentified_open-anyway.png)
+
 <!--I uploaded [tutorial (when using After Effects as sender on mac)](https://vimeo.com/117640423).-->
 
 ## License
