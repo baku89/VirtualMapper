@@ -27,7 +27,7 @@
 		8A5F3921D70080BFE7C868AA /* WindowUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97A2DBA8AE689D8D377B793E /* WindowUtils.mm */; };
 		8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32D6F27DC6308427F9A278C1 /* ofxSyphonServer.mm */; };
 		914AF1870F96A0A63B4E36D8 /* AnimationUtility.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F974CED35D2D786D237B0A54 /* AnimationUtility.cxx */; };
-		92C4E04F1E556CD20079C0F7 /* virtual-mapper.icns in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */; };
+		924809B11E5B75B700E21B89 /* virtual-mapper.icns in CopyFiles */ = {isa = PBXBuildFile; fileRef = 92C4E04E1E556CC40079C0F7 /* virtual-mapper.icns */; };
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
 		955F5DACFFF26CD0C0B868C9 /* ofxFBXMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0170CD9A77207D4D9D94F05A /* ofxFBXMesh.cpp */; };
 		9B5EAD6903CBD88ED1D4627A /* ofxFBXNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9ACC32795AF3AA319EA8B0C2 /* ofxFBXNode.cpp */; };
@@ -65,13 +65,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		924809B01E5B75B400E21B89 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				924809B11E5B75B700E21B89 /* virtual-mapper.icns in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				92C4E04F1E556CD20079C0F7 /* virtual-mapper.icns in CopyFiles */,
 				4D508D34156E7076531D9084 /* Syphon.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1123,6 +1132,8 @@
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
 				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
 				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+				924809B01E5B75B400E21B89 /* CopyFiles */,
+				924809B31E5B762400E21B89 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1179,6 +1190,19 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		924809B31E5B762400E21B89 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\nBUNDLE_ID=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\n# copy data path\ncp -R \"bin/data\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\"\nrm \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/data/settings.xml\"\n\n# rewrite readme\nsed -i -e \"s|\\(<!--VERSION-->\\).*\\(<!--/VERSION-->\\)|\\1v$BUNDLE_ID\\2|g\" README.md\nrm README.md-e\n\n# create zip\ncd \"$TARGET_BUILD_DIR\"\nzip -r -X \"releases/${PRODUCT_NAME// /_}_v${BUNDLE_ID}_macOS.zip\" \"$PRODUCT_NAME.app\"\n\nfi";
+		};
 		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1190,7 +1214,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    cp -R \"bin/data\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources\"\n    rm \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/data/settings.xml\"\nfi";
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy default icon file into App/Resources\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n# Copy libfmod and change install directory for fmod to run\nrsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\";\ninstall_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n# Copy GLUT framework (must remove for AppStore submissions)\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
