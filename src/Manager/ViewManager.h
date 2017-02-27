@@ -133,7 +133,9 @@ public:
 	
 	void drawImGui() {
 		
-		if (ImGui::CollapsingHeader("View")) {
+		ImGui::SetNextTreeNodeOpen(isGuiOpened);
+		
+		if ((isGuiOpened = ImGui::CollapsingHeader("View"))) {
 			
 			if (ImGui::TreeNode("Cameras")) {
 				
@@ -211,14 +213,13 @@ public:
 	void loadSettings(ofxXmlSettings &settings) {
 		settings.pushTag("view");
 		
+		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
 		
 		settings.pushTag("visibility");
 		for (auto &kv : visibility) {
 			settings.getValue(kv.first, kv.second);
 		}
 		settings.popTag();
-		
-		
 		
 		settings.pushTag("camera");
 		{
@@ -251,6 +252,8 @@ public:
 		
 		settings.addTag("view");
 		settings.pushTag("view");
+		
+		settings.setValue("isGuiOpened", isGuiOpened);
 		
 		settings.addTag("visibility");
 		settings.pushTag("visibility");
@@ -416,8 +419,20 @@ private:
 			cameraIndex = ci;
 			applyCurrentCameraInfo();
 
-		} else if (args.key == 'r') {
-			resetCamera();
+		} else {
+			
+			switch (args.key) {
+				case 'r':
+					resetCamera();
+					break;
+				case 'w':
+					visibility["wireframe"] = !visibility["wireframe"];
+					break;
+				case 'g':
+					visibility["guides"] = !visibility["guides"];
+					break;
+					
+			}
 		}
 	}
 	

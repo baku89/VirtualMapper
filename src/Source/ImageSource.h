@@ -14,9 +14,8 @@ public:
 		
 		settings.pushTag("image");
 		
-		if (settings.tagExists("path")) {
-			load(settings.getValue("path", ""));
-		}
+		string _path = settings.getValue("path", "");
+		load(_path, false);
 		
 		settings.popTag();
 		
@@ -28,7 +27,7 @@ public:
 		settings.pushTag("image");
 		
 		if (texture.isAllocated()) {
-			settings.setValue("path", file.getAbsolutePath());
+			settings.setValue("path", path);
 		}
 		
 		settings.popTag();
@@ -66,9 +65,13 @@ public:
 		}
 		
 		ImGui::SameLine();
-		ImGui::Text("%s", texture.isAllocated() ? file.getFileName().c_str() : "(No Image)");
+		ImGui::Text("%s", texture.isAllocated() ? path.c_str() : "(No Image)");
 		
 		ImOf::Alert("Unkown Image Foramt", "Failed to load the image as texture.", &showFailedModal);
+	}
+	
+	bool openPath(string _path) {
+		return load(_path, false);
 	}
 	
 	//--------------------------------------------------------------
@@ -79,25 +82,24 @@ public:
 	
 private:
 	
-	void load(string path) {
-		bool succeed = ofLoadImage(texture, path);
+	bool load(string _path, bool showModal = true) {
 		
-		if (!succeed) {
-			texture.clear();
-			
-			if (!willLoad) {
+		bool succeed = false;
+		
+		if ((succeed = ofLoadImage(texture, _path))) {
+			path = _path;
+		
+		} else {
+			if (showModal) {
 				showFailedModal = true;
 			}
-		} else {
-			file.open(path);
 		}
 		
-		willLoad = false;
+		return succeed;
 	}
 	
-	bool		willLoad = true;
 	bool		showFailedModal = false;
 	
-	ofFile		file;
+	string		path;
 	ofTexture	texture;
 };

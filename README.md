@@ -1,4 +1,4 @@
-# Virtual Mapper <!--VERSION-->v2.1.3<!--/VERSION-->
+# Virtual Mapper <!--VERSION-->v2.1.4<!--/VERSION-->
 
 ![](./doc/thumbnail.png)
 

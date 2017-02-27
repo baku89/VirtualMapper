@@ -32,11 +32,14 @@ public:
 	void loadSettings(ofxXmlSettings& settings) {
 		settings.pushTag("sources");
 		
+		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
+		
 		selected = settings.getValue("selected", 0);
 		
 		for (auto& source : sources) {
 			source->loadSettings(settings);
 		}
+		sources[selected]->onActivated();
 		
 		isFlipTexture = settings.getValue("isFlipTexture", false);
 		
@@ -46,6 +49,8 @@ public:
 	void saveSettings(ofxXmlSettings& settings) {
 		settings.addTag("sources");
 		settings.pushTag("sources");
+		
+		settings.setValue("isGuiOpened", isGuiOpened);
 		
 		settings.setValue("selected", selected);
 		
@@ -61,11 +66,20 @@ public:
 	
 	void drawImGui() {
 		
-		if (ImGui::CollapsingHeader("Source", true)) {
+		ImGui::SetNextTreeNodeOpen(isGuiOpened);
+		
+		if ((isGuiOpened = ImGui::CollapsingHeader("Source"))) {
 			
 			for (int i = 0; i < sources.size(); i++) {
 				
-				ImGui::RadioButton(sources[i]->getName().c_str(), &selected, i);
+				static int prevSelected;
+				
+				prevSelected = selected;
+				
+				if (ImGui::RadioButton(sources[i]->getName().c_str(), &selected, i)) {
+					sources[prevSelected]->onDeactivated();
+					sources[selected]->onActivated();
+				}
 				
 				if (i < sources.size() - 1) {
 					ImGui::SameLine();
@@ -104,6 +118,26 @@ public:
 		sources[selected]->unbind(textureLocation);
 	}
 	
+	void dragEvent(ofDragInfo dragInfo) {
+		
+		if (dragInfo.files.size() == 1) {
+			string path = dragInfo.files[0];
+			
+			int i = 0;
+			
+			for (auto& source : sources) {
+				if (source->openPath(path)) {
+					sources[selected]->onDeactivated();
+					sources[i]->onActivated();
+					
+					selected = i;
+					
+					break;
+				}
+				++i;
+			}
+		}
+	}
 	
 private:
 	

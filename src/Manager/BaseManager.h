@@ -16,4 +16,10 @@ public:
 	virtual void saveSettings(ofxXmlSettings &settings) {}
 	virtual void drawImGui() {}
 	
+	virtual void dragEvent(ofDragInfo dragInfo) {}
+	
+protected:
+	
+	bool isGuiOpened = true;
+	
 };

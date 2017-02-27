@@ -18,10 +18,8 @@ public:
 		
 		settings.pushTag("video");
 		
-		file.open( settings.getValue("path", "") );
-		if (file.exists()) {
-			willOpen = true;
-		}
+		path = settings.getValue("path", "");
+		isWaitingOpen = true;
 		
 		settings.popTag();
 	}
@@ -31,19 +29,29 @@ public:
 		settings.addTag("video");
 		settings.pushTag("video");
 		
-		if (player.isLoaded()) {
-			settings.setValue("path", file.getAbsolutePath());
+		if (player.isLoaded() || isWaitingOpen) {
+			settings.setValue("path", path);
 		}
 		
 		settings.popTag();
 	}
 	
-	void update() {
-		if (willOpen) {
-			load(file.getAbsolutePath());
+	void onActivated() {
+		if (isWaitingOpen) {
+			load(path, false);
 		}
-		
+	}
+	
+	void onDeactivated() {
+		player.stop();
+	}
+	
+	void update() {
 		if (player.isLoaded()) {
+			if (isWaitingPlay) {
+				player.play();
+				isWaitingPlay = false;
+			}
 			player.update();
 		}
 	}
@@ -84,7 +92,7 @@ public:
 		}
 		
 		ImGui::SameLine();
-		ImGui::Text("%s", player.isLoaded() ? file.getFileName().c_str() : "(No Source)");
+		ImGui::Text("%s", player.isLoaded() ? player.getMoviePath().c_str() : "(No Source)");
 		
 		if (player.isLoaded()) {
 			float pos = player.getPosition();
@@ -119,25 +127,37 @@ public:
 		ImOf::Alert("Unkown Video Foramt", "Failed to load the video as texture.", &showFailedModal);
 	}
 	
+	bool isFlipped() { return false; }
+	
+	bool openPath(string path) {
+		return load(path, false);
+	}
+	
 	//--------------------------------------------------------------
 	// custom methods
 	
 	string getName() { return "Video"; }
-	bool isFlipped() { return false; }
+	
+	
 	
 private:
 	
-	void load(string path) {
-		player.load(path);
-		file.open(path);
+	bool load(string _path, bool showModal = true) {
 		
-		if (player.isLoaded()) {
-			player.play();
-		} else if (!willOpen) {
-			showFailedModal = true;
+		isWaitingOpen = false;
+		
+		bool succeed = false;
+		
+		if ((succeed = player.load(_path))) {
+			isWaitingPlay = true;
+			path = _path;
+		} else {
+			if (showModal) {
+				showFailedModal = true;
+			}
 		}
 		
-		willOpen = false;
+		return succeed;
 	}
 	
 	void keyPressed(ofKeyEventArgs & args) {
@@ -158,10 +178,11 @@ private:
 		}
 	}
 	
-	bool showFailedModal = false;
+	bool			showFailedModal = false;
 	
-	bool	willOpen = false;
+	bool			isWaitingOpen = false;
+	bool			isWaitingPlay = false;
+	string			path = "";
 	
-	ofFile file;
-	ofVideoPlayer player;
+	ofVideoPlayer	player;
 };

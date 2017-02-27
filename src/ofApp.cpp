@@ -141,3 +141,12 @@ void ofApp::mouseReleased(int x, int y, int button) {
 
 
 }
+
+//--------------------------------------------------------------
+void ofApp::dragEvent(ofDragInfo dragInfo) {
+	
+	for (auto& manager : managers) {
+		manager->dragEvent(dragInfo);
+	}
+	
+}

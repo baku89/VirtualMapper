@@ -17,6 +17,9 @@ public:
 	virtual void loadSettings(ofxXmlSettings &settings) {}
 	virtual void saveSettings(ofxXmlSettings &settings) {}
 	
+	virtual void onActivated() {}
+	virtual void onDeactivated() {}
+	
 	virtual void bind(int textureLocation) {}
 	virtual void unbind(int textureLocation) {}
 	
@@ -28,6 +31,10 @@ public:
 	
 	virtual string getName() {}
 	virtual bool isFlipped() {}
+	
+	virtual bool openPath(string path) {
+		return false;
+	}
 
 protected:
 	ofTexture DefaultTexture;

@@ -1,7 +1,7 @@
 # my pattern
-bin/*.zip
 bin/data/backup
 bin/data/settings.xml
+bin/releases/*.zip
 
 #########################
 # openFrameworks patterns

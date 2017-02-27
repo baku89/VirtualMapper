@@ -82,7 +82,9 @@ public:
 	
 	void drawImGui() {
 		
-		if (ImGui::CollapsingHeader("Scene")) {
+		ImGui::SetNextTreeNodeOpen(isGuiOpened);
+		
+		if ((isGuiOpened = ImGui::CollapsingHeader("Scene"))) {
 			if (ImGui::Button("Open Scene")) {
 				
 				ofFileDialogResult result = ImOf::SystemLoadDialog("Load Scene File (.fbx)", false, "");
@@ -117,6 +119,8 @@ public:
 	void loadSettings(ofxXmlSettings &settings) {
 		settings.pushTag("scene");
 		
+		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
+		
 		if (settings.tagExists("fbxPath")) {
 			openFBX(settings.getValue("fbxPath", ""));
 		}
@@ -128,11 +132,24 @@ public:
 		settings.addTag("scene");
 		settings.pushTag("scene");
 		
+		settings.setValue("isGuiOpened", isGuiOpened);
+		
 		if (isFBXLoaded) {
 			settings.setValue("fbxPath", fbxScene->getFbxFilePath());
 		}
 		
 		settings.popTag();
+	}
+	
+	void dragEvent(ofDragInfo dragInfo) {
+		
+		if (dragInfo.files.size() == 1) {
+			string path = dragInfo.files[0];
+			
+			if (ofFilePath::getFileExt(path) == "fbx") {
+				openFBX(path);
+			}
+		}
 	}
 	
 private:
