@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+#include "ImGuiApp.h"
 #include "ofxAdvancedXmlSettings.h"
 
 //--------------------------------------------------------------
@@ -16,9 +17,9 @@ void ofApp::setup(){
 	ofEnableSmoothing();
 	
 	// setup imgui
-	ImOf::SetFont();
+	ImGui::LoadCustomFont();
 	gui.setup();
-	ImOf::SetStyle();
+    ImGui::ApplyCustomStyle();
 	
 	
 	// setup source
@@ -94,13 +95,13 @@ void ofApp::drawImGui() {
 		
 		ImGui::SetNextWindowPos(ImVec2(0, 0));
 		ImGui::SetNextWindowSize(ImVec2(100, 40));
-		ImOf::BeginTransparentWindow();
+		ImGui::BeginTransparentWindow();
 		{
 			if (ImGui::Button("Show Control")) {
 				showControl = true;
 			}
 		}
-		ImOf::EndTransparentWindow();
+		ImGui::EndTransparentWindow();
 	}
 	
 	gui.end();

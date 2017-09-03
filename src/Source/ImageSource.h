@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 
-#include "ImOf.h"
+#include "ImGuiApp.h"
 #include "BaseSource.h"
 
 class ImageSource : public BaseSource {
@@ -57,7 +57,7 @@ public:
 		
 		if (ImGui::Button("Load Image")) {
 			
-			ofFileDialogResult result = ImOf::SystemLoadDialog("Load Image File", false);
+			ofFileDialogResult result = ImGui::SystemLoadDialog("Load Image File", false);
 			
 			if (result.bSuccess) {
 				load(result.getPath());
@@ -67,7 +67,7 @@ public:
 		ImGui::SameLine();
 		ImGui::Text("%s", texture.isAllocated() ? path.c_str() : "(No Image)");
 		
-		ImOf::Alert("Unkown Image Foramt", "Failed to load the image as texture.", &showFailedModal);
+		ImGui::Alert("Unkown Image Foramt", "Failed to load the image as texture.", &showFailedModal);
 	}
 	
 	bool openPath(string _path) {

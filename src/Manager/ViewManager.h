@@ -3,7 +3,7 @@
 #include "ofxAdvancedGrabCam.h"
 
 #include "BaseManager.h"
-#include "ImOf.h"
+#include "ImGuiApp.h"
 #include "CameraInfo.h"
 #include "SourceManager.h"
 #include "SceneManager.h"
@@ -113,7 +113,7 @@ public:
                 
                 static bool buttonDisabled;
                 
-                ImOf::PushDisabled(cameraIndex != CAM_INDEX_CUSTOM);
+                ImGui::PushDisabled(cameraIndex != CAM_INDEX_CUSTOM);
                 
                 if (ImGui::Button("Add Camera") && cameraIndex == CAM_INDEX_CUSTOM) {
                     
@@ -132,12 +132,12 @@ public:
                     updateCameraNames();
                 }
                 
-                ImOf::PopDisabled();
+                ImGui::PopDisabled();
                 
                 
                 ImGui::SameLine();
                 
-                ImOf::PushDisabled(cameraIndex == CAM_INDEX_CUSTOM);
+                ImGui::PushDisabled(cameraIndex == CAM_INDEX_CUSTOM);
                 
                 if (ImGui::Button("Delete Camera") && cameraIndex != CAM_INDEX_CUSTOM) {
                         
@@ -148,7 +148,7 @@ public:
                     
                 }
                 
-                ImOf::PopDisabled();
+                ImGui::PopDisabled();
 				
 				// Coordinates
 				ImGui::Text("Coord");
@@ -208,10 +208,10 @@ public:
 		
 		if (cameraIndex != CAM_INDEX_CUSTOM) {
 			
-			ImOf::BeginPopup();
+			ImGui::BeginCustomPopup();
 			ImGui::Text("%d: %s", cameraIndex, cameraList[cameraIndex - 1].name.c_str());
 			ImGui::SetWindowPos(ImVec2(ofGetWidth() - ImGui::GetWindowWidth() - 10 , 10));
-			ImOf::EndPopup();
+			ImGui::EndCustomPopup();
 		}
 	}
 	

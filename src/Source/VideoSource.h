@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 
-#include "ImOf.h"
+#include "ImGuiApp.h"
 #include "BaseSource.h"
 
 class VideoSource : public BaseSource {
@@ -84,7 +84,7 @@ public:
 		
 		if (ImGui::Button("Load Video")) {
 			
-			ofFileDialogResult result = ImOf::SystemLoadDialog("Load Video File", false, ofToDataPath("."));
+			ofFileDialogResult result = ImGui::SystemLoadDialog("Load Video File", false, ofToDataPath("."));
 			
 			if (result.bSuccess) {
 				load(result.getPath());
@@ -103,7 +103,7 @@ public:
 			static int frame;
 			frame = player.getCurrentFrame();
 			
-			if (ImOf::Seekbar("#Seekbar",&frame, 0, player.getTotalNumFrames() - 1, ImVec2(-1, 0))) {
+			if (ImGui::Seekbar("#Seekbar",&frame, 0, player.getTotalNumFrames() - 1, ImVec2(-1, 0))) {
 				player.setFrame(frame);
 				player.update();
 			}
@@ -114,7 +114,7 @@ public:
 			static bool isPlaying;
 			isPlaying = player.isPlaying();
 			
-			if (ImOf::PlayToggle("###PlayToggle", &isPlaying, ImVec2(30, 0))) {
+			if (ImGui::PlayToggle("###PlayToggle", &isPlaying, ImVec2(30, 0))) {
 				player.setPaused(!isPlaying);
 			}
 			
@@ -124,7 +124,7 @@ public:
 			}
 		}
 		
-		ImOf::Alert("Unkown Video Foramt", "Failed to load the video as texture.", &showFailedModal);
+		ImGui::Alert("Unkown Video Foramt", "Failed to load the video as texture.", &showFailedModal);
 	}
 	
 	bool isFlipped() { return false; }

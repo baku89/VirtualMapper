@@ -7,10 +7,10 @@
 
 #define IM_ARRAYSIZE(_ARR)  ((int)(sizeof(_ARR)/sizeof(*_ARR)))
 
-namespace ImOf
+namespace ImGui
 {
-	inline void SetFont() {
-		ImGuiIO * io = &ImGui::GetIO();
+	inline void LoadCustomFont() {
+		ImGuiIO * io = &GetIO();
 		ImFontConfig font_config;
 		font_config.OversampleH = 4;
 		font_config.OversampleV = 4;
@@ -20,19 +20,19 @@ namespace ImOf
 	}
 	
 	inline void PushMonospaceFont() {
-		ImGuiIO * io = &ImGui::GetIO();
+		ImGuiIO * io = &GetIO();
 		ImFont *mono = io->Fonts->Fonts[1];
-		ImGui::PushFont(mono);
+		PushFont(mono);
 	}
 	
 	inline void PushMonospaceLargeFont() {
-		ImGuiIO * io = &ImGui::GetIO();
+		ImGuiIO * io = &GetIO();
 		ImFont *mono = io->Fonts->Fonts[2];
-		ImGui::PushFont(mono);
+		PushFont(mono);
 	}
 	
-	inline void SetStyle() {
-		ImGuiStyle& style = ImGui::GetStyle();
+	inline void ApplyCustomStyle() {
+		ImGuiStyle& style = GetStyle();
 		
 		style.WindowRounding = 0;
 		style.ScrollbarSize = 3;
@@ -89,45 +89,48 @@ namespace ImOf
 	
 	inline void BeginTransparentWindow() {
 		static bool p_open = true;
-		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));
-		ImGui::Begin("Show Control", &p_open, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
+		PushStyleColor(ImGuiCol_WindowBg, ImVec4(0, 0, 0, 0));
+		Begin("Show Control", &p_open, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
 	}
 	
 	inline void EndTransparentWindow() {
-		ImGui::End();
-		ImGui::PopStyleColor();
+		End();
+		PopStyleColor();
 	}
 	
-	inline void BeginPopup() {
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
-		ImGui::Begin("", NULL, ImVec2(0,0), -1.0f, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
+	inline void BeginCustomPopup() {
+		PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
+		Begin("", NULL, ImVec2(0,0), -1.0f,
+			  ImGuiWindowFlags_AlwaysAutoResize |
+			  ImGuiWindowFlags_NoMove |
+			  ImGuiWindowFlags_NoTitleBar);
 	}
 	
-	inline void EndPopup() {
-		ImGui::End();
-		ImGui::PopStyleVar();
+	inline void EndCustomPopup() {
+		End();
+		PopStyleVar();
 	}
 	
 	inline void Alert(const string title, const string text, bool *show) {
 		
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
+		PushStyleVar(ImGuiStyleVar_WindowRounding, 2);
 		
 		if (*show) {
-			ImGui::OpenPopup(title.c_str());
+			OpenPopup(title.c_str());
 			*show = false;
 		}
 		
-		if (ImGui::BeginPopupModal(title.c_str(), NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
-			ImGui::Text("%s", text.c_str());
-			ImGui::Separator();
+		if (BeginPopupModal(title.c_str(), NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
+			Text("%s", text.c_str());
+			Separator();
 			
-			if (ImGui::Button("OK")) {
-				ImGui::CloseCurrentPopup();
+			if (Button("OK")) {
+				CloseCurrentPopup();
 			}
-			ImGui::EndPopup();
+			EndPopup();
 		}
 		
-		ImGui::PopStyleVar();
+		PopStyleVar();
 	}
 	
 	inline ofFileDialogResult SystemLoadDialog(string windowTitle, bool bFolderSelection, string defaultPath = "") {
@@ -141,15 +144,15 @@ namespace ImOf
 	inline ImVec2 CalcItemSize(ImVec2 size) {
 		ImVec2 itemSize;
 		
-		ImGui::PushItemWidth(size.x);
-		itemSize.x = ImGui::CalcItemWidth();
-		ImGui::PopItemWidth();
+		PushItemWidth(size.x);
+		itemSize.x = CalcItemWidth();
+		PopItemWidth();
 		
 		if (size.y < 0.0f) {
-			itemSize.y = ImGui::GetContentRegionAvail().y - 2;
+			itemSize.y = GetContentRegionAvail().y - 2;
 			if (size.y < -1.0f) itemSize.y += size.y;
 		} else if (size.y == 0.0f) {
-			itemSize.y = ImGui::GetWindowFontSize() + ImGui::GetStyle().FramePadding.y * 2;
+			itemSize.y = GetWindowFontSize() + GetStyle().FramePadding.y * 2;
 		} else {
 			itemSize.y = size.y;
 		}
@@ -162,18 +165,18 @@ namespace ImOf
 	
 	static bool PlayToggle(const char* label, bool *playing, const ImVec2& size = ImVec2(30,0)) {
 		
-		static ImDrawList* drawList = ImGui::GetWindowDrawList();
+		static ImDrawList* drawList = GetWindowDrawList();
 		static const ImVec2 itemSize = CalcItemSize(size);
 		static ImVec2 pos;
 		static int cx, cy;
-		static const ImU32 textColor = ImGui::ColorConvertFloat4ToU32(ImGui::GetStyle().Colors[ImGuiCol_Text]);
+		static const ImU32 textColor = ColorConvertFloat4ToU32(GetStyle().Colors[ImGuiCol_Text]);
 		
-		pos = ImGui::GetCursorScreenPos();
+		pos = GetCursorScreenPos();
 		cx = pos.x + itemSize.x / 2;
 		cy = pos.y + itemSize.y / 2;
 		
 		static bool result;
-		result = ImGui::Button(label, size);
+		result = Button(label, size);
 		
 		// draw icon
 		if (*playing) {
@@ -192,62 +195,62 @@ namespace ImOf
 	
 	static bool Seekbar(const char* label, int* v, int v_min, int v_max, const ImVec2& size = ImVec2(0,0)) {
 		
-		static ImDrawList* drawList = ImGui::GetWindowDrawList();
+		static ImDrawList* drawList = GetWindowDrawList();
 		static const ImVec2 itemSize = CalcItemSize(size);
 		static ImVec2 pos;
 		static float cy;
 		static bool result;
 		static const ImU32 textColor = [] {
-			ImVec4 c = ImGui::GetStyle().Colors[ImGuiCol_Text];
-			return ImGui::ColorConvertFloat4ToU32(ImVec4(c.x * 0.8, c.y * 0.8, c.z * 0.8, 0.5f));
+			ImVec4 c = GetStyle().Colors[ImGuiCol_Text];
+			return ColorConvertFloat4ToU32(ImVec4(c.x * 0.8, c.y * 0.8, c.z * 0.8, 0.5f));
 		}();
 		static const ImVec4 sliderGrabColor = [] {
-			ImVec4 c = ImGui::GetStyle().Colors[ImGuiCol_Text];
+			ImVec4 c = GetStyle().Colors[ImGuiCol_Text];
 			return ImVec4(c.x * 0.8, c.y * 0.8, c.z * 0.8, 1.0f);
 		}();
 		
-		pos = ImGui::GetCursorScreenPos();
+		pos = GetCursorScreenPos();
 		cy = pos.y + itemSize.y / 2;
 		
 		drawList->AddLine(ImVec2(pos.x, cy), ImVec2(pos.x + itemSize.x, cy), textColor);
 		
 		// draw slider
-		ImGuiStyle& style = ImGui::GetStyle();
+		ImGuiStyle& style = GetStyle();
 		static const int prevGrabRounding = style.GrabRounding;
 		
-		ImGui::PushItemWidth(size.x);
-		ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 18);
-		ImGui::PushStyleColor(ImGuiCol_SliderGrab, sliderGrabColor);
-		ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
+		PushItemWidth(size.x);
+		PushStyleVar(ImGuiStyleVar_GrabMinSize, 18);
+		PushStyleColor(ImGuiCol_SliderGrab, sliderGrabColor);
+		PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
 		style.GrabRounding = 9;
 		
-		result = ImGui::SliderInt(label, v, v_min, v_max, "");
+		result = SliderInt(label, v, v_min, v_max, "");
 		
 		style.GrabRounding = prevGrabRounding;
-		ImGui::PopStyleColor(); ImGui::PopStyleColor();
-		ImGui::PopStyleVar();
-		ImGui::PopItemWidth();
+		PopStyleColor(); PopStyleColor();
+		PopStyleVar();
+		PopItemWidth();
 		
 		return result;
 	}
-    
-    static std::vector<float> alphas;
-    
-    static void PushDisabled(bool disabled) {
-        ImGuiStyle& style = ImGui::GetStyle();
-        
-        alphas.push_back( (float)(style.Alpha) );
-        style.Alpha = disabled ? 0.25f : 1.0f;
-    }
-    
-    
-    static void PopDisabled(int num = 1) {
-        ImGuiStyle& style = ImGui::GetStyle();
-        
-        while(num--) {
-            style.Alpha = alphas.back();
-            alphas.pop_back();
-        }
-    }
-    
+	
+	static std::vector<float> alphas;
+	
+	static void PushDisabled(bool disabled) {
+		ImGuiStyle& style = GetStyle();
+		
+		alphas.push_back( (float)(style.Alpha) );
+		style.Alpha = disabled ? 0.25f : 1.0f;
+	}
+	
+	
+	static void PopDisabled(int num = 1) {
+		ImGuiStyle& style = GetStyle();
+		
+		while(num--) {
+			style.Alpha = alphas.back();
+			alphas.pop_back();
+		}
+	}
+	
 }

@@ -6,7 +6,6 @@
 #include "ofxSyphon.h"
 #include "ofxImGui.h"
 
-#include "ImOf.h"
 #include "CameraInfo.h"
 
 #include "BaseManager.h"

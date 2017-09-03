@@ -4,7 +4,7 @@
 
 #include "ofxFBX.h"
 
-#include "ImOf.h"
+#include "ImGuiApp.h"
 #include "BaseManager.h"
 #include "CameraInfo.h"
 #include "ExtendedFBXManager.h"
@@ -87,7 +87,7 @@ public:
 		if ((isGuiOpened = ImGui::CollapsingHeader("Scene"))) {
 			if (ImGui::Button("Open Scene")) {
 				
-				ofFileDialogResult result = ImOf::SystemLoadDialog("Load Scene File (.fbx)", false, "");
+				ofFileDialogResult result = ImGui::SystemLoadDialog("Load Scene File (.fbx)", false, "");
 				
 				if (result.bSuccess) {
 					openFBX(result.getPath());
@@ -112,7 +112,7 @@ public:
 		}
 		
 		// failed modal
-		ImOf::Alert("Unknown File Format", "Failed to laod FBX File.", &showFailedModal);
+		ImGui::Alert("Unknown File Format", "Failed to laod FBX File.", &showFailedModal);
 	}
 	
 	vector<CameraInfo> getCameras() {
