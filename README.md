@@ -1,4 +1,4 @@
-# Virtual Mapper <!--VERSION-->v2.2.0<!--/VERSION-->
+# Virtual Mapper <!--VERSION-->v<!--/VERSION-->
 
 ![](./doc/thumbnail.png)
 
@@ -61,7 +61,7 @@ You can download plugins from [Spout official site](http://spout.zeal.co/).
 * Load the FBX file from **Scene > Open Scene**
 * Select the applopriate input source.
 
-#### NOTE: When you could not open the app and find below alert:
+#### NOTE: When you could not open the app and find below alert
 
 ![](./doc/unidentified_alert.png)
 
