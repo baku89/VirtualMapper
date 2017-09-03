@@ -1,5 +1,6 @@
 #pragma once
 
+//#include "ofxGrabCam.h"
 #include "ofxAdvancedGrabCam.h"
 
 #include "BaseManager.h"
@@ -387,6 +388,7 @@ private:
 	
 	void resetCamera() {
 		cam.setFixUpDirectionEnabled(true);
+        //cam.setScrollZoomEnabled(true);
 		cam.resetTransform();
 		cam.setPosition(300, 100, 300);
 		cam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
@@ -500,7 +502,8 @@ private:
 	ofMesh				cameraMesh;
 	ofTrueTypeFont		font;
 	
-	ofxAdvancedGrabCam	cam;
+    //ofxGrabCam          cam;
+    ofxAdvancedGrabCam  cam;
 	vector<CameraInfo>	cameraList;
 	ofTexture			whiteTexture;
 	
