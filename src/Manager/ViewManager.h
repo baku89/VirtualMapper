@@ -231,17 +231,16 @@ public:
 			cameraIndex = settings.getValue("index", 0);
 			cam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
             
-            if (settings.pushTagIfExists("current")) {
-                
+            settings.pushTag("current");
+            {
                 cam.setTransformMatrix( settings.getValue("matrix",
                                                           cam.getGlobalTransformMatrix()));
                 cam.setFov(settings.getValue("fov", cam.getFov()));
-                
-                settings.popTag();
             }
-			
-            if (settings.pushTagIfExists("list")) {
-                
+            settings.popTag();
+            
+            settings.pushTag("list");
+            {
                 int num = settings.getNumTags("info");
                 
                 for (int i = 0; i < num; i++) {
@@ -257,11 +256,10 @@ public:
                     
                     settings.popTag();
                 }
-                
-                settings.popTag();
-                
-                updateCameraNames();
             }
+            settings.popTag();
+            
+            updateCameraNames();
 		}
 		settings.popTag();
 		

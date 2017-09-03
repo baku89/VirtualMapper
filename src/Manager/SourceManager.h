@@ -47,8 +47,7 @@ public:
 	}
 	
 	void saveSettings(ofxAdvancedXmlSettings& settings) {
-		settings.addTag("sources");
-		settings.pushTag("sources");
+		settings.addPushTag("sources");
 		
 		settings.setValue("isGuiOpened", isGuiOpened);
 		

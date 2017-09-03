@@ -87,8 +87,7 @@ class MiscManager : public BaseManager {
 	
 	void saveSettings(ofxAdvancedXmlSettings &settings) {
 		
-		settings.addTag("misc");
-		settings.pushTag("misc");
+		settings.addPushTag("misc");
 		
 		settings.setValue("isGuiOpened", isGuiOpened);
 		

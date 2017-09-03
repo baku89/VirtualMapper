@@ -140,8 +140,7 @@ public:
 	}
 	
 	void saveSettings(ofxAdvancedXmlSettings &settings) {
-		settings.addTag("scene");
-		settings.pushTag("scene");
+		settings.addPushTag("scene");
 		
 		settings.setValue("isGuiOpened", isGuiOpened);
 		
