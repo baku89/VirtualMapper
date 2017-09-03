@@ -30,8 +30,6 @@ public:
 	void drawImGui();
 	
 	void keyReleased(int key);
-	void mousePressed(int x, int y, int button);
-	void mouseReleased(int x, int y, int button);
 	void dragEvent(ofDragInfo dragInfo);
 	
 	void cameraListUpdated(vector<CameraInfo> &cameraList);

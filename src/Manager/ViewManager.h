@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ofxGrabCam.h"
+#include "ofxAdvancedGrabCam.h"
 
 #include "BaseManager.h"
 #include "ImOf.h"
@@ -149,29 +149,29 @@ public:
 				ImGui::Text("Coord");
 					
 				static float *pos;
-				pos = grabCam.getGlobalPosition().getPtr();
+				pos = cam.getGlobalPosition().getPtr();
 				if (ImGui::DragFloat3("Pos", pos, 1.0f, 0.0f, 0.0f, "%.1f")) {
-					grabCam.setGlobalPosition(pos[0], pos[1], pos[2]);
+					cam.setGlobalPosition(pos[0], pos[1], pos[2]);
 				}
 			
 				
 				static float *euler;
-				euler = grabCam.getOrientationEuler().getPtr();
+				euler = cam.getOrientationEuler().getPtr();
 				if (ImGui::DragFloat3("Rot", euler, 1.0f, 0.0f, 0.0f, "%.1f")) {
 					static ofVec3f ne;
 					ne.set(euler[0], euler[1], euler[2]);
-					grabCam.setOrientation(ne);
+					cam.setOrientation(ne);
 				}
 				
 				static float fov;
-				fov = grabCam.getFov();
+				fov = cam.getFov();
 				if (ImGui::SliderFloat("Fov", &fov, 0, 180)) {
-					grabCam.setFov(fov);
+					cam.setFov(fov);
 				}
 				
-				bool fixUpDirection = grabCam.getFixUpDirectionEnabled();
+				bool fixUpDirection = cam.getFixUpDirectionEnabled();
 				if (ImGui::Checkbox("Fix Up Direction", &fixUpDirection)) {
-					grabCam.setFixUpDirectionEnabled(fixUpDirection);
+					cam.setFixUpDirectionEnabled(fixUpDirection);
 				}
 				
 				ImGui::TreePop();
@@ -224,15 +224,15 @@ public:
 		settings.pushTag("camera");
 		{
 			cameraIndex = settings.getValue("index", 0);
-			grabCam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
+			cam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
 			
 			if (cameraIndex == 0) {
 				
 				if (settings.tagExists("info")) {
 					settings.pushTag("info");
 					
-					grabCam.setTransformMatrix( getMatrix4x4(settings, "matrix") );
-					grabCam.setFov( settings.getValue("fov", 40) );
+					cam.setTransformMatrix( getMatrix4x4(settings, "matrix") );
+					cam.setFov( settings.getValue("fov", 40) );
 					
 					settings.popTag();
 				}
@@ -266,14 +266,14 @@ public:
 		settings.pushTag("camera");
 		{
 			settings.setValue("index", cameraIndex);
-			settings.setValue("fixUpDirection", grabCam.getFixUpDirectionEnabled());
+			settings.setValue("fixUpDirection", cam.getFixUpDirectionEnabled());
 			
 			if (cameraIndex == 0) {
 				settings.addTag("info");
 				settings.pushTag("info");
 				
-				setMatrix4x4(settings, "matrix", grabCam.getGlobalTransformMatrix());
-				settings.setValue("fov", grabCam.getFov());
+				setMatrix4x4(settings, "matrix", cam.getGlobalTransformMatrix());
+				settings.setValue("fov", cam.getFov());
 				
 				settings.popTag();
 			}
@@ -304,9 +304,9 @@ public:
 		if (cameraIndex >= 1) {
 			
 			CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
-			ofMatrix4x4 mg = grabCam.getGlobalTransformMatrix();
+			ofMatrix4x4 mg = cam.getGlobalTransformMatrix();
 			
-			if ( camInfo.fov != grabCam.getFov() || !equalMatrix(camInfo.matrix, mg) ) {
+			if ( camInfo.fov != cam.getFov() || !equalMatrix(camInfo.matrix, mg) ) {
 				cameraIndex = 0;
 			}
 		}
@@ -317,7 +317,7 @@ public:
 		
 		ofEnableAlphaBlending();
 		
-		grabCam.begin();
+		cam.begin();
 		{
 			ofBackground(0);
 			ofSetColor(255);
@@ -326,7 +326,7 @@ public:
 			
 			
 			ofEnableLighting();
-			cameraLight.setPosition(grabCam.getPosition());
+			cameraLight.setPosition(cam.getPosition());
 			cameraLight.enable();
 			
 			if (visibility["stages"])	sceneManager.drawStages();
@@ -361,7 +361,7 @@ public:
 			if (visibility["cameras"]) drawCameras();
 			
 		}
-		grabCam.end();
+		cam.end();
 		
 		if (visibility["cameras"]) drawCameraLabels();
 		
@@ -391,25 +391,25 @@ private:
 		
 		CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
 		
-		grabCam.setTransformMatrix(camInfo.matrix);
-		grabCam.setFov(camInfo.fov);
+		cam.setTransformMatrix(camInfo.matrix);
+		cam.setFov(camInfo.fov);
 	}
 	
 	void resetCamera() {
-		grabCam.setFixUpDirectionEnabled(true);
-		grabCam.resetTransform();
-		grabCam.setPosition(300, 100, 300);
-		grabCam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
-		grabCam.setFov(40);
-		grabCam.setNearClip(1);
-		grabCam.setFarClip(10000);
+		cam.setFixUpDirectionEnabled(true);
+		cam.resetTransform();
+		cam.setPosition(300, 100, 300);
+		cam.lookAt(ofVec3f(0, 0, 0), ofVec3f(0, 1, 0));
+		cam.setFov(40);
+		cam.setNearClip(1);
+		cam.setFarClip(10000);
 	}
 	
 	// events
 	void mousePressed(ofMouseEventArgs & args) {
 		
 		bool guiCaptured = ImGui::GetIO().WantCaptureMouse;
-		grabCam.setMouseActionsEnabled(!guiCaptured);
+		cam.setMouseActionsEnabled(!guiCaptured);
 	}
 	
 	void keyPressed(ofKeyEventArgs & args) {
@@ -473,7 +473,7 @@ private:
 		ofSetColor(255, 192);
 		
 		for (auto &cameraInfo : *cameraList) {
-			ofVec3f p = grabCam.worldToScreen( cameraInfo.matrix.getTranslation() );
+			ofVec3f p = cam.worldToScreen( cameraInfo.matrix.getTranslation() );
 			font.drawString(cameraInfo.name, p.x + 15, p.y);
 		}
 		
@@ -510,7 +510,7 @@ private:
 	ofMesh				cameraMesh;
 	ofTrueTypeFont		font;
 	
-	ofxGrabCam			grabCam;
+	ofxAdvancedGrabCam	cam;
 	vector<CameraInfo>	*cameraList;
 	ofTexture			whiteTexture;
 	
