@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+#include "ofxAdvancedXmlSettings.h"
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
@@ -30,11 +32,13 @@ void ofApp::setup(){
 	}
 	
 	// event
-	ofAddListener(sceneManager.cameraListUpdated, this, &ofApp::cameraListUpdated);
+	ofAddListener(sceneManager.onCameraListImport, this, &ofApp::onCameraListImport);
 	
 	
 	// load settings
-	ofxXmlSettings settings("settings.xml");
+    ofxAdvancedXmlSettings settings;
+    
+    settings.load("settings.xml");
 	
 	showControl = settings.getValue("showControl", true);
 	
@@ -106,7 +110,7 @@ void ofApp::drawImGui() {
 void ofApp::exit() {
 	
 	// save settings
-	ofxXmlSettings settings;
+	ofxAdvancedXmlSettings settings;
 	
 	settings.setValue("showControl", showControl);
 	
@@ -118,8 +122,8 @@ void ofApp::exit() {
 }
 
 //--------------------------------------------------------------
-void ofApp::cameraListUpdated(vector<CameraInfo> &cameraList) {
-	viewManager.updateCameraList(cameraList);
+void ofApp::onCameraListImport(vector<CameraInfo> &cameraList) {
+	viewManager.importCameraList(cameraList);
 }
 
 //--------------------------------------------------------------

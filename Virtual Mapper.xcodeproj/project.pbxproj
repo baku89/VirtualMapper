@@ -130,6 +130,7 @@
 		22C8E3863F770AF0590BE61D /* fbxmesh.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxmesh.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/geometry/fbxmesh.h; sourceTree = SOURCE_ROOT; };
 		22CDCA220E183DD55BC133AD /* ofxFBXBone.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFBXBone.cpp; path = ../../../addons/ofxFBX/src/ofxFBXBone.cpp; sourceTree = SOURCE_ROOT; };
 		239B05081F5BD12000F296A7 /* ofxAdvancedGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAdvancedGrabCam.h; sourceTree = "<group>"; };
+		239B05091F5BE50200F296A7 /* ofxAdvancedXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAdvancedXmlSettings.h; sourceTree = "<group>"; };
 		23BDE498B8F8ECC4F997D259 /* fbxtimecode.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxtimecode.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/core/base/fbxtimecode.h; sourceTree = SOURCE_ROOT; };
 		25934E62B8A9ACB569667003 /* fbxconstraintsinglechainik.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxconstraintsinglechainik.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/constraint/fbxconstraintsinglechainik.h; sourceTree = SOURCE_ROOT; };
 		25AE65ACDF27608DDECD2642 /* fbxdocumentinfo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fbxdocumentinfo.h; path = ../../../addons/ofxFBX/libs/fbxsdk_2016.1/include/fbxsdk/scene/fbxdocumentinfo.h; sourceTree = SOURCE_ROOT; };
@@ -1039,6 +1040,7 @@
 				F0369433955D5A2F93E971B9 /* Source */,
 				92EB03881E52F639008544A4 /* ExtendedFBXManager.h */,
 				239B05081F5BD12000F296A7 /* ofxAdvancedGrabCam.h */,
+				239B05091F5BE50200F296A7 /* ofxAdvancedXmlSettings.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

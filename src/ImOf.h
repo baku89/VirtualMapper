@@ -230,4 +230,24 @@ namespace ImOf
 		
 		return result;
 	}
+    
+    static std::vector<float> alphas;
+    
+    static void PushDisabled(bool disabled) {
+        ImGuiStyle& style = ImGui::GetStyle();
+        
+        alphas.push_back( (float)(style.Alpha) );
+        style.Alpha = disabled ? 0.25f : 1.0f;
+    }
+    
+    
+    static void PopDisabled(int num = 1) {
+        ImGuiStyle& style = ImGui::GetStyle();
+        
+        while(num--) {
+            style.Alpha = alphas.back();
+            alphas.pop_back();
+        }
+    }
+    
 }

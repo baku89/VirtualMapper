@@ -3,7 +3,6 @@
 #include "ofMain.h"
 
 // addons
-#include "ofxXmlSettings.h"
 #include "ofxSyphon.h"
 #include "ofxImGui.h"
 
@@ -32,7 +31,7 @@ public:
 	void keyReleased(int key);
 	void dragEvent(ofDragInfo dragInfo);
 	
-	void cameraListUpdated(vector<CameraInfo> &cameraList);
+	void onCameraListImport(vector<CameraInfo> &cameraList);
 	
 	// variables
 	

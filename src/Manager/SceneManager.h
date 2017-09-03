@@ -36,7 +36,7 @@ public:
 	{}
 
 	
-	ofEvent<vector<CameraInfo>> cameraListUpdated;
+    ofEvent<vector<CameraInfo>> onCameraListImport;
 	
 	
 	void update() {
@@ -96,6 +96,17 @@ public:
 			
 			ImGui::SameLine();
 			ImGui::Text("%s", isFBXLoaded ? ofFilePath::getFileName(fbxScene->getFbxFilePath()).c_str() : "(No Scene)");
+            
+            if (cameraList.size() > 0) {
+                
+                if (ImGui::Button("Import Cameras")) {
+                    ofNotifyEvent(onCameraListImport, cameraList, this);
+                }
+                
+                ImGui::SameLine();
+                
+                ImGui::Text("Number: %lu", cameraList.size());
+            }
 			
 			ImGui::Separator();
 		}
@@ -116,7 +127,7 @@ public:
 		return cameraList[index];
 	}
 	
-	void loadSettings(ofxXmlSettings &settings) {
+	void loadSettings(ofxAdvancedXmlSettings &settings) {
 		settings.pushTag("scene");
 		
 		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
@@ -128,7 +139,7 @@ public:
 		settings.popTag();
 	}
 	
-	void saveSettings(ofxXmlSettings &settings) {
+	void saveSettings(ofxAdvancedXmlSettings &settings) {
 		settings.addTag("scene");
 		settings.pushTag("scene");
 		
@@ -177,8 +188,6 @@ private:
 		fbxsdk::FbxNode *node = fs->GetRootNode();
 		
 		searchCamera(node);
-		
-		ofNotifyEvent(cameraListUpdated, cameraList, this);
 	}
 	
 	void drawPart(int type) {

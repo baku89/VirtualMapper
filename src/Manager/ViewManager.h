@@ -8,41 +8,7 @@
 #include "SourceManager.h"
 #include "SceneManager.h"
 
-static void setMatrix4x4(ofxXmlSettings &settings, const string &tag, ofMatrix4x4 m) {
-	
-	settings.addTag(tag);
-	settings.pushTag(tag);
-	{
-		float *mp = m.getPtr();
-		for (int j = 0; j < 4; j++) {
-			for (int i = 0; i < 4; i++) {
-				settings.addValue("m" + ofToString(j) + ofToString(i), mp[j*4 + i]);
-			}
-		}
-	}
-	settings.popTag();
-}
-
-static ofMatrix4x4 getMatrix4x4(ofxXmlSettings &settings, const string &tag) {
-	
-	ofMatrix4x4 m;
-	
-	if (settings.tagExists(tag)) {
-		settings.pushTag(tag);
-		
-		float values[16];
-		for (int j = 0; j < 4; j++) {
-			for (int i = 0; i < 4; i++) {
-				values[j*4 + i] = settings.getValue("m" + ofToString(j) + ofToString(i), (double)(i==j ? 1 : 0));
-			}
-		}
-		
-		m.set(values);
-		settings.popTag();
-	}
-	return m;
-}
-
+#define CAM_INDEX_CUSTOM    0
 
 class ViewManager : public BaseManager {
 public:
@@ -122,7 +88,7 @@ public:
 	}
 	
 	void setup() {
-		cameraList  = new vector<CameraInfo>();
+        updateCameraNames();
 		
 		resetCamera();
 		
@@ -144,6 +110,45 @@ public:
 						applyCurrentCameraInfo();
 					}
 				}
+                
+                static bool buttonDisabled;
+                
+                ImOf::PushDisabled(cameraIndex != CAM_INDEX_CUSTOM);
+                
+                if (ImGui::Button("Add Camera") && cameraIndex == CAM_INDEX_CUSTOM) {
+                    
+                    string name = "Camera " + ofToString(cameraList.size() + 1);
+                    
+                    name = ofSystemTextBoxDialog("Name the new camera preset", name);
+                    
+                    CameraInfo camInfo;
+                    camInfo.name = name;
+                    camInfo.matrix = cam.getGlobalTransformMatrix();
+                    camInfo.fov = cam.getFov();
+                    
+                    cameraList.push_back(camInfo);
+                    cameraIndex = cameraList.size();
+                    
+                    updateCameraNames();
+                }
+                
+                ImOf::PopDisabled();
+                
+                
+                ImGui::SameLine();
+                
+                ImOf::PushDisabled(cameraIndex == CAM_INDEX_CUSTOM);
+                
+                if (ImGui::Button("Delete Camera") && cameraIndex != CAM_INDEX_CUSTOM) {
+                        
+                    cameraList.erase(cameraList.begin() + (cameraIndex - 1));
+                    
+                    updateCameraNames();
+                    cameraIndex = CAM_INDEX_CUSTOM;
+                    
+                }
+                
+                ImOf::PopDisabled();
 				
 				// Coordinates
 				ImGui::Text("Coord");
@@ -201,16 +206,16 @@ public:
 			ImGui::Separator();
 		}
 		
-		if (cameraIndex >= 1) {
+		if (cameraIndex != CAM_INDEX_CUSTOM) {
 			
 			ImOf::BeginPopup();
-			ImGui::Text("%d: %s", cameraIndex, (*cameraList)[cameraIndex - 1].name.c_str());
+			ImGui::Text("%d: %s", cameraIndex, cameraList[cameraIndex - 1].name.c_str());
 			ImGui::SetWindowPos(ImVec2(ofGetWidth() - ImGui::GetWindowWidth() - 10 , 10));
 			ImOf::EndPopup();
 		}
 	}
 	
-	void loadSettings(ofxXmlSettings &settings) {
+	void loadSettings(ofxAdvancedXmlSettings &settings) {
 		settings.pushTag("view");
 		
 		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
@@ -225,21 +230,38 @@ public:
 		{
 			cameraIndex = settings.getValue("index", 0);
 			cam.setFixUpDirectionEnabled( settings.getValue("fixUpDirection", true) );
+            
+            if (settings.pushTagIfExists("current")) {
+                
+                cam.setTransformMatrix( settings.getValue("matrix",
+                                                          cam.getGlobalTransformMatrix()));
+                cam.setFov(settings.getValue("fov", cam.getFov()));
+                
+                settings.popTag();
+            }
 			
-			if (cameraIndex == 0) {
-				
-				if (settings.tagExists("info")) {
-					settings.pushTag("info");
-					
-					cam.setTransformMatrix( getMatrix4x4(settings, "matrix") );
-					cam.setFov( settings.getValue("fov", 40) );
-					
-					settings.popTag();
-				}
-			
-			} else if (cameraIndex <= cameraList->size()) {
-				applyCurrentCameraInfo();
-			}
+            if (settings.pushTagIfExists("list")) {
+                
+                int num = settings.getNumTags("info");
+                
+                for (int i = 0; i < num; i++) {
+                    
+                    settings.pushTag("info", i);
+                    
+                    CameraInfo camInfo;
+                    camInfo.name    = settings.getValue("name", camInfo.name);
+                    camInfo.matrix  = settings.getValue("matrix", camInfo.matrix);
+                    camInfo.fov     = settings.getValue("fov", camInfo.fov);
+                    
+                    cameraList.push_back(camInfo);
+                    
+                    settings.popTag();
+                }
+                
+                settings.popTag();
+                
+                updateCameraNames();
+            }
 		}
 		settings.popTag();
 		
@@ -248,35 +270,43 @@ public:
 		settings.popTag();
 	}
 	
-	void saveSettings(ofxXmlSettings &settings) {
+	void saveSettings(ofxAdvancedXmlSettings &settings) {
 		
-		settings.addTag("view");
-		settings.pushTag("view");
+		settings.addPushTag("view");
 		
 		settings.setValue("isGuiOpened", isGuiOpened);
 		
-		settings.addTag("visibility");
-		settings.pushTag("visibility");
+		settings.addPushTag("visibility");
 		for (auto& kv : visibility) {
 			settings.setValue(kv.first, kv.second);
 		}
 		settings.popTag();
 		
-		settings.addTag("camera");
-		settings.pushTag("camera");
+		settings.addPushTag("camera");
 		{
 			settings.setValue("index", cameraIndex);
 			settings.setValue("fixUpDirection", cam.getFixUpDirectionEnabled());
+            
+            settings.addPushTag("current");
+            {
+                settings.setValue("matrix", cam.getGlobalTransformMatrix());
+                settings.setValue("fov", cam.getFov());
+            }
+            settings.popTag();
 			
-			if (cameraIndex == 0) {
-				settings.addTag("info");
-				settings.pushTag("info");
-				
-				setMatrix4x4(settings, "matrix", cam.getGlobalTransformMatrix());
-				settings.setValue("fov", cam.getFov());
-				
-				settings.popTag();
-			}
+            settings.addPushTag("list");
+            {
+                for (auto &camInfo : cameraList) {
+                    settings.addPushTag("info");
+                    {
+                        settings.setValue("name", camInfo.name);
+                        settings.setValue("matrix", camInfo.matrix);
+                        settings.setValue("fov", camInfo.fov);
+                    }
+                    settings.popTag();
+                }
+            }
+            settings.popTag();
 		}
 		settings.popTag();
 		
@@ -285,29 +315,37 @@ public:
 		settings.popTag();
 	}
 	
-	void updateCameraList(vector<CameraInfo> &_cameraList) {
-		cameraList = &_cameraList;
-		cameraIndex = 0;
-		
-		cameraNames = "(Custom)";
-		cameraNames += '\0';
-		
-		static int i;
-		i= 1;
-		for (auto& camera : *cameraList) {
-			cameraNames += ofToString(i++) + ": " + camera.name + '\0';
-		}
+	void importCameraList(vector<CameraInfo> &_cameraList) {
+        
+        for (auto &camInfo : _cameraList) {
+            cameraList.push_back(camInfo);
+        }
+        
+        updateCameraNames();
 	}
+    
+    void updateCameraNames() {
+        
+        cameraNames = "(Custom)";
+        cameraNames += '\0';
+        
+        static int i;
+        i = 1;
+        for (auto& camInfo : cameraList) {
+            cameraNames += ofToString(i++) + ": " + camInfo.name + '\0';
+        }
+    }
 	
 	void update() {
 		
 		if (cameraIndex >= 1) {
 			
-			CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
+			CameraInfo camInfo = cameraList[cameraIndex - 1];
 			ofMatrix4x4 mg = cam.getGlobalTransformMatrix();
 			
+            // check if the camera has moved
 			if ( camInfo.fov != cam.getFov() || !equalMatrix(camInfo.matrix, mg) ) {
-				cameraIndex = 0;
+				cameraIndex = CAM_INDEX_CUSTOM;
 			}
 		}
 	}
@@ -385,14 +423,14 @@ private:
 	}
 	
 	void applyCurrentCameraInfo() {
-		if (cameraIndex == 0) {
+		if (cameraIndex == CAM_INDEX_CUSTOM) {
 			resetCamera();
-		}
+        } else {
+            CameraInfo camInfo = cameraList[cameraIndex - 1];
 		
-		CameraInfo camInfo = (*cameraList)[cameraIndex - 1];
-		
-		cam.setTransformMatrix(camInfo.matrix);
-		cam.setFov(camInfo.fov);
+            cam.setTransformMatrix(camInfo.matrix);
+            cam.setFov(camInfo.fov);
+        }
 	}
 	
 	void resetCamera() {
@@ -415,7 +453,7 @@ private:
 	void keyPressed(ofKeyEventArgs & args) {
 		
 		int ci = args.key - '0';
-		if (1 <= ci &&  ci <= cameraList->size())  {
+		if (1 <= ci &&  ci <= cameraList.size())  {
 			cameraIndex = ci;
 			applyCurrentCameraInfo();
 
@@ -448,10 +486,10 @@ private:
 		ofNoFill();
 		ofSetColor(255, 192);
 		
-		for (auto &cameraInfo : *cameraList) {
+		for (auto &camInfo : cameraList) {
 			ofPushMatrix();
 			{
-				ofMultMatrix(cameraInfo.matrix);
+				ofMultMatrix(camInfo.matrix);
 				
 				cameraMesh.draw();
 				
@@ -472,9 +510,9 @@ private:
 		ofPushStyle();
 		ofSetColor(255, 192);
 		
-		for (auto &cameraInfo : *cameraList) {
-			ofVec3f p = cam.worldToScreen( cameraInfo.matrix.getTranslation() );
-			font.drawString(cameraInfo.name, p.x + 15, p.y);
+		for (auto &camInfo : cameraList) {
+			ofVec3f p = cam.worldToScreen( camInfo.matrix.getTranslation() );
+			font.drawString(camInfo.name, p.x + 15, p.y);
 		}
 		
 		ofPopStyle();
@@ -511,7 +549,7 @@ private:
 	ofTrueTypeFont		font;
 	
 	ofxAdvancedGrabCam	cam;
-	vector<CameraInfo>	*cameraList;
+	vector<CameraInfo>	cameraList;
 	ofTexture			whiteTexture;
 	
 	int					cameraIndex;

@@ -71,7 +71,7 @@ class MiscManager : public BaseManager {
 		}
 	}
 	
-	void loadSettings(ofxXmlSettings &settings) {
+	void loadSettings(ofxAdvancedXmlSettings &settings) {
 		
 		settings.pushTag("misc");
 		
@@ -85,7 +85,7 @@ class MiscManager : public BaseManager {
 		settings.popTag();
 	}
 	
-	void saveSettings(ofxXmlSettings &settings) {
+	void saveSettings(ofxAdvancedXmlSettings &settings) {
 		
 		settings.addTag("misc");
 		settings.pushTag("misc");

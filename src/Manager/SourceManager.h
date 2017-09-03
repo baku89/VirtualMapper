@@ -29,7 +29,7 @@ public:
 		sources[selected]->update();
 	}
 	
-	void loadSettings(ofxXmlSettings& settings) {
+	void loadSettings(ofxAdvancedXmlSettings& settings) {
 		settings.pushTag("sources");
 		
 		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
@@ -46,7 +46,7 @@ public:
 		settings.popTag();
 	}
 	
-	void saveSettings(ofxXmlSettings& settings) {
+	void saveSettings(ofxAdvancedXmlSettings& settings) {
 		settings.addTag("sources");
 		settings.pushTag("sources");
 		
