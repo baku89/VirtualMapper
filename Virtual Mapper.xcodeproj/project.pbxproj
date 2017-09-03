@@ -1495,6 +1495,7 @@
 					"$(OF_CORE_LIBS)",
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1/lib/osx/libfbxsdk.a,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baku89.virtualmapper;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1568,6 +1569,7 @@
 					"$(OF_CORE_LIBS)",
 					../../../addons/ofxFBX/libs/fbxsdk_2016.1/lib/osx/libfbxsdk.a,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baku89.virtualmapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
