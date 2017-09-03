@@ -2,6 +2,11 @@
 bin/data/backup
 bin/data/settings.xml
 bin/releases/*.zip
+bin/*.dll
+bin/*.exe
+bin/*.exp
+bin/*.lib
+bin/*.ini
 
 #########################
 # openFrameworks patterns

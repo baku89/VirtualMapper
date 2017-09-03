@@ -1,3 +1,5 @@
+#ifdef TARGET_OSX
+
 #include "WindowUtils.h"
 
 #import <Cocoa/Cocoa.h>
@@ -42,7 +44,6 @@ bool WindowUtils::getWindowOnTop() {
 	return flag;
 }
 
-
 void WindowUtils::setTitlebarTransparent(bool flag) {
 	
 	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
@@ -62,3 +63,5 @@ void WindowUtils::setTitlebarTransparent(bool flag) {
 	}
 	
 }
+
+#endif

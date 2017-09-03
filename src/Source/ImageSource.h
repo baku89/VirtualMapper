@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-
 #include "ImGuiApp.h"
 #include "BaseSource.h"
 

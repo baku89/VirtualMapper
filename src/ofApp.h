@@ -3,7 +3,6 @@
 #include "ofMain.h"
 
 // addons
-#include "ofxSyphon.h"
 #include "ofxImGui.h"
 
 #include "CameraInfo.h"

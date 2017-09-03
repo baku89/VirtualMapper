@@ -3,10 +3,15 @@
 #include "BaseManager.h"
 
 #include "BaseSource.h"
-#include "SyphonSource.h"
 #include "ImageSource.h"
 #include "VideoSource.h"
 
+
+#ifdef TARGET_OSX
+#include "SyphonSource.h"
+#elif defined TARGET_WIN32
+#include "SpoutSource.h"
+#endif
 
 class SourceManager : public BaseManager {
 public:
@@ -14,8 +19,12 @@ public:
 	SourceManager() : selected(0) {}
 	
 	void setup() {
-		
+
+#ifdef TARGET_OSX
 		sources.push_back(new SyphonSource());
+#elif defined TARGET_WIN32
+		sources.push_back(new SpoutSource());
+#endif
 		sources.push_back(new ImageSource());
 		sources.push_back(new VideoSource());
 		

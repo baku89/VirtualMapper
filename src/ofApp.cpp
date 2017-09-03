@@ -6,8 +6,10 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
+#ifdef TARGET_OSX
 #ifdef RELEASE
 	ofSetDataPathRoot("../Resources/data/");
+#endif
 #endif
 
 	// setup window attributes
@@ -70,7 +72,8 @@ void ofApp::draw(){
 void ofApp::drawImGui() {
 	
 	gui.begin();
-	
+
+
 	if (showControl) {
 		
 		static bool p_open = true;
@@ -103,7 +106,8 @@ void ofApp::drawImGui() {
 		}
 		ImGui::EndTransparentWindow();
 	}
-	
+
+	ofPopMatrix();
 	gui.end();
 }
 

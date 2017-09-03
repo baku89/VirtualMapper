@@ -29,8 +29,8 @@ public:
 	
 	virtual void drawImGui() {}
 	
-	virtual string getName() {}
-	virtual bool isFlipped() {}
+	virtual string getName() { return "";  }
+	virtual bool isFlipped() { return "";  }
 	
 	virtual bool openPath(string path) {
 		return false;
