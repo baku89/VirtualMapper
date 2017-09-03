@@ -15,7 +15,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.1.4</string>
+	<string>2.2.0</string>
 	<key>CFBundleIconFile</key>
 	<string>virtual-mapper.icns</string>
 </dict>
