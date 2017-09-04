@@ -1,5 +1,7 @@
 #include "WindowUtils.h"
 
+#ifdef TARGET_WIN32
+
 namespace {
 	bool isWindowTop = false;
 };
@@ -20,3 +22,5 @@ bool WindowUtils::getWindowOnTop() {
 void WindowUtils::setTitlebarTransparent(bool flag) {
 
 }
+
+#endif

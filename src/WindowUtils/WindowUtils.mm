@@ -1,6 +1,6 @@
-#ifdef TARGET_OSX
-
 #include "WindowUtils.h"
+
+#ifdef TARGET_OSX
 
 #import <Cocoa/Cocoa.h>
 
@@ -38,8 +38,6 @@ bool WindowUtils::getWindowOnTop() {
 	NSWindow * window = (NSWindow *)ofGetWindowPtr()->getCocoaWindow();
 	
 	bool flag = window.level != NSNormalWindowLevel;
-	
-	ofLogNotice() << "top? = " << flag;
 
 	return flag;
 }
