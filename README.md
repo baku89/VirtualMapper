@@ -1,10 +1,10 @@
-# Virtual Mapper <!--VERSION-->v2.3.0<!--/VERSION-->
+# Virtual Mapper <!--VERSION-->v2.3.1<!--/VERSION-->
 
 ![](./doc/thumbnail.png)
 
 [Download](https://github.com/baku89/VirtualMapper/releases)
 
-**Important: Latest version only supports macOS. Please use [v0.9](https://github.com/baku89/VirtualMapper/releases/tag/v0.9) if you use Windows.**
+Available for macOS and Windows.
 
 ## About
 
@@ -61,7 +61,9 @@ You can download plugins from [Spout official site](http://spout.zeal.co/).
 * Load the FBX file from **Scene > Open Scene**
 * Select the applopriate input source.
 
-#### NOTE: When you could not open the app and find below alert
+## Troubleshooting
+
+### When you could not open the app and found below alert on macOS
 
 ![](./doc/unidentified_alert.png)
 
@@ -71,13 +73,17 @@ Please open **System Preferences > Security & Privacy**, and then click in **Ope
 
 <!--I uploaded [tutorial (when using After Effects as sender on mac)](https://vimeo.com/117640423).-->
 
+### Cannot open any video file as a source on Windows
+
+It probaboly would work fine by installing [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm).
+
+
 ## License
 
 Virtual Mapper is published under a MIT License. See the included [LISENCE file](./LICENSE).
 
 ## TODO
 
-* Windows support
 * retina display support
 * add rendering options
 * add "export to image / video" feature

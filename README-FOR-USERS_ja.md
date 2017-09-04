@@ -18,7 +18,7 @@ macOSの場合はSyphon、Windowsの場合はSpoutという方式でソフト間
 
 ##  手順
 
-### 1. Virtual Mapperを[ダウンロード](https://github.com/baku89/VirtualMapper/releases) (最新バージョンmacOSのみ対応)
+### 1. Virtual Mapperを[ダウンロード](https://github.com/baku89/VirtualMapper/releases)
 
 ### 2. 制作ソフト側に外部出力用プラグインが必要な場合、インストールする
 
