@@ -8,9 +8,9 @@ Available for macOS and Windows.
 
 ## About
 
-Utility tool for projection mapping. You can preview 3d projected image in realtime while editing a net of screen. This app can receive image from applications supports [Syphon](http://syphon.v002.info/) or [Spout](http://spout.zeal.co/) (ex: After Effects, VDMX, Arena). This software is made using [openFrameworks](http://openframeworks.cc/).
+This tool is basically a utility tool for non-planar video making such as 3D mapping and installation. It renders your composition on the video production software projected onto a surface of a mesh object and enables you to preview how the image will be projected in 3D space. You can transfer image from your software via [Syphon](http://syphon.v002.info/) or [Spout](http://spout.zeal.co/) (ex: After Effects, VDMX, Arena). Built on [openFrameworks](http://openframeworks.cc/).
 
-Develped by [Baku Hashimoto](http://baku89.com)
+Developed by [Baku Hashimoto](http://baku89.com)
 
 ## Instructions
 
@@ -18,12 +18,12 @@ Develped by [Baku Hashimoto](http://baku89.com)
 
 Virtual Mapper will interpret a scene file with following rules:
 
- - All meshes whose name begins with `screen` will be interpreted as Screen and the software will replace its surface with a texture specified in **Source** menu.
+ - All meshes whose names begin with `screen` will be interpreted as screens and the software will replace their surfaces with a texture specified in **Source** menu.
  - Screen meshes must have UV coordinates.
- - All meshes whose name begins with `guide` will be interpreted as Guide.
- - Other meshes will be interpred as Stage.
- - Cameras will be imported and users can toggle them. (Orthographic camera does not supported currently.)
- - The software supports only diffuse and luminance color of material.
+ - All meshes whose names begin with `guide` will be interpreted as guide objects.
+ - Other meshes will be interpreted as stage objects.
+ - Cameras will be imported and users can toggle them. (Orthographic camera is not supported currently.)
+ - The software supports only diffuse and luminance color of the material.
  - The software does not support animation, light, spline, and embed texture in FBX format.
 
 #### Example: Cinema4D
@@ -37,16 +37,16 @@ Then export FBX from **File > Export > FBX (\*.fbx)**.
 ![](./doc/c4d_export_dialog.png)
 
 
-### 2. Setup an sender application
+### 2. Setup a sender application
 
 #### macOS (via Syphon)
 
-There's several plugins for softwares below:
+There's several plugins for softwares such as below:
 
 * After Effects: [AESyphon plugin](http://tobiasebsen.dk/experiments/aesyphon/)
 * VDMX: [Syphon Output - VDMX](http://vdmx.vidvox.net/tutorials/syphon-output)
 
-Other supporting softwares is here: [Syphon official site](http://syphon.v002.info/).
+Other supporting softwares are listed at [Syphon official site](http://syphon.v002.info/).
 
 #### Windows (via Spout)
 
@@ -59,7 +59,7 @@ You can download plugins from [Spout official site](http://spout.zeal.co/).
 
 * Launch sender application and Virtual Mapper.
 * Load the FBX file from **Scene > Open Scene**
-* Select the applopriate input source.
+* Select the appropriate input source.
 
 ## Troubleshooting
 
@@ -75,7 +75,7 @@ Please open **System Preferences > Security & Privacy**, and then click in **Ope
 
 ### Cannot open any video file as a source on Windows
 
-It probaboly would work fine by installing [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm).
+It probably would work fine by installing [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm).
 
 
 ## License
