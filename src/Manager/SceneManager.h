@@ -33,7 +33,6 @@ public:
 	SceneManager()
 	: showFailedModal(false)
 	, isFBXLoaded(false)
-    , sceneScale(1.0f)
 	{}
 	
     ofEvent<vector<CameraInfo>> onCameraListImport;
@@ -46,9 +45,6 @@ public:
 	}
 	
 	void draw() {
-        
-        ofPushMatrix();
-        ofScale(sceneScale, sceneScale, sceneScale);
 		
 		if (isFBXLoaded) {
 			fbxMan.draw();
@@ -58,8 +54,6 @@ public:
 			ofDrawPlane(0, 0, 0, 100, 100);
 			ofPopMatrix();
 		}
-        
-        ofPopMatrix();
 	}
 	
 	void drawScreens() {	drawPart(NODE_TYPE_SCREEN); }
@@ -71,9 +65,6 @@ public:
 		ofPushStyle();
 		ofSetColor(255);
 		ofSetLineWidth(2);
-        
-        ofPushMatrix();
-        ofScale(sceneScale, sceneScale, sceneScale);
 		
 		if (isFBXLoaded) {
 			fbxMan.drawMeshWireframes();
@@ -83,8 +74,6 @@ public:
 			ofDrawGridPlane(10.0f, 5);
 			ofPopMatrix();
 		}
-        
-        ofPopMatrix();
 		
 		ofPopStyle();
 	}
@@ -116,8 +105,6 @@ public:
                 
                 ImGui::Text("Number: %lu", cameraList.size());
             }
-            
-            ImGui::DragFloat("Scale", &sceneScale, 0.1f, 0.0f, 1000.0f, "%.01f");
 			
 			ImGui::Separator();
 		}
@@ -142,7 +129,6 @@ public:
 		settings.pushTag("scene");
 		
 		isGuiOpened = settings.getValue("isGuiOpened", isGuiOpened);
-        sceneScale = settings.getValue("scale", sceneScale);
 		
 		if (settings.tagExists("fbxPath")) {
 			openFBX(settings.getValue("fbxPath", ""));
@@ -155,7 +141,6 @@ public:
 		settings.addPushTag("scene");
 		
 		settings.setValue("isGuiOpened", isGuiOpened);
-        settings.setValue("scale", sceneScale);
 		
 		if (isFBXLoaded) {
 			settings.setValue("fbxPath", fbxScene->getFbxFilePath());
@@ -203,9 +188,6 @@ private:
 	}
 	
 	void drawPart(int type) {
-        
-        ofPushMatrix();
-        ofScale(sceneScale, sceneScale, sceneScale);
 
 		if (isFBXLoaded) {
 			fbxMan.drawPart(type);
@@ -217,8 +199,6 @@ private:
 				ofPopMatrix();
 			}
 		}
-        
-        ofPopMatrix();
 	}
 	
 	void searchCamera(fbxsdk::FbxNode *node) {
@@ -257,8 +237,6 @@ private:
 			searchCamera(child);
 		}
 	}
-    
-    float               sceneScale;
 	
 	bool				showFailedModal;
 	
