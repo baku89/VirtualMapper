@@ -232,13 +232,23 @@ private:
 				fbxsdk::FbxCamera *fbxCam = child->GetCamera();
 				fbxsdk::FbxAMatrix& mg = child->EvaluateGlobalTransform();
 				
-				CameraInfo camInfo;
+                CameraInfo camInfo;
 				
 				camInfo.name = std::string(child->GetName());
 				camInfo.matrix.set( cameraMatrixToOf(mg) );
-				camInfo.fov = fbxCam->FieldOfViewY.Get();
 				camInfo.nearClip = fbxCam->NearPlane.Get();
 				camInfo.farClip = fbxCam->FarPlane.Get();
+                
+                // compute field of view
+                switch (fbxCam->GetApertureMode()) {
+                    case fbxsdk::FbxCamera::eFocalLength:
+                        fbxCam->ApertureMode.Set(fbxsdk::FbxCamera::eVertical);
+                        camInfo.fov = fbxCam->ComputeFieldOfView(fbxCam->FocalLength.Get());
+                        break;
+                    default:
+                        camInfo.fov = fbxCam->FieldOfViewY.Get();
+                        break;
+                }
 				
 				cameraList.push_back(camInfo);
 			}
